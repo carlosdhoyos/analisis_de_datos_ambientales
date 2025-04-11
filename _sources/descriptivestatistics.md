@@ -1,4 +1,4 @@
-# AI in Atmospheric Sciences: An introduction
+# 
 
 This document provides an overview of machine learning (ML) applications in weather, climate, and atmospheric sciences, focusing on observations, forecasting, data assimilation, post-processing, and operational meteorology. 
 
