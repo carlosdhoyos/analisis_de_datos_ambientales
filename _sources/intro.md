@@ -7,6 +7,9 @@ Mi nombre es **Carlos D. Hoyos**, profesor en la **Universidad Nacional de Colom
 El análisis de datos ambientales está transformando la forma en que se abordan los desafíos relacionados con el medio ambiente, al posibilitar la evaluación de sistemas complejos de manera más rápida y precisa. Sin embargo, **para aprovechar al máximo estas técnicas es fundamental contar con una sólida base en ciencias ambientales y en los principios que rigen estos procesos**. Sin un conocimiento adecuado de dichos fundamentos, los analistas y profesionales pueden omitir restricciones críticas o realizar predicciones inexactas, afectando la interpretación y aplicación de los modelos en sistemas ambientales del mundo real.
 
 
+![Tipos de Analisis](figuras/tipos_de_analisis.png)
+
+
 ## ¿Por Qué Jupyter Books?
 
 Jupyter Books ofrece una plataforma única para integrar código en vivo, visualizaciones dinámicas y ejemplos interactivos directamente en nuestros materiales del curso. Esto nos permite desglosar conceptos y ecuaciones complejos en tiempo real, ofreciéndote la oportunidad de no solo leer, sino también interactuar con el contenido. Imagina poder **ejecutar una simulación** de un sistema de fluidos mientras aprendes la teoría que lo sustenta, o explorar **visualizaciones interactivas** que te ayuden a comprender mejor las fuerzas en juego en distintos escenarios fluidos.
