@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Estadística Básica &#8212; Análisis de Datos Ambientales</title>
+    <title>Introducción a la Estadística Descriptiva en Datos Ambientales &#8212; Análisis de Datos Ambientales</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -183,7 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus: Análisis de Datos Ambientales</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Estadística Básica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción a la Estadística Descriptiva en Datos Ambientales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments.html">Tareas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="student_projects_202501.html">Proyectos de Estudiantes 202501</a></li>
 </ul>
@@ -358,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -369,11 +371,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Estadística Básica</h1>
+    <h1>Introducción a la Estadística Descriptiva en Datos Ambientales</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-del-capitulo">Objetivos del Capítulo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-estadistica-en-datos-ambientales">¿Por qué usar estadística en datos ambientales?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos-ambientales">Tipos de Datos Ambientales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-tendencia-central">Medidas de Tendencia Central</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersion">Medidas de Dispersión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-datos-ambientales">Distribuciones de Datos Ambientales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-y-software">Herramientas y Software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -383,8 +400,128 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="estadistica-basica">
-<h1>Estadística Básica<a class="headerlink" href="#estadistica-basica" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-la-estadistica-descriptiva-en-datos-ambientales">
+<h1>Introducción a la Estadística Descriptiva en Datos Ambientales<a class="headerlink" href="#introduccion-a-la-estadistica-descriptiva-en-datos-ambientales" title="Link to this heading">#</a></h1>
+<section id="objetivos-del-capitulo">
+<h2>Objetivos del Capítulo<a class="headerlink" href="#objetivos-del-capitulo" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Comprender la importancia de la estadística en el análisis de datos ambientales.</p></li>
+<li><p>Aplicar herramientas básicas de estadística descriptiva para explorar y resumir datos.</p></li>
+<li><p>Interpretar tendencias, patrones y variabilidad en variables climáticas, meteorológicas o ecológicas.</p></li>
+</ul>
+</section>
+<section id="por-que-usar-estadistica-en-datos-ambientales">
+<h2>¿Por qué usar estadística en datos ambientales?<a class="headerlink" href="#por-que-usar-estadistica-en-datos-ambientales" title="Link to this heading">#</a></h2>
+<p>Los datos ambientales suelen ser <strong>multivariados, extensos y variables en el tiempo y el espacio</strong>. Desde la temperatura del aire hasta los niveles de contaminación, los datos se generan constantemente por sensores, modelos y observaciones de campo. La estadística permite:</p>
+<ul class="simple">
+<li><p><strong>Resumir grandes volúmenes de datos</strong> en valores clave.</p></li>
+<li><p><strong>Visualizar patrones y anomalías</strong>.</p></li>
+<li><p><strong>Comparar regiones, periodos o escenarios</strong>.</p></li>
+<li><p>Tomar decisiones informadas sobre, por ejemplo, el cambio climático, gestión ambiental, riesgos, etc.</p></li>
+</ul>
+<blockquote>
+<div><p><em>Pregunta ejemplo</em>: ¿Cuál ha sido la temperatura promedio en los últimos 30 años en Medellín? ¿Hay evidencia de un cambio significativo?</p>
+</div></blockquote>
+</section>
+<section id="tipos-de-datos-ambientales">
+<h2>Tipos de Datos Ambientales<a class="headerlink" href="#tipos-de-datos-ambientales" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Escala temporal</strong>: diaria, mensual, anual (ej. precipitación diaria).</p></li>
+<li><p><strong>Escala espacial</strong>: puntos (estaciones), celdas de grilla, cuencas.</p></li>
+<li><p><strong>Tipo de variable</strong>:</p>
+<ul>
+<li><p>Cuantitativas: temperatura, concentración de CO₂.</p></li>
+<li><p>Cualitativas: tipo de cobertura del suelo, clase de riesgo.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="medidas-de-tendencia-central">
+<h2>Medidas de Tendencia Central<a class="headerlink" href="#medidas-de-tendencia-central" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Media</strong>: promedio aritmético.</p></li>
+<li><p><strong>Mediana</strong>: valor central que divide los datos en dos mitades.</p></li>
+<li><p><strong>Moda</strong>: valor que ocurre con mayor frecuencia.</p></li>
+</ul>
+</section>
+<section id="medidas-de-dispersion">
+<h2>Medidas de Dispersión<a class="headerlink" href="#medidas-de-dispersion" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Rango</strong>: diferencia entre el valor máximo y mínimo.</p></li>
+<li><p><strong>Varianza</strong>: medida de la dispersión cuadrática de los datos.</p></li>
+<li><p><strong>Desviación estándar</strong>: raíz cuadrada de la varianza.</p></li>
+<li><p><strong>Coeficiente de variación</strong>: dispersión relativa (útil para comparar regiones o variables).</p></li>
+</ul>
+</section>
+<section id="distribuciones-de-datos-ambientales">
+<h2>Distribuciones de Datos Ambientales<a class="headerlink" href="#distribuciones-de-datos-ambientales" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Distribución normal</strong>: común en temperaturas.</p></li>
+<li><p><strong>Distribución sesgada</strong>: frecuente en precipitaciones (lluvia concentrada en pocos días).</p></li>
+<li><p><strong>Visualización</strong>: histogramas, boxplots, gráficos de densidad.</p></li>
+</ul>
+</section>
+<section id="herramientas-y-software">
+<h2>Herramientas y Software<a class="headerlink" href="#herramientas-y-software" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Python</strong>: <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></li>
+<li><p><strong>Visualización interactiva</strong>: uso de dashboards o notebooks.</p></li>
+</ul>
+</section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># Create a figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define ranges for temperature (T) and pressure (P)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># Temperature from 300K to 700K</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>     <span class="c1"># Pressure from 1 to 10 atm</span>
+<span class="n">T</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="c1"># Equation for volume V, assume ideal gas law: PV = nRT</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">0.0821</span>  <span class="c1"># L·atm/mol·K (Ideal gas constant)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># Assume 1 mole of gas</span>
+<span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">P</span>  <span class="c1"># Ideal gas law rearranged to V = nRT / P</span>
+
+<span class="c1"># Plot the surface in color</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="c1"># Color bar for the surface</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Label axes with units</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure (P) [atm]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (T) [K]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Volume (V) [L]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Rotate the plot by 90 degrees</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># azim=90 rotates it by 90 degrees</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -441,6 +578,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-del-capitulo">Objetivos del Capítulo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-estadistica-en-datos-ambientales">¿Por qué usar estadística en datos ambientales?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos-ambientales">Tipos de Datos Ambientales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-tendencia-central">Medidas de Tendencia Central</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersion">Medidas de Dispersión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-datos-ambientales">Distribuciones de Datos Ambientales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-y-software">Herramientas y Software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
