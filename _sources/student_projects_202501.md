@@ -1,1 +1,1 @@
-# Proywxctoa de Estudiantes 202501
+# Proyectos de Estudiantes 202501
