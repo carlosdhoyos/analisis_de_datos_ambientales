@@ -7,8 +7,7 @@ Mi nombre es **Carlos D. Hoyos**, profesor en la **Universidad Nacional de Colom
 El análisis de datos ambientales está transformando la forma en que se abordan los desafíos relacionados con el medio ambiente, al posibilitar la evaluación de sistemas complejos de manera más rápida y precisa. Sin embargo, **para aprovechar al máximo estas técnicas es fundamental contar con una sólida base en ciencias ambientales y en los principios que rigen estos procesos**. Sin un conocimiento adecuado de dichos fundamentos, los analistas y profesionales pueden omitir restricciones críticas o realizar predicciones inexactas, afectando la interpretación y aplicación de los modelos en sistemas ambientales del mundo real.
 
 
-```{figure} figuras/temperatura_mensual.png
-
+![Tipos de Analisis](figuras/tipos_de_analisis.png  "Figura intro")
 
 ## ¿Por Qué Jupyter Books?
 
