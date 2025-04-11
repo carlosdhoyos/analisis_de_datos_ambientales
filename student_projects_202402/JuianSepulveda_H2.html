@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data-Driven of Clud Properties: A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/JuianSepulveda_H2';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extreme events detection: A Literature Review" href="Task_JuanDavidZuluagaOrtiz.html" />
+    <link rel="prev" title="Review of Nowcasting Precipitation Techniques" href="nowcasting_precipitation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2.html">Task 2: Review of Key Papers</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/JuianSepulveda_H2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/JuianSepulveda_H2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data-Driven of Clud Properties: A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-datadriven-equation-discovery-of-a-cloud-cover-parameterization">Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-implicit-learning-of-convective-organization-explains-precipitation-stochasticity">Paper 2: Implicit learning of convective organization explains precipitation stochasticity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-reduced-order-modeling-for-linearized-representations-of-microphysical-process-rates">Paper 3: Reduced order modeling for linearized representations of microphysical process rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-driven-of-clud-properties-a-literature-review">
+<h1>Data-Driven of Clud Properties: A Literature Review<a class="headerlink" href="#data-driven-of-clud-properties-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Accurate prediction of precipitation intensity is crucial for both human and natural systems, especially in a warming climate more prone to extreme precipitation.
+subgrid-scale cloud structure and organization, which affects precipitation intensity and stochasticity at coarse resolution.
+This organization, which can persist from a few hours to several days, can
+modify atmospheric moisture distribution, radiation, and precipitation intensity.
+Representing cloud microphysical processes in large scale atmospheric models is chal-
+lenging because many processes depend on the details of the droplet size distribution (DSD,
+the spectrum of droplets with different sizes in a cloud).
+Microphysical parameterizations
+employing prognostic moments are known to suffer from structural uncertainty in their
+representations of inherently higher dimensional cloud processes, which limit model fi-
+delity and lead to forecasting errors.</p>
+</section>
+<section id="paper-reviews">
+<h2>Paper Reviews<a class="headerlink" href="#paper-reviews" title="Link to this heading">#</a></h2>
+<section id="paper-1-datadriven-equation-discovery-of-a-cloud-cover-parameterization">
+<h3>Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\<a class="headerlink" href="#paper-1-datadriven-equation-discovery-of-a-cloud-cover-parameterization" title="Link to this heading">#</a></h3>
+<p><strong>Authors:</strong> Arthur Grundner, Tom Beucler,  Pierre Gentine, Veronika Eyring<br />
+<strong>Key Highlights:</strong></p>
+<ul class="simple">
+<li><p>Climate models exhibit long‐standing systematic biases related to cloud parameterizations. As cloud cover is directly used in the radiation and cloud microphysics parameterizations, its estimate directly influences the energy balance and the statistics of water vapor, cloud ice, and cloud water.</p></li>
+<li><p>Este es el otro</p></li>
+</ul>
+<p><strong>Data Used:</strong></p>
+<ul class="simple">
+<li><p>Data used to tran and benchmark:<br />
+Storm resvoling ICON simulations:  DYnamics of the Atmospheric general circulation Modeled On Non‐hydrostatic Domains (DYA-
+MOND) project (Two campaings, 40 days, time resolution: 4 H, spatial resolution: 2.47 km).\ 
+ERA 5: Observational informated data set. Cloud Cover and Temperature\</p></li>
+</ul>
+<p><strong>Methodology:</strong></p>
+<p><em><strong>Pre-procesing Data Set</strong></em></p>
+<ul class="simple">
+<li><p>Coarse‐grain the DYAMOND data to an ICON and select cloud cover pixels</p></li>
+<li><p>Other variables, take a three‐dimensional integral over the high‐
+resolution grid cells overlapping a given low‐resolution grid cell.</p></li>
+<li><p>To instead ensure consistency between cloud
+cover and the other model variables, manually set the cloud cover in the
+high‐resolution grid cells to 100% when the cloud condensate mixing ratio exceeds 10− 6 kg/kg and to 0%
+otherwise.</p></li>
+<li><p>Removing predominantly cloud‐free cells to mitigate a class imbalance in the output (“undersampling”
+step)</p></li>
+<li><p>Split the data into a training and a validation set, the latter of which is used for early stopping. To
+avoid high correlations between the training and validation sets, we divide the data set into six temporally
+connected parts.</p></li>
+<li><p>Define 24 set features in 4 group: firts cotain atmospherical data, second: vertical derivates fo group 1, third: geometrical parameters.</p></li>
+</ul>
+<p><em><strong>Data‐Driven Modeling</strong></em></p>
+<ul class="simple">
+<li><p>Three traditional diagnostic schemes for cloud cover:  Sundqvist scheme,  Xu‐Randall scheme, Teixeira (optimize RMSE) and train the three NNs (cell‐, neighborhood‐, and column‐based NNs).</p></li>
+<li><p>Sequential Feature Selection (SFS) starts without any features and carefully selects and adds features to a given type of model (e.g., a second‐order polynomial) in a sequential manner.</p></li>
+<li><p>train a sequence of SFS NNs with up to 10 features. “Q3 NN”’s architecture has three hidden layers with 64 units each; it uses batch normalization and its loss function includes L1 and L2‐regularization terms following hyperparameter optimization.</p></li>
+<li><p>Satisfy certain physical constraints (1) The cloud cover output should be between 0% and 100%; (2)
+an absence of cloud condensates should imply an absence of clouds; (3–5) when relative humidity or the cloud water/ice mixing ratios increase (keeping all other features fixed), then cloud cover should not decrease; (6) cloud cover should not increase when temperature increases; (7) the function should be smooth on the entire domain.</p></li>
+<li><p>Error metrics MSE, R2 and Hellinger distance.</p></li>
+<li><p>Use Simbolic regresion to deriva a equation from cloud cover.</p></li>
+</ul>
+<p><strong>Key Results:</strong></p>
+<ul class="simple">
+<li><p>Modern symbolic regression libraries (PySR, GPGOMEA) allow us to discover interpretable equations that diagnose cloud cover with excellent accuracy (R2 &gt; 0.9).</p></li>
+<li><p>SFS approach with NNs revealed an objectively good subset of features for an unknown nonlinear function: relative humidity, cloud ice, cloud water, temperature and the vertical derivative of relative humidity.</p></li>
+<li><p>PySR also learned to incorporate ∂zRH (vertical derivative of relative humidity) in its equation.</p></li>
+<li><p>Divide in 4 cloud regimes: cirrus, cumulus, deep convective and stratus.</p></li>
+<li><p>The equation is simple, performs well, satisfies physical principles, and outperforms other algorithms when applied to new observationally‐informed data.</p></li>
+</ul>
+<p><strong>Strengths:</strong></p>
+<ul class="simple">
+<li><p>Studying the order of selected variables can gather intuition and physical knowledge.</p></li>
+<li><p>Analytical scheme satisfies six out of seven physical constraints.</p></li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p>High computational cost.</p></li>
+<li><p>No guarantee of it truly being the best‐performing feature set due to the greedy nature of the feature selection algorithm.</p></li>
+<li><p>Trained data set do not represent some physical process: marine stratocumulus cloud and shallow convection (coarse vertical grid resolution)</p></li>
+</ul>
+<p><strong>Relevance:</strong></p>
+<ul class="simple">
+<li><p>Derived data‐driven cloud cover parameterizations from coarse‐grained global storm‐resolving simulation (DYAMOND) output.</p></li>
+<li><p>Major advantage of our best analytical scheme
+is its ability to adapt to a different data set (in our case, the ERA5 reanalysis product) after learning from only a
+few of the ERA5 samples in a transfer learning experiment</p></li>
+<li><p>Symbolic regression can complement deep learning by deriving interpretable equations directly from data.</p></li>
+</ul>
+</section>
+<section id="paper-2-implicit-learning-of-convective-organization-explains-precipitation-stochasticity">
+<h3>Paper 2: Implicit learning of convective organization explains precipitation stochasticity<a class="headerlink" href="#paper-2-implicit-learning-of-convective-organization-explains-precipitation-stochasticity" title="Link to this heading">#</a></h3>
+<p><strong>Authors:</strong> Sara Shamekh,  Kara D. Lamb, Yu Huang,  Pierre Gentine
+<strong>Key Highlights:</strong></p>
+<ul class="simple">
+<li><p>They employ machine learning to implicitly learn subgrid-scale organization and develop a precipitation parameterization that incorporates these data-driven organization metrics.</p></li>
+<li><p>Machine learning has shown tremendous skill in analyzing images and their complex spatial structure and thus might be well suited to investigate 2D organization and as a hypothesis tool to demonstrate the importance of subgrid information to best reproduce precipitation.</p></li>
+<li><p>Organization metrics capture some aspects of the organization and can potentially be used to inform the coarse-scale variables
+about subgrid-scale cloud patterns for predicting precipitation</p></li>
+</ul>
+<p><strong>Data Used:</strong></p>
+<ul class="simple">
+<li><p>System for Atmospheric Modeling (SAM), which was run as a part of the DYnamics of the Atmosphere general circulation Modeled on Nonhydro-static Domains (DYAMOND) Phase 2 Intercomparison Projec: satial scale: 4.2 km, time step: 15 min.</p></li>
+</ul>
+<p><strong>Methodology:</strong></p>
+<ul class="simple">
+<li><p>Coarse-grain two-dimensional variables of SAM-DYAMOND by horizontally averaging to typical climate model resolution (for instance, 100 km).</p></li>
+<li><p>Discard all nonprecipitating and land pixels, thus to narrow the focus of this study down to predicting precipitation intensity over the tropical.</p></li>
+<li><p>Train a Baseline-NN (fully connected feedforward network) using PW (Precipitable Water), SST, qv2m (Specific Humidity), and T2m and org_NN based in organization metrics of clouds.</p></li>
+<li><p>learn
+an implicit representation of organization that is most relevant
+to precipitation prediction.</p></li>
+<li><p>extract information
+relevant to predicting precipitation from a high-resolution
+field using a dimensionality reduction technique known as an
+autoencoder. An autoencoder (AE) is a powerful nonlinear
+dimensionality reduction approach.</p></li>
+<li><p>low-
+dimension representation, i.e., a latent space, embeds optimal
+information needed from the high-resolution field to reconstruct
+precipitation.</p></li>
+<li><p>The organization metrics are invariant to rotation systems.</p></li>
+<li><p>The loss function is the Mean Square Error (MSE).</p></li>
+</ul>
+<p><strong>Key Results:</strong></p>
+<ul class="simple">
+<li><p>The neural network cannot predict the variability of precipitation and underestimates precipitation extremes. But informed Networks have a better performance predicting precipitation extremes and spatial variability.</p></li>
+<li><p>The baseline-NN has a low skill in accurately predicting precipitation and its variability, even though the overall behavior of precipitation.</p></li>
+<li><p>Organization metric can be predicted as a simple memory process from information available at the previous time steps.</p></li>
+<li><p>results demonstrate a significant
+improvement in precipitation prediction with the inclusion of
+org, suggesting that the subgrid-scale structure is potentially
+an important piece of information currently missing in the
+parameterization of convection and precipitation in climate
+models.</p></li>
+</ul>
+<p><strong>Strengths:</strong></p>
+<ul class="simple">
+<li><p>data-driven organization variables, org, extracted from a
+high-resolution field of PW were shown to carry the required
+information needed to accurately predict precipitation at the
+coarse scale.</p></li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p>Convection triggered by the collision of cold pools (namely, areas of relatively low temperature generated by the evaporation of rain or melting of ice) is more likely to result in extreme precipitation.</p></li>
+<li><p>Mass-Flux convection in GCMs do not include any organization or interaction among convective updrafts, treating them as randomly
+distributed convective plumes.</p></li>
+<li><p>Cloud cover parameterization and their impact on radiation sometimes use some representations of organization, but these remain largely ad hoc.</p></li>
+<li><p>Precipitation exhibits strong stochasticity.</p></li>
+</ul>
+<p><strong>Relevance:</strong></p>
+<ul class="simple">
+<li><p>The inclusion of an organization metric in climate models might be important for more realistic predictions of precipitation extremes in a warming climate.</p></li>
+<li><p>Neural networks can emulate unresolved processes from resolved variables, as they can capture complexnonlinear behavior of a physical system.</p></li>
+</ul>
+</section>
+<section id="paper-3-reduced-order-modeling-for-linearized-representations-of-microphysical-process-rates">
+<h3>Paper 3: Reduced order modeling for linearized representations of microphysical process rates<a class="headerlink" href="#paper-3-reduced-order-modeling-for-linearized-representations-of-microphysical-process-rates" title="Link to this heading">#</a></h3>
+<p><strong>Authors:</strong> K.D. Lamb, M. van Lier-Walqui, S. Santos, H. Morrison
+<strong>Key Highlights:</strong></p>
+<ul class="simple">
+<li><p>data-driven reduced or-
+der modeling can be used to learn predictors for microphysical process rates in bulk mi-
+crophysics schemes in an unsupervised manner from higher dimensional bin distributions,
+by simultaneously learning lower dimensional representations of droplet size distributions
+and predicting the evolution of the microphysical state of the system.</p></li>
+<li><p>deep learning based reduced-order modeling can be used to discover intrin-
+sic coordinates describing the microphysical state of the system, where process rates such
+as collision-coalescence are globally linearized.</p></li>
+<li><p>the minimum number of independent variables required to represent the
+DSD such that the process of collision-coalescence can be accurately predicted at
+the next model time step.</p></li>
+<li><p>latent variables learned using data-driven dimensionality reduction tech-
+niques correspond with the moments of the DSD typically used to parameterize
+collision-coalescence</p></li>
+<li><p>process rates such as collision-coalescence be represented in this latent
+variable space informative are latent variable and moment based representations of the DSD ????</p></li>
+</ul>
+<p><strong>Data Used:</strong> [What datasets were employed?]<br />
+<strong>Methodology:</strong></p>
+<ul class="simple">
+<li><p>data-driven discovery of dynamics assumes that although X is high di-
+mensional, the dynamics in fact evolve on some lower-dimensional manifold in the state
+space. Much of the focus of recent work on data-driven discovery has been related to dis-
+covering properties of this lower-dimensional manifold that most meaningfully encode
+the dynamics of the higher dimensional system, using many discrete observations of the
+state of the system.
+<strong>Key Results:</strong> [Highlight the main findings]<br />
+<strong>Strengths:</strong></p></li>
+<li><p>data-driven dimensionality reduction to determine optimal pre-
+dictors for the evolution of the droplet size distribution due to the collision-coalescence
+process using an unsupervised machine learning approach.</p></li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p>Microphysical parameterizations are formulated based on assumptions about the functional form
+of the distributions. Most bulk schemes use one, two, or sometimes three statistical mo-
+ments of the DSD, typically M0 , M3 , and M6 , as these are equivalent to or proportional
+to physically observable quantities– the number concentration, mass, and radar reflec-
+tivity, respectively.</p></li>
+<li><p>bulk schemes artificially
+separate precipitating and non-precipitating hydrometeor populations (for example, by
+treating cloud droplets and rain droplets as two separate categories).</p></li>
+<li><p>Other aproach to microphysical schemes are computational expensive that de bin scheme.</p></li>
+<li><p>Have into account two microphysical process in warm clouds.
+<strong>Relevance:</strong></p></li>
+<li><p>how such reduced order models can be applied to represent DSDs and microphys-
+ical processes and what we can learn from these approaches</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Authors:</strong> Arthur Grundner, Tom Beucler,  Pierre Gentine, Veronika Eyring<br />
+<strong>Key Highlights:</strong> [Summarize the paper’s primary contributions]<br />
+<strong>Data Used:</strong> [What datasets were employed?]<br />
+<strong>Methodology:</strong> [Summarize the techniques or models used]<br />
+<strong>Key Results:</strong> [Highlight the main findings]<br />
+<strong>Strengths:</strong> [What does the paper do particularly well?]<br />
+<strong>Limitations:</strong> [What are the shortcomings?]<br />
+<strong>Relevance:</strong> [How does this paper contribute to solving your problem?]\</p>
+</section>
+<section id="id2">
+<h3>Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Authors:</strong> Arthur Grundner, Tom Beucler,  Pierre Gentine, Veronika Eyring<br />
+<strong>Key Highlights:</strong> [Summarize the paper’s primary contributions]<br />
+<strong>Data Used:</strong> [What datasets were employed?]<br />
+<strong>Methodology:</strong> [Summarize the techniques or models used]<br />
+<strong>Key Results:</strong> [Highlight the main findings]<br />
+<strong>Strengths:</strong> [What does the paper do particularly well?]<br />
+<strong>Limitations:</strong> [What are the shortcomings?]<br />
+<strong>Relevance:</strong> [How does this paper contribute to solving your problem?]\</p>
+</section>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Methodology/Technique</p></th>
+<th class="head text-left"><p>Key Strengths</p></th>
+<th class="head"><p>Key Limitations</p></th>
+<th class="head"><p>Example Papers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Improved Sequential Features Selection (SFS) NN’s with Symbolic Regresion</p></td>
+<td class="text-left"><p>Symbolic regression can complement deep learning by deriving interpretable equations directly from data</p></td>
+<td><p>Hight computational cost and high grade knowledge about input data</p></td>
+<td><p>Beucler et al. (2023) “Review ML for cloud and convection parametrization”; Grundner et al. (2022) “SFS Method”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Baseline-NN fully conncted feed forward network and Org-NN The encoder part of the autoencoder includes three one-dimensional convolutional layers followed by two fully connected layers.</p></td>
+<td class="text-left"><p>Learn about cloud organization metrics</p></td>
+<td><p>not give information about physical process and mechanics for the memory in precipitable clouds</p></td>
+<td><p>M. Janssens et al. (2021) “Organization metrics”; K. Lee, K. T. Carlberg (2020) “Theory of autoencoder”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>| [Technique 2]         | …                            | …                              | Lush et al. (2018) “identify the eigenfunctions ofthe Koopman operator, which represents the dynamical system in a basis set where the
+dynamics are linearized globally” |</p>
+<p>| [Technique 2]         | …                            | …                              | M. Janssens et al. |</p>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Symbolic regression can complement deep learning by deriving interpretable equations directly from data, suggesting untapped potential in other areas of Earth system science and beyond.</p></li>
+<li><p>One obstacle in integrating subgrid-scale organization into parameterizations is determining how to obtain useful informa-
+tion from these subgrid structures that can aid in approximating unresolved variables such as precipitation, convective mass flux, or radiation, which may be reliant on such an organization.</p></li>
+<li><p>In climate models, the modeling and representation of hourly
+and subhourly precipitation extremes, which are dominated by
+deep convective precipitation, continue to be one substantial
+source of uncertainty.</p></li>
+<li><p>is important to investigate the relevance of
+subgrid-scale structure in predicting convective tendencies and
+radiative cooling of the atmosphere to further improve data-
+driven parameterizations.</p></li>
+<li><p>challenging to represent using only a few predicted state variables, as collision-coalescence
+generally leads to a DSD that cannot be easily represented by a gamma function with
+a single mode.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Summarize the key takeaways from your review. Discuss how these insights will guide your work.</p>
+</section>
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<p><strong>Paper 1</strong></p>
+<ul class="simple">
+<li><p>Como es eso de consider polinomios de diferentes ordenes en el proceso de sequential feature selection?</p></li>
+<li><p>En que consiste SFS?</p></li>
+<li><p>Cómo aplicar el metodo de Simbolic Regresion Fit?</p></li>
+<li><p>Como funciona el metodo de auto-encoder?</p></li>
+<li><p>Qué signfica latent space?</p></li>
+<li><p>Dynamical mode decomposition
+(DMD) is alternatively used to identify coherent spatio-temporal structures in high di-
+mensional dynamical systems by approximating modes and eigenvalues of the Koopman
+operator.</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>[Full citation of Paper 1]</p></li>
+<li><p>[Full citation of Paper 2]
+…
+n. [Full citation of Paper n]</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nowcasting_precipitation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Review of Nowcasting Precipitation Techniques</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Task_JuanDavidZuluagaOrtiz.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extreme events detection: A Literature Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-datadriven-equation-discovery-of-a-cloud-cover-parameterization">Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-implicit-learning-of-convective-organization-explains-precipitation-stochasticity">Paper 2: Implicit learning of convective organization explains precipitation stochasticity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-reduced-order-modeling-for-linearized-representations-of-microphysical-process-rates">Paper 3: Reduced order modeling for linearized representations of microphysical process rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Paper 1: Data‐Driven Equation Discovery of a Cloud Cover Parameterization\</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

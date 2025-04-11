@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Review de Técnicas de Forecasting de Precipitación &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/Forecasting_Precipitation';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review" href="task_2_alejandro_betancur.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Review de Técnicas de Forecasting de Precipitación</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/Forecasting_Precipitation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/Forecasting_Precipitation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Review de Técnicas de Forecasting de Precipitación</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-papers">Review of Key Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-a-rainfall-forecasting-method-using-machine-learning-models-and-its-application-to-the-fukuoka-city-case">Paper 1: A Rainfall Forecasting Method Using Machine Learning Models and its Application to the Fukuoka City Case.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-rainfall-forecasting-model-using-machine-learning-methods-case-study-terengganu-malaysia">Paper 2: Rainfall Forecasting Model Using Machine Learning Methods: Case Study Terengganu, Malaysia.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-rainfall-prediction-using-machine-learning-techniques-for-sabarmati-river-basin-gujarat-india">Paper 3: Rainfall Prediction Using Machine Learning Techniques for Sabarmati River Basin, Gujarat, India.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-development-of-advanced-artificial-intelligence-models-for-daily-rainfall-prediction">Paper 4: Development of Advanced Artificial Intelligence Models for Daily Rainfall Prediction.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-rainfall-prediction-for-the-kerala-state-of-india-using-artificial-intelligence-approaches">Paper 5:  Rainfall Prediction for the Kerala State of India Using Artificial Intelligence Approaches.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="review-de-tecnicas-de-forecasting-de-precipitacion">
+<h1>Review de Técnicas de Forecasting de Precipitación<a class="headerlink" href="#review-de-tecnicas-de-forecasting-de-precipitacion" title="Link to this heading">#</a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p>La predicción de la precipitación es crucial en sectores como la agricultura, la gestión de recursos hídricos y la producción de energía hidroeléctrica, ya que su variabilidad tiene un impacto directo en la economía y el bienestar de las poblaciones. La complejidad de los sistemas involucrados, que incluyen factores topográficos, hidrológicos y atmosféricos, hace que el pronóstico sea un reto a considerar. A pesar de los avances en la implementación de modelos numéricos y estadísticas para la predicción de precipitaciones, los eventos de lluvia extrema siguen siendo particularmente difíciles de prever, lo que puede generar desastres naturales como inundaciones, deslizamientos de tierra y sequías.</p>
+<p>Recientemente, los avances en el modelado de la precipitación han incorporado enfoques modulares que combinan diferentes submodelos para capturar los diversos procesos físicos de la lluvia. Estos enfoques permiten abordar la complejidad inherente a la predicción de precipitaciones, mejorando la capacidad de los modelos para hacer frente a la variabilidad espacio-temporal y la incertidumbre asociada con los pronósticos. Además, el uso de modelos probabilísticos está ganando terreno frente a los modelos deterministas tradicionales, ya que ofrecen una representación más adecuada de la incertidumbre y ayudan a los responsables de la toma de decisiones a gestionar los recursos de manera más efectiva.</p>
+<p>La importancia de la predicción de la precipitación se ve reflejada no solo en la gestión de los recursos hídricos, sino también en su impacto directo sobre las actividades agrícolas, donde la planificación oportuna de las siembras y cosechas puede evitar pérdidas significativas. Los modelos numéricos operativos y los datos provenientes de radares meteorológicos son herramientas fundamentales en este proceso, pero la necesidad de mejorar su precisión y fiabilidad sigue siendo un reto. Así, el desarrollo de nuevos enfoques que integren técnicas de aprendizaje automático y modelos híbridos podría marcar la diferencia en la evolución de la predicción de precipitaciones, permitiendo obtener así predicciones cada vez más precisas, siendo esto una mejor herramienta a la hora de tomar decisiones.</p>
+</section>
+<hr class="docutils" />
+<section id="review-of-key-papers">
+<h2>Review of Key Papers<a class="headerlink" href="#review-of-key-papers" title="Link to this heading">#</a></h2>
+<section id="paper-1-a-rainfall-forecasting-method-using-machine-learning-models-and-its-application-to-the-fukuoka-city-case">
+<h3>Paper 1: A Rainfall Forecasting Method Using Machine Learning Models and its Application to the Fukuoka City Case.<a class="headerlink" href="#paper-1-a-rainfall-forecasting-method-using-machine-learning-models-and-its-application-to-the-fukuoka-city-case" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Autores:</strong> S. Monira Sumi, M. Faisal Zaman, Hideo Hirose.</p></li>
+<li><p><strong>Aspectos Clave:</strong></p>
+<ul>
+<li><p>El uso de varios modelos de Machine Learning para la construcción de un método híbrido de pronóstico y comparación con ellos.</p></li>
+<li><p>Preprocesamiento para optimizar entradas en los modelos.</p></li>
+</ul>
+</li>
+<li><p><strong>Datos:</strong></p>
+<ul>
+<li><p>El estudio usó una serie de precipitación diaria de la temporada de lluvias y una serie de precipitaciones mensuales.</p></li>
+<li><p>Los datos fueron obtenidos de estaciones meteorológicas cercanas, dentro de un rango de 48 km de la ciudad de Fukuoka.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodología:</strong></p>
+<ul>
+<li><p><strong>Preprocesamiento de los datos:</strong> Media móvil, análisis de componentes principales.</p></li>
+<li><p><strong>Construcción de inputs/outputs pairs:</strong> Reorganización de las series de tiempo como vectores de retraso.</p></li>
+<li><p><strong>Métodos individuales de Machine Learning:</strong> Se seleccionaron 4 modelos de Machine Learning para construir el método híbrido de pronóstico multimodelo. Se seleccionaron ANN, KNN, MARS y SVR.</p></li>
+<li><p><strong>Método híbrido de pronóstico multimodelo:</strong> Se construyen submodelos y se eligen los más precisos para con ellos crear el método híbrido de pronóstico.</p></li>
+<li><p><strong>Pruebas estadísticas:</strong> Se empleó la prueba de Diebold-Mariano para comparar la diferencia entre los pronósticos de dos métodos competidores.</p></li>
+<li><p>Se analizaron métricas de error a partir de la predicción del próximo paso de tiempo.</p></li>
+</ul>
+</li>
+<li><p><strong>Resultados Clave:</strong></p>
+<ul>
+<li><p>Se encontró que el análisis de componentes principales en el preprocesamiento, produce más eficiencia, por lo cual se usan las series reconstruidas de este para entrenar los modelos.</p></li>
+<li><p>En el caso de las series diarias de precipitaciones, el modelo híbrido de múltiples modelos produjo el pronóstico más preciso de todos los modelos individuales y en el de las series mensuales, también fue de los mejores.</p></li>
+</ul>
+</li>
+<li><p><strong>Herramientas de Machine Learning:</strong></p>
+<ul>
+<li><p><strong>Artificial Neural Network (ANN):</strong> Consiste en un número de capas ocultas y un número de neuronas en la capa de entrada, las capas ocultas y la capa de salida.</p></li>
+<li><p><strong>K-Nearest Neighbor (KNN):</strong> Es un método no paramétrico que basa su predicción en las salidas objetivo de los k-vecinos más cercanos al punto de consulta dado.</p></li>
+<li><p><strong>Multivariate Adaptive Regression Splines (MARS):</strong> Fue propuesto como una técnica de modelado local basada en árboles, que divide el espacio de datos en varias regiones, posiblemente superpuestas, y ajusta funciones spline truncadas en cada región.</p></li>
+<li><p><strong>Support Vector Regression (SVR):</strong> Es un método que penaliza la complejidad resultante mediante un término de penalización añadido a la función de error.</p></li>
+</ul>
+</li>
+<li><p><strong>Fortalezas:</strong></p>
+<ul>
+<li><p>Aproximación al problema desde distintas herramientas de Machine Learning.</p></li>
+<li><p>Optimización de datos de entrada para los modelos de Machine Learning.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitaciones:</strong></p>
+<ul>
+<li><p>Sensibilidad a la selección de parámetros.</p></li>
+<li><p>La metodología híbrida puede llevar a un alto coste computacional.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevancia para el Forecasting:</strong>
+Ofrece un buen marco teórico de los modelos seleccionados, además de mostrar que el método híbrido que construyeron es la mejor forma de predecir la precipitación diaria entre las evaluadas, incluso tambien a escala mensual.</p></li>
+</ul>
+</section>
+<section id="paper-2-rainfall-forecasting-model-using-machine-learning-methods-case-study-terengganu-malaysia">
+<h3>Paper 2: Rainfall Forecasting Model Using Machine Learning Methods: Case Study Terengganu, Malaysia.<a class="headerlink" href="#paper-2-rainfall-forecasting-model-using-machine-learning-methods-case-study-terengganu-malaysia" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Autores:</strong> Wanie M. Ridwan <a class="reference external" href="http://et.al">et.al</a>.</p></li>
+<li><p><strong>Aspectos Clave:</strong></p>
+<ul>
+<li><p>Se hace una comparativa entre 4 modelos de Machine learning para predecir la precipitación en el área del lago Kenyir en Terengganu, Malasia.</p></li>
+<li><p>Incorpora técnicas de validación cruzada y ajuste de hiperparámetros que pueden ayudar a mejorar la precisión de la predicción en distintas ventanas de tiempo.</p></li>
+</ul>
+</li>
+<li><p><strong>Datos:</strong></p>
+<ul>
+<li><p>Los datos para este estudio consisten en 10 estaciones que cubren el área del Lago Kenyir en Hulu Terengganu.</p></li>
+<li><p>Se usa el método de polígono de Thiessen para calcular el peso de la lluvia de cada estación y el promedio de lluvia basado en cada estación.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodología:</strong></p>
+<ul>
+<li><p>Se seleccionan 4 modelos de Machine Learning (BLR, BDTR, DFR, NNR)</p></li>
+<li><p>Se busca predecir la lluvia en diferentes horizontes temporales utilizando diferentes algoritmos de Machine Learning</p></li>
+<li><p>Para el análisis de los escenarios temporales, se usan dos métodos, función de autocorrelación y error proyectado.</p></li>
+<li><p>Se tienen en cuenta los siguientes indicadores (MAE, RMSE, RAE, RSE, R)</p></li>
+</ul>
+</li>
+<li><p><strong>Resultados Clave:</strong></p>
+<ul>
+<li><p>Para el primer método, se encontró que la mejor regresión desarrollada es BDTR, ya que tiene el coeficiente de determinación más alto.</p></li>
+<li><p>Sin ajuste, el modelo BDTR no tuvo un buen desempeño; sin embargo, se notó una mejora significativa en la precisión del modelo propuesto tras incorporar técnicas de validación cruzada y ajuste de hiperparámetros.</p></li>
+<li><p>Para el segundo método, BDTR y DFR, presentaron la mayor precisión en la mayoría de ventanas temporales.</p></li>
+</ul>
+</li>
+<li><p><strong>Herramientas de Machine Learning:</strong></p>
+<ul>
+<li><p><strong>Bayesian Linear Regression (BLR):</strong> La principal ventaja de este procesamiento bayesiano es que recupera toda la gama de soluciones inferenciales, en lugar de limitarse a una estimación puntual y un intervalo de confianza como ocurre en la regresión clásica.</p></li>
+<li><p><strong>Boosted Decision Tree Regression (BDTR):</strong> Es un método clásico para crear un conjunto de árboles de regresión donde cada árbol depende del árbol anterior.</p></li>
+<li><p><strong>Decision Forest Regression (DFR):</strong> Es un conjunto de árboles de decisión entrenados de manera aleatoria. Funciona construyendo un gran número de árboles de decisión durante la etapa de entrenamiento.</p></li>
+<li><p><strong>Neural Network Regression (NNR):</strong> Es una cadena de operaciones lineales intercaladas con diversas funciones de activación no lineales.</p></li>
+</ul>
+</li>
+<li><p><strong>Fortalezas:</strong></p>
+<ul>
+<li><p>Diversidad de métodos y escenarios</p></li>
+<li><p>Optimización de modelos a partir de técnicas de validación cruzada y ajuste de hiperparámetros.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitaciones:</strong></p>
+<ul>
+<li><p>Los resultados del segundo método dependen mucho de la normalización usada para los datos</p></li>
+<li><p>Aunque el BDTR fue el modelo que presentó mejor rendimiento, este requiere mayor costo computacional.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevancia para el Forecasting:</strong>
+Muestra la importancia del ajuste de optimizar el modelo a partir de técnicas de validación cruzada y ajuste de hiperparámetros, además de mostrar una superioridad a la hora de predecir precipitación del método de función de autocorrelación sobre el de error proyectado, basado en que este fue capaz de representar los patrones de lluvia.</p></li>
+</ul>
+</section>
+<section id="paper-3-rainfall-prediction-using-machine-learning-techniques-for-sabarmati-river-basin-gujarat-india">
+<h3>Paper 3: Rainfall Prediction Using Machine Learning Techniques for Sabarmati River Basin, Gujarat, India.<a class="headerlink" href="#paper-3-rainfall-prediction-using-machine-learning-techniques-for-sabarmati-river-basin-gujarat-india" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Autores:</strong> Anant Patel <a class="reference external" href="http://et.al">et.al</a>.</p></li>
+<li><p><strong>Aspectos Clave:</strong></p>
+<ul>
+<li><p>Comparación entre diversos modelos de Machine Learning.</p></li>
+<li><p>Se hace uso de un análisis exploratorio de los datos para comprender su variabilidad antes de entrar en los modelos.</p></li>
+</ul>
+</li>
+<li><p><strong>Datos:</strong></p>
+<ul>
+<li><p>Datos diarios de precipitación recopilados del acceso regional de datos POWER del sitio web de la NASA.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodología:</strong></p>
+<ul>
+<li><p>Se realizó un análisis exploratorio a los datos para resumir sus principales características.</p></li>
+<li><p>Se seleccionan tres modelos de Machine Learning (RFR, GBA, DTC)</p></li>
+<li><p>Se usó el 70% de los datos para training en los 3 modelos.</p></li>
+<li><p>Selección de algunas métricas de rendimiento para ver el comportamiento de los modelos.</p></li>
+</ul>
+</li>
+<li><p><strong>Resultados Clave:</strong></p>
+<ul>
+<li><p>El GBA fue el modelo demostró el mejor rendimiento entre los 3 modelos, con una precisión del 93%</p></li>
+<li><p>Identificación de variables clave, como la humedad, que afectan significativamente la precisión de las predicciones.</p></li>
+</ul>
+</li>
+<li><p><strong>Herramientas de Machine Learning:</strong></p>
+<ul>
+<li><p><strong>Random Forest Regressor (RFR):</strong> Es un algoritmo de aprendizaje supervisado basado en ensamblaje. Este enfoque combina múltiples aprendices débiles (en este caso, árboles de decisión) para formar un único predictor fuerte.</p></li>
+<li><p><strong>Gradient Boosting Algorithm (GBA):</strong> Aquí muchos modelos se entrenan de manera secuencial, de forma gradual y aditiva, para convertir los aprendices débiles en fuertes. A medida que se repiten los pasos, cada árbol intenta minimizar el error residual.</p></li>
+<li><p><strong>Decision Tree Classifier (DTC):</strong> Es una técnica de aprendizaje supervisado que puede utilizarse tanto para problemas de clasificación como de regresión, aunque generalmente se prefiere para el primero.</p></li>
+</ul>
+</li>
+<li><p><strong>Fortalezas:</strong></p>
+<ul>
+<li><p>Uso de un conjunto de datos amplio y detallado</p></li>
+<li><p>Análisis de varios modelos de Machine Learning, permitiendo la comparación de los resultados</p></li>
+</ul>
+</li>
+<li><p><strong>Limitaciones:</strong></p>
+<ul>
+<li><p>Los resultados no son aplicables a otros lugares.</p></li>
+<li><p>Aunque se menciona la importancia de eventos extremos, no son tenidos en cuenta</p></li>
+</ul>
+</li>
+<li><p><strong>Relevancia para el Forecasting:</strong>
+Se hace énfasis y se muestra como un análisis exploratorio de los datos, antes de entrar a los modelos, puede ayudar a identificar patrones y variables clave que pueden ayudar a mejorar la precisión de las predicciones.</p></li>
+</ul>
+</section>
+<section id="paper-4-development-of-advanced-artificial-intelligence-models-for-daily-rainfall-prediction">
+<h3>Paper 4: Development of Advanced Artificial Intelligence Models for Daily Rainfall Prediction.<a class="headerlink" href="#paper-4-development-of-advanced-artificial-intelligence-models-for-daily-rainfall-prediction" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Autores:</strong> Binh Thai Pham <a class="reference external" href="http://et.al">et.al</a></p></li>
+<li><p><strong>Aspectos Clave:</strong></p>
+<ul>
+<li><p>Presenta una alternativa a la predicción tradicional con modelos climáticos en conjunción con radares, usando Machine Learning.</p></li>
+<li><p>Se presenta y compara un modelo de Machine Learning híbrido, usando optimización.</p></li>
+</ul>
+</li>
+<li><p><strong>Datos:</strong></p>
+<ul>
+<li><p>Datos de precipitación recopilados a través de un pluviómetro ubicado en el distrito de Cao Phong, provincia de Hoa Binh, Vietnam.</p></li>
+<li><p>Los datos meteorológicos se obtuvieron del Global Weather Data for SWAT.</p></li>
+<li><p>Datos de GFS fueron usados, se aplicaron técnicas de downscaling para adaptarlos a la zona de estudio.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodología:</strong></p>
+<ul>
+<li><p>Se seleccionan varios modelos de Machine Learning (PSO-ANFIS, ANN, SVM)</p></li>
+<li><p>Uso de varios criterios de validación para analizar la precisión de los modelos desarrollados (R, MAE, SS, POD, CSI, FAR)</p></li>
+<li><p>Se utiliza el método de Monte Carlo (1000 simulaciones) con el fin de investigar la robustez de los tres modelos de IA.</p></li>
+<li><p>El 70% de los datos fue usado para training.</p></li>
+</ul>
+</li>
+<li><p><strong>Resultados Clave:</strong></p>
+<ul>
+<li><p>Analizando los valores de Skill Score (SS), los modelos de IA propuestos mostraron una mejora en la predicción con respecto a los datos de GFS.</p></li>
+<li><p>A través de las simulaciones de Monte Carlo se encontró que el modelo SVM, demostró tener mayor robustez que los otros dos.</p></li>
+<li><p>Los tres modelos de IA propuestos, especialmente el SVM, muestran una gran capacidad para rastrear el comportamiento del proceso de lluvia al pasar de un período sin lluvia a un período con lluvia.</p></li>
+</ul>
+</li>
+<li><p><strong>Herramientas de Machine Learning:</strong></p>
+<ul>
+<li><p><strong>Artificial Neural Networks (ANN):</strong> Son un modelo computacional basado en la estructura y funciones de las redes neuronales biológicas.</p></li>
+<li><p><strong>Adaptive network based fuzzy inference system (ANFIS):</strong> Es una combinación entre las reglas de aprendizaje de redes adaptativas y un sistema de inferencia difusa.</p></li>
+<li><p><strong>Particle Swarm Optimization (PSO):</strong> Es una técnica de inteligencia de enjambre eficiente propuesta y desarrollada en base al comportamiento social de los bandos de aves para resolver problemas complejos de optimización.</p></li>
+<li><p><strong>Support Vector Machines (SVM):</strong> Es un algoritmo de aprendizaje supervisado que analiza datos para clasificación y regresión.</p></li>
+</ul>
+</li>
+<li><p><strong>Fortalezas:</strong></p>
+<ul>
+<li><p>Se muestra como el uso del modelo híbrido PSO-ANFIS ofreció resultados competitivos, dejando así a la vista ventajas potenciales en configuraciones que necesitan optimización adicional.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitaciones:</strong></p>
+<ul>
+<li><p>Falta de capacidad computacional para un análisis más robusto del Skill Score usando los datos de GFS.</p></li>
+<li><p>Las variables usadas para entrenar los modelos no son las más apropiadas para presentar el proceso físico de precipitación en un período de 24 horas.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevancia para el Forecasting:</strong>
+Se muestra un enfoque diferente a los métodos tradicionales de predicción, obteniendo así mayor precisión al momento de usar IA, además de presentar el potencial de los modelos híbridos, como un campo para explorar y desarrollar.</p></li>
+</ul>
+</section>
+<section id="paper-5-rainfall-prediction-for-the-kerala-state-of-india-using-artificial-intelligence-approaches">
+<h3>Paper 5:  Rainfall Prediction for the Kerala State of India Using Artificial Intelligence Approaches.<a class="headerlink" href="#paper-5-rainfall-prediction-for-the-kerala-state-of-india-using-artificial-intelligence-approaches" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Autores:</strong> Yajnaseni Dash, Saroj K. Mishra, Bijaya K. Panigrahi.</p></li>
+<li><p><strong>Aspectos Clave:</strong></p>
+<ul>
+<li><p>Se señala la importancia de una buena selección de los nodos ocultos, buscando mejorar la precisión evitando el sobreajuste.</p></li>
+<li><p>Comparativa entre distintos modelos de Machine Learning.</p></li>
+</ul>
+</li>
+<li><p><strong>Datos:</strong></p>
+<ul>
+<li><p>Los datos de series temporales fueron recolectados del Instituto Indio de Meteorología Tropical (IITM) en Pune para la subdivisión de Kerala.</p></li>
+<li><p>Se utilizaron las series temporales mensuales medias de monzón de verano (JJAS) y post-monzón (OND) para fines de predicción.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodología:</strong></p>
+<ul>
+<li><p>Se hace normalización a los datos antes de ingresarlos a los modelos.</p></li>
+<li><p>Se usaron los datos de 1871-2010 para training y los datos de 2011-2016 para test.</p></li>
+<li><p>Se seleccionaron los modelos de Machine Learning (KNN, ANN, ELM).</p></li>
+<li><p>Se consideraron diferentes parámetros estadísticos para calcular el rendimiento de los modelos de inteligencia artificial propuestos (MAE, PP, RSME, MASE).</p></li>
+</ul>
+</li>
+<li><p><strong>Resultados Clave:</strong></p>
+<ul>
+<li><p>Los modelos ANN y ELM mostraron mayor precisión a la hora de predecir la lluvia, debido a la presencia de nodos ocultos.</p></li>
+<li><p>El costo computacional de KNN fue el más bajo, pero obtuvo los mayores errores de predicción.</p></li>
+</ul>
+</li>
+<li><p><strong>Herramientas de Machine Learning:</strong></p>
+<ul>
+<li><p><strong>K-nearest neighbor (KNN):</strong> Es una técnica sofisticada en la que se debe encontrar un grupo de k objetos en el conjunto de datos de entrenamiento que estén cerca del objeto de datos de prueba.</p></li>
+<li><p><strong>Artificial Neural Networks (ANN):</strong> Comprende neuronas conectadas entre la capa de entrada, la capa oculta y las capas de salida.</p></li>
+<li><p><strong>Extreme learning machine (ELM):</strong> ESe ha utilizado para superar el tiempo computacional extenso que requiere el aprendizaje por retropropagación del enfoque de redes neuronales de avance directo.</p></li>
+</ul>
+</li>
+<li><p><strong>Fortalezas:</strong></p>
+<ul>
+<li><p>Comparación del coste computacional entre los modelos, para tener un mejor panorama a la hora de seleccionar.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitaciones:</strong></p>
+<ul>
+<li><p>No se tuvieron en cuenta otras variables para predecir la precipitación.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevancia para el Forecasting:</strong>
+En este artículo se muestra como una adecuada selección de los nodos ocultos en modelos como ANN y ELM, pueden mejorar significativamente la precisión de la predicción.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Fortalezas</p></th>
+<th class="head"><p>Limitaciones</p></th>
+<th class="head"><p>Papers ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>K-Nearest Neighbor</p></td>
+<td><p>Modelo no paramétrico, Simplicidad</p></td>
+<td><p>Costo computacional alto con datasets grandes, Determinación de k</p></td>
+<td><p>Sumi <a class="reference external" href="http://et.al">et.al</a>., Dash <a class="reference external" href="http://et.al">et.al</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boosted Decision Tree Regression</p></td>
+<td><p>Robustez frente a datos faltantes</p></td>
+<td><p>Propenso al sobre ajuste</p></td>
+<td><p>Ridwan <a class="reference external" href="http://et.al">et.al</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Gradient Boosting</p></td>
+<td><p>Análisis robusto de características</p></td>
+<td><p>Costo computacional alto con datasets grandes</p></td>
+<td><p>Patel <a class="reference external" href="http://et.al">et.al</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Artificial Neural Networks</p></td>
+<td><p>Versatilidad, Manejo eficiente de datos grandes</p></td>
+<td><p>Requieren un gran volumen de datos, Sensibilidad a la configuración de hiperparámetros</p></td>
+<td><p>Sumi <a class="reference external" href="http://et.al">et.al</a>, Pham <a class="reference external" href="http://et.al">et.al</a>., Dash <a class="reference external" href="http://et.al">et.al</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Extreme learning machine</p></td>
+<td><p>Entrenamiento rápido, Manejo eficiente de datos grandes</p></td>
+<td><p>Dificultad a la hora de seleccionar el número de neuronas en la capa oculta</p></td>
+<td><p>Dash <a class="reference external" href="http://et.al">et.al</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>La predicción de eventos extremos aún es un campo que tiene mucho camino de investigación.</p></li>
+<li><p>Mejorar la integración de los procesos físicos en los modelos de Machine Learning.</p></li>
+<li><p>Optimización de los modelos para reducir el costo computacional.</p></li>
+<li><p>Hay todo un campo de exploración en cuanto a la selección óptima de parámetros en los modelos.</p></li>
+<li><p>Implimentación de modelos híbridos que combinen las mejores características de varios modelos.</p></li>
+<li><p>Mejora en la calidad y disponibilidad de datos.</p></li>
+<li><p>Desarrollo de modelos generalizables a otros lugares.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>La predicción de la precipitación ha evolucionado significativamente, integrando enfoques avanzados que combinan técnicas tradicionales y emergentes. A través de la revisión de múltiples estudios, se identificaron tendencias clave que apuntan al creciente protagonismo del Machine Learning y los modelos híbridos como herramientas fundamentales para mejorar la precisión en los pronósticos, a partir de modelos como Artificial Neural Networks, Gradient Boosting, Boosted Decision Tree Regression, entre otros.</p>
+<p>Los avances incluyen el uso de validación cruzada y ajuste de hiperparámetros para optimizar los modelos, el desarrollo de técnicas híbridas que combinan múltiples metodologías, y el enfoque en datos específicos y de alta resolución espacial. A pesar de estas mejoras, persisten desafíos como la alta complejidad computacional, la sensibilidad a la parametrización y la generalización limitada a diferentes regiones geográficas.</p>
+<p>Es por todo esto que la implementación de enfoques híbridos y modulares que integren el Machine Learning con técnicas probabilísticas ofrece un camino prometedor para abordar la variabilidad espacio-temporal de las precipitaciones y su impacto en sectores clave como la agricultura y la gestión de recursos hídricos. El desarrollo continuo en este campo permitirá generar modelos más robustos, precisos y útiles para la toma de decisiones en contextos de alta incertidumbre.</p>
+</section>
+<hr class="docutils" />
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>¿Qué técnicas de preprocesamiento se implementaron?</p></li>
+<li><p>¿Cómo seleccionaron el porcentaje de datos para el training?</p></li>
+<li><p>¿Cómo elegieron la métrica de error adecuada a minimizar?</p></li>
+<li><p>¿Cuál es la arquitectura de los modelos aplicados?</p></li>
+<li><p>¿Cómo se podría reproducir el experimento en otras zonas de estudio?</p></li>
+<li><p>¿Cualés son los requerimientos computacionales necesarios para correr los modelos?</p></li>
+<li><p>¿En que áreas es posible optimizar los modelos?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Dash, Y., Mishra, S. K., &amp; Panigrahi, B. K. (2018). Rainfall prediction for the Kerala state of India using artificial intelligence approaches. Computers &amp; Electrical Engineering, 70, 66-73.</p></li>
+<li><p>Patel, A., Keriwala, N., Soni, N., Goel, U., Bhoj, R., Adhyaru, Y., &amp; Yadav, S. M. (2023). Rainfall Prediction using Machine Learning Techniques for Sabarmati River Basin, Gujarat, India. Journal of Engineering Science &amp; Technology Review, 16(1).</p></li>
+<li><p>Pham, B. T., Le, L. M., Le, T. T., Bui, K. T. T., Le, V. M., Ly, H. B., &amp; Prakash, I. (2020). Development of advanced artificial intelligence models for daily rainfall prediction. Atmospheric Research, 237, 104845.</p></li>
+<li><p>Ridwan, W. M., Sapitang, M., Aziz, A., Kushiar, K. F., Ahmed, A. N., &amp; El-Shafie, A.(2021). Rainfall forecasting model using machine learning methods: Case study Terengganu, Malaysia. Ain Shams Engineering Journal, 12(2), 1651-1663.</p></li>
+<li><p>Sumi, S. M., Zaman, M. F., &amp; Hirose, H. (2012). A rainfall forecasting method using machine learning models and its application to the Fukuoka city case. International Journal of Applied Mathematics and Computer Science, 22(4), 841-854.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="task_2_alejandro_betancur.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-papers">Review of Key Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-a-rainfall-forecasting-method-using-machine-learning-models-and-its-application-to-the-fukuoka-city-case">Paper 1: A Rainfall Forecasting Method Using Machine Learning Models and its Application to the Fukuoka City Case.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-rainfall-forecasting-model-using-machine-learning-methods-case-study-terengganu-malaysia">Paper 2: Rainfall Forecasting Model Using Machine Learning Methods: Case Study Terengganu, Malaysia.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-rainfall-prediction-using-machine-learning-techniques-for-sabarmati-river-basin-gujarat-india">Paper 3: Rainfall Prediction Using Machine Learning Techniques for Sabarmati River Basin, Gujarat, India.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-development-of-advanced-artificial-intelligence-models-for-daily-rainfall-prediction">Paper 4: Development of Advanced Artificial Intelligence Models for Daily Rainfall Prediction.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-rainfall-prediction-for-the-kerala-state-of-india-using-artificial-intelligence-approaches">Paper 5:  Rainfall Prediction for the Kerala State of India Using Artificial Intelligence Approaches.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

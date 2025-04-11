@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Precipitation Nowcasting: A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/Nowcasting_review';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Change climate forecasting: Lierature Review" href="ChangeClimateForecasting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2.html">Task 2: Review of Key Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="duvan.html">Machine Learning Applications in Tropical Cyclone Analysis Using Satellite Imagery: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChangeClimateForecasting.html">Change climate forecasting: Lierature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Precipitation Nowcasting: A Literature Review</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/Nowcasting_review.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/Nowcasting_review.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Precipitation Nowcasting: A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-skillful-precipitation-nowcasting-using-deep-generative-models-of-radar">Paper 1: Skillful precipitation nowcasting using deep generative models of radar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-deep-learning-for-precipitation-nowcasting-a-benchmark-and-a-new-model">Paper 2: Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-prediff-precipitation-nowcasting-with-latent-diffusion-models">Paper 3: PreDiff: Precipitation Nowcasting with Latent Diffusion Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-a-deep-learning-based-methodology-for-precipitation-nowcasting-with-radar">Paper 4: A Deep Learning-Based Methodology for Precipitation Nowcasting With Radar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-a-predrnn-a-recurrent-neural-network-for-spatiotemporal-predictive-learning">Paper 5: A PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-earthformer-exploring-space-time-transformers-for-earth-system-forecasting">Paper 6: Earthformer: Exploring Space-Time Transformers for Earth System Forecasting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="precipitation-nowcasting-a-literature-review">
+<h1>Precipitation Nowcasting: A Literature Review<a class="headerlink" href="#precipitation-nowcasting-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Precipitation nowcasting consists of predicting the movement and evolution of the precipitation field with a time horizon of up to 120 minutes. This approach is characterized by its high spatial (~1 km) and temporal (~5-10 minutes) resolution, which makes it an essential tool for mitigating disasters associated with heavy rainfall events, such as floods and landslides. In addition, nowcasting provides information tools for industries such as agriculture and transportation, so its proper implementation will not only contribute to improving risk management and decision-making, but will also strengthen the climate resilience of the region, benefiting both the population and the productive sectors.</p>
+<p>However, achieving effective temporal-spatial resolution nowcasting is a very challenging task owing to the complex dynamics and chaos. Recently, an increasing amount of research has focused on utilizing deep learning approaches for this task because of their powerful abilities in learning spatiotemporal feature representation in an end-to-end manner.</p>
+</section>
+<section id="paper-reviews">
+<h2>Paper Reviews<a class="headerlink" href="#paper-reviews" title="Link to this heading">#</a></h2>
+<section id="paper-1-skillful-precipitation-nowcasting-using-deep-generative-models-of-radar">
+<h3>Paper 1: Skillful precipitation nowcasting using deep generative models of radar<a class="headerlink" href="#paper-1-skillful-precipitation-nowcasting-using-deep-generative-models-of-radar" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Ravuri et al. (2021)</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>The model produces realistic spatiotemporal predictions over regions up to 1,536 km x 1,280 and with lead times from 5-90 min ahead.</p></li>
+<li><p>Skillful nowcasting without resorting to blurring.</p></li>
+<li><p>Deep Generative Nowcasting (DGN) can provide probabilistic predictions that improve forecast value and support operational utility.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>Radar observations of UK dataset from 2016 to 2018 for training and 2019 for testing.</p></li>
+<li><p>Includes orographic enhancement and mean field adjustment using rain gauges.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Model Architecture:</strong> Conditional Generative Adversarial Network (GAN) using radar-based surface precipitation integrated with latent random variables.</p></li>
+<li><p><strong>Inputs and Outputs:</strong> Four consecutive radar observations (previous 20 min) are used as context for a generator that allows sampling of multiple 90 min reliazations.</p></li>
+<li><p><strong>Loss functions:</strong> Learning is driven by two loss functions and a regularization term:</p>
+<ul>
+<li><p>Spatial discriminator: CNN that aims to distinguish observed radar fields from generated fields. Ensure spatial consistency and discourage blurriness.</p></li>
+<li><p>Temporal discriminator: 3D CNN that aims to distinguish observed and generated radar sequences. Imposes temporal consistency and penalizes jumpy predictions.</p></li>
+</ul>
+</li>
+<li><p><strong>Evaluation metrics:</strong> Compared against baseline methods with critical success index (CSI), radially averaged power spectral density (PSD) and continuos ranked probability score (CRPS).</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>DGMR outperforms pySTEPS, UNet, and MetNet.</p></li>
+<li><p>Medium- and small-scale precipitation variability in Axial attention (MetNet) and UNet forecasts decreases with increasing lead time (they produce blurred predictions).</p></li>
+<li><p>DGMR provides greater decision-making value when assessed using both economic and cognitive analyses.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Introduce a regularization term that penalizes deviations at the grid cell resolution between real radar sequences and the model predictive mean to produce location-accurate predictions and improve performance.</p></li>
+<li><p>Probabilistic forecasts that are more location accurate and preserve the statistical properties of precipitation across spatial and temporal scales without blurring.</p></li>
+<li><p>Improved forecast quality, consistency and value, providing fast and accurate short-term predictions at lead times where other methods struggle.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Comparison with other methods is applied only to one single case.</p></li>
+<li><p>Prediction of heavy precipitation at long lead times remains difficult for this approach.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Highlights the potential of deep generative models for precipitation nowcasting.</p></li>
+<li><p>Demonstrates the importance of better verification methods.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-2-deep-learning-for-precipitation-nowcasting-a-benchmark-and-a-new-model">
+<h3>Paper 2: Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model<a class="headerlink" href="#paper-2-deep-learning-for-precipitation-nowcasting-a-benchmark-and-a-new-model" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Shi et al. (2017)</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>Introduce Trajectory Gated Recurrent Unit (TrajGRU) model that can actively learn the location-variant structure for recurrent connections.</p></li>
+<li><p>Provides a benchmark that includes a real-world, large-scale dataset from HKO, a new training loss, and a comprehensive evaluation protocol to facilitate future research.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong> Rain rate level converted from radar 2 km altitude CAPPI reflectivity with resolution of 480 x 480 pixels taken every 6 minutes using Z-R relationship.</p></li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Model Architecture:</strong> Trajectory Gated Unit, which has the ability of learning the recurrent connection structure.</p></li>
+<li><p><strong>Inputs and Outputs:</strong></p>
+<ul>
+<li><p>812 days for training, 50 days for validation and 131 days for testing.</p></li>
+<li><p>Two settings for evaluation:</p>
+<ul>
+<li><p>Offline: Receives 5 frames as input and predicts 20 frames ahead.</p></li>
+<li><p>Online: Receives segments of 5 lengths sequentially and predicts 20 frames ahead for each new segment received.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Loss functions:</strong> As different rainfall levels are highly imbalanced. They propose to use B-MSE and B-MAE, which are weighted loss functions to help solve this problem.</p></li>
+<li><p><strong>Models for comparison:</strong> Compared against two optical flow methods (ROVER and its nonlinear version) and four deep learning methods (ConvGRU, as well as 2D and 3D CNNs).</p></li>
+<li><p><strong>Evaluation metrics:</strong>  Critical success index (CSI) and Heidke Skill Score for multiple precipitation thresholds.</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>TranjGRU outperforms other methods in MovingMNIST++ and HKO datasets.</p></li>
+<li><p>All deep learning models outperform the optical flow based models.</p></li>
+<li><p>Performance with online fine-tuning enabled is consistently better than that without online fine-tuning.</p></li>
+<li><p>For the benchmark, the HKO-7 dataset, which contains radar echo data from 2009 to 2015 near Hong Kong was built.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Propose B-MSE and B-MAE for training and evaluation, which assign more weights to heavier rainfalls in the calculation of MSE and MAE. Balanced variants of loss functions are more consistent with overall nowcasting performance at multiple rain rate thresholds than original loss functions.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Nowcasting is treated as a video task and does not include information for new convection prediction.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Highlights the importance of balance loss functions to get better predictions of heavy precipitation events.</p></li>
+<li><p>Describes processing of radar files and emphasizes the importance of online fine-tuning.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-3-prediff-precipitation-nowcasting-with-latent-diffusion-models">
+<h3>Paper 3: PreDiff: Precipitation Nowcasting with Latent Diffusion Models<a class="headerlink" href="#paper-3-prediff-precipitation-nowcasting-with-latent-diffusion-models" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Gao et al. (2023)</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>Develop PreDiff, a conditional latent diffusion model (LDM) capable of probabilistic forecasts.</p></li>
+<li><p>Incorporate an explicit knowledge alignment mechanism to align forecasts with domain-specific physical constraints.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>Two datasets: N-body MNIST, a synthetic dataset with chaotic behavior, and SEVIR, a dataset that consists of 384 km x 384 km spanning over 4 hours. Images in SEVIR are sampled and aligned across three channels (C02, C09, C13) from the GOES-16 advanced baseline imager, NEXRAD Vertically Integrated Liquid (VIL) mosaics, and GOES-16 Geostationary Lightning Mapper (GLM) flashes.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Model Architecture:</strong> PreDiff has a general two-stage pipeline for training data.</p>
+<ul>
+<li><p>LDM for capturing intrinsic semantics in data. To capture Earth’s long-term and complex changes, they instantiate the LDM’s core neural network as a UNet-style architecture based on Earthformer.</p>
+<ul>
+<li><p>LDM adopts a two-phase training that leverages the benefits of lower-dimensional latent representations:</p>
+<ul>
+<li><p>Training frame-wise variational autoencoder (VAE) that encodes pixel space into a lower-dimensional latent space.</p></li>
+<li><p>Training a conditional DM that generates predictions in this acquired latent space.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Inject prior knowledge of the Earth system by training a knowledge alignment network that guides the sampling process of the LDM. The alignment network parameterizes an energy function that adjusts the transition probabilities during each denoising step.</p>
+<ul>
+<li><p><strong>Physical constraints:</strong> They impose the law of conservation of energy in N-body MNIST and anticipated precipitation intensity in SEVIR.</p></li>
+</ul>
+</li>
+<li><p>Training of the knowledge alignment network is independent of the LDM training.</p></li>
+</ul>
+</li>
+<li><p><strong>Inputs and outputs:</strong> The task is to predict the future VIL up to 60 minutes (6 frames) given 70 minutes of context VIL (7 frames) at a spatial resolution of 128 × 128.</p></li>
+<li><p><strong>Loss Functions:</strong> Combination of pixel-wise loss (MSE) and an adversarial loss for frame-wise autocencoder.</p></li>
+<li><p><strong>Evaluation Metrics:</strong></p>
+<ul>
+<li><p>MNIST Compared against seven deterministic models (UNet, ConvLSTM, PredRNN, PhyDNet, E3D-LSTM, Rainformer, and Earthformer) with standard metrics like MSE, MAE, SSIM, and scores of Fréchet Video Distance (FVD).</p></li>
+<li><p>SERVIR with CSI, FVD, continuos ranked probability score (CRPS)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>PreDiff with knowledge alignment substantially outperforms all baseline methods, and PreDiff without knowledge alignment</p></li>
+<li><p>Effective in handling uncertainty, incorporating domain-specific prior knowledge.</p></li>
+<li><p>The Nowcasting exhibit high operational utility.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Nowcasting with PreDiff exhibits high operational utility.</p></li>
+<li><p>Allows training lightweight knowledge alignment networks to explore various constraints and domain knowledge without the need for retraining the entire model.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Evaluation metrics and benchmark datasets for precipitation nowcasting are still maturing.</p></li>
+<li><p>Effective integration of physical principles and domain knowledge into DL models for precipitation nowcasting remains an active research area.</p></li>
+<li><p>Quality of data can limit the ability to capture the true distribution, resulting in unrealistic forecasts under the guidance of prior knowledge.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Represents a promising advance in knowledge-aligned DL for Earth system forecasting.</p></li>
+<li><p>Use a dataset that integrates different types of information.</p></li>
+<li><p>Emphasizes the importance of improving benchmarking.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-4-a-deep-learning-based-methodology-for-precipitation-nowcasting-with-radar">
+<h3>Paper 4: A Deep Learning-Based Methodology for Precipitation Nowcasting With Radar<a class="headerlink" href="#paper-4-a-deep-learning-based-methodology-for-precipitation-nowcasting-with-radar" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Chen et al. (2020)</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>A novel deep learning neural network is proposed for precipitation nowcasting.</p></li>
+<li><p>Group normalization is shown to be effective in training our model with high-resolution radar echo images.</p></li>
+<li><p>An appropriate loss function is used to improve the relevant prediction performance.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>Radar reflectivity from WSR-88D from October 2015 to July 2018 with a temporal resolution of approximately 6 minutes.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Model Arquitecture:</strong></p>
+<ul>
+<li><p>ConvLSTM with star-shaped bridge (SB) architecture to transfer information across time steps. SB adds more information from the last time step to make the feature flow in multilayer ConvLSTM more robust.</p></li>
+<li><p>The model includes Group Normalization (GN) applied on features.</p></li>
+</ul>
+</li>
+<li><p><strong>Evaluation metrics:</strong> Compared against COTREC and ConvLSTM with cross-entropy at the loss functions with special multisigmoid loss trat is regarded as the differentiable CSI.</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>The model achieves state-of-the-art performance.</p></li>
+<li><p>Effectiveness of using GN as the normalization layer for precipitation nowcasting using radar echo images.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Employ a special multisigmoid loss function as a simulation of CSI.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>The model suffers from a blurring effect, especially for longer future time steps. The more blurred the nowcasting, the more uncertainty of the system will grow with increasing lead time.</p></li>
+<li><p>Focused solely on radar-based approaches, limiting insights into multispectral data integration.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Highlights the importance of appropriate loss functions in precipitation nowcasting models.</p></li>
+<li><p>Introduce techniques to refine convergence performance in optimization for ConvLSTM.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-5-a-predrnn-a-recurrent-neural-network-for-spatiotemporal-predictive-learning">
+<h3>Paper 5: A PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning<a class="headerlink" href="#paper-5-a-predrnn-a-recurrent-neural-network-for-spatiotemporal-predictive-learning" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Wang et al. (2022)</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>Propose a recurrent network named PredRNN fir spatiotemporal predictive learning.</p></li>
+<li><p>Propose a new curriculum learning strategy named reverse scheduled sampling, which forces the encoding part of PredRNN to learn temporal dynamics from longer periods of the context frames.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong> Regarding nowcasting, a dataset containing 10,000 consecutive radar maps recorded every 6 minutes in Guangzhou, China, was used. Also, Moving MNIST, KTH, Traffic4Cast, and BAIR were used for different applications.</p></li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Model architecture:</strong></p>
+<ul>
+<li><p>Predictive Recurrent Neural Network (PredRNN)</p></li>
+<li><p>Spatiotemporal LSTM (ST-LSTM) serves as the building block of PredRNN. It leverages a pair of memory cells that are jointly learned and explicitly decoupled to cover long-term and short-term dynamics of spatiotemporal variations.</p></li>
+<li><p>PredRNN learns non-Markovian dynamics from longer periods of observation frames.</p></li>
+<li><p>Action conditioned PredRNN allows simulating the spatiotemporal variations of the environment in response to the actions of the agent in decision-making scenarios.</p></li>
+</ul>
+</li>
+<li><p><strong>Inputs and outputs:</strong> Data is transformed to a pixel value and represented as 128x128 grayscale images. The dataset was divided into 7800 sequences for training and 1800 sequences for testing. Each sequence contains 10 input frames and 10 output frames, covering the historical data for the past hour and for the future hour.</p></li>
+<li><p><strong>Loss functions:</strong> MSE and MAE.</p></li>
+<li><p><strong>Evaluation metrics:</strong> Compared against TrajGRU, ConvLSTM, and MIM using CSI computed at different reflectivity thresholds.</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>PredRNN significantly outperforms the other models in the visual quality of the generated future images. It makes more accurate predictions about the future.</p></li>
+<li><p>Achieves the best performance over all CSI thresholds.</p></li>
+<li><p>Achieves state-of-the-art performance on the synthetic and natural spatiotemporal datasets, including both action-free and action-conditioned predictive learning scenarios.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Improves the state transition functions of convolutional RNNs.</p></li>
+<li><p>Improves the training procedure to encourage the predictive network to learn non-Markovian dynamics from longer periods of observation frames.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Limitation in dealing with the special cases of the long-tail distribution of the dataset.</p></li>
+<li><p>Although PredRNN still achieves a better performance than the compared model in the forecast of future positions of the high-intensity areas, it cannot perfectly model the dynamics of the sparse echoes.</p></li>
+<li><p>Multi-property model, so it may not be optimized for precipitation nowcasting.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Provides an entire training scheme for, among other things, precipitation nowcasting.</p></li>
+<li><p>Highlights the importance of future research in mitigating the long-tail effect by explicitly considering complex physical properties and combining them with deep learning models.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-6-earthformer-exploring-space-time-transformers-for-earth-system-forecasting">
+<h3>Paper 6: Earthformer: Exploring Space-Time Transformers for Earth System Forecasting<a class="headerlink" href="#paper-6-earthformer-exploring-space-time-transformers-for-earth-system-forecasting" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Gao et al. (2022)</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>Introduced EarthTransformer, a space-time transformer for earth system forecasting.</p></li>
+<li><p>Based on a generic, flexible, and efficient space-time attention block named Cuboid Attention.</p></li>
+<li><p>Achieves significant performance on benchmarks about precipitation nowcasting and ENSO forecasting.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>MovingMNIST and a newly proposed chaotic dataset called N-body MNIST to verify the effectiveness of cuboid attention and figure out the best design of Earthformer.</p></li>
+<li><p>SEVIR and ICAR-ENSO for comparison with state-of-the-art models.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Model architecture:</strong></p>
+<ul>
+<li><p>Earthformer is a hierarchical transformer encoder-decoder based on Cuboid Attention. Input observations are encoded as a hierarchy of hidden states and then decoded to the prediction target.</p></li>
+<li><p>Generic cuboid attention layer that involves three steps: “decompose”, “attend”, and “merge”.</p></li>
+<li><p>Global Vectors to help cuboids scatter and gather crucial global information.</p></li>
+<li><p>Hierarchical Encoder-Decoder architecture that gradually encodes the input sequence to multiple levels of representations and generates the prediction via a coarse-to-fine procedure.</p></li>
+</ul>
+</li>
+<li><p><strong>Inputs and Outputs:</strong></p>
+<ul>
+<li><p>10,000 sequences, each one having 2 digits moving inside a 64 x 64 frame. The dataset is split into 8100 samples for training, 900 samples for validation, and 1000 samples for testing. The task is to predict the future 10 frames for each sequence conditioned on the first 10 frames.</p></li>
+<li><p>SERVIR precipitation nowcasting to predict the future VIL up to 60 minutes gives 65 minutes of context VIL.</p></li>
+</ul>
+</li>
+<li><p><strong>Feature Engineering:</strong> Data is normalized between the range 0 to 1.</p></li>
+<li><p><strong>Loss Function:</strong> MSE for training all models.</p></li>
+<li><p><strong>Evaluation metrics:</strong> MSE and CSI evaluated and compared against UNet, ConvLSTM, PredRNN, PhyDNet, E3D-LSTM, and Rainformer.</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>Able to more accurately predict the position of the digits with the help of global vectors on MovingMNIST.</p></li>
+<li><p>Earthformer achieved the best overall permormance on precipitation nowcasting with SEVIR data and ENSO forecasting with ICAR-ENSO data.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Global vectors bring consistent performance gain with negligible increase in computational cost.</p></li>
+<li><p>Using a hierarchical coarse-to-fine structure can boost the performance.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Earthformer is a deterministic model that does not model uncertainty.</p></li>
+<li><p>The model generates blurry predictions of low perceptual quality and is lacking of valuable small-scale details.</p></li>
+<li><p>The model is purely data-driven and does not take advantage of the physical knowledge of the earth system.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Highlights the lack of appropriate metrics that measure the uncertainty component in Earth system forecasting models</p></li>
+<li><p>Points out on adding physical constraints and ensembling the predictions from a data-driven model and a physics-based model.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methodology/Technique</p></th>
+<th class="head"><p>Key Strengths</p></th>
+<th class="head"><p>Key Limitations</p></th>
+<th class="head"><p>Example Papers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SB-ConvLSTM</p></td>
+<td><p>Robust loss function</p></td>
+<td><p>Blurring in longer future time steps</p></td>
+<td><p>Le Chen et al. (2020)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TrajGRU</p></td>
+<td><p>Skillful heavy rainfall event predictions</p></td>
+<td><p>Nowcasting is treated as a video task and does not include predictors of new convection</p></td>
+<td><p>Xingjian Shi et al. (2017)</p></td>
+</tr>
+<tr class="row-even"><td><p>Conditional GAN</p></td>
+<td><p>Fast and accurate location nowcasting</p></td>
+<td><p>Heavy precipitation at long lead times remains difficult</p></td>
+<td><p>Ravuri et al. (2021)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PredRNN</p></td>
+<td><p>Accurate predictions and visual quality</p></td>
+<td><p>Limitation in dealing with the special cases of the long-tail distribution</p></td>
+<td><p>Wang Y et al. (2022)</p></td>
+</tr>
+<tr class="row-even"><td><p>Earthformer</p></td>
+<td><p>Proficient prediction with low computational cost</p></td>
+<td><p>Blurry predictions and purely data-driven</p></td>
+<td><p>Gao et al. (2022)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PreDiff</p></td>
+<td><p>Allows constraints and domain knowledge</p></td>
+<td><p>Quality of data can limit the ability to capture the true distribution and lack of physical principles and domain knowledge</p></td>
+<td><p>Gao et al. (2023)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Combine multiple data resources to account for convection initiation.</p></li>
+<li><p>Lack of appropriate metrics that measure the uncertainty component in Earth system forecasting models</p></li>
+<li><p>Adding physical constraints and ensembling the predictions.</p></li>
+<li><p>Need of appropriate loss functions.</p></li>
+<li><p>Better predictions for extreme events.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Deep learning models demonstrate transformative potential in precipitation nowcasting by improving spatial and temporal consistency, handling imbalanced data, and leveraging probabilistic frameworks. However, current evaluation metrics are insufficient for comprehensive validation. There is a growing need for better benchmarks and verification protocols tailored to nowcasting models. Additionally, the paper review emphasizes the need to incorporate domain-specific physical constraints for realistic predictions, a feature still underexplored in many methods and quality high-resolution datasets.</p>
+<p>This area of research is very current and constantly improving, and advances in it can contribute to improved risk management and decision-making that will strengthen the region’s climate resilience.</p>
+</section>
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>How to integrate different data resources and fields into the deep learning algorithms.</p></li>
+<li><p>How to generate probabilistic predictions.</p></li>
+<li><p>What are the best evaluation metrics, and why are existing metrics not the most appropriate?</p></li>
+<li><p>Key differences between deep learning models.</p></li>
+<li><p>Which physical constraints are introduced to the models, and how to do it effectively?</p></li>
+<li><p>What is the best way to choose the input strategy?</p></li>
+<li><p>How to handle noise in radar fields.</p></li>
+<li><p>How to improve predictions of heavy precipitation.</p></li>
+<li><p>If each model has its strengths and limitations, how to define the operational utility?</p></li>
+<li><p>What are the future perspectives to improve models?</p></li>
+<li><p>What is the importance of threshold loss functions?</p></li>
+<li><p>What are the differences in performance resulting from different data transformations?</p></li>
+</ol>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Ravuri, S., Lenc, K., Willson, M. et al. Skilful precipitation nowcasting using deep generative models of radar. Nature 597, 672–677 (2021). <a class="reference external" href="https://doi.org/10.1038/s41586-021-03854-z">https://doi.org/10.1038/s41586-021-03854-z</a></p></li>
+<li><p>Shi, X., Gao, Z., Lausen, L., Wang, H., Wong, W., WOO, W., and Yeung, D. (2017). Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model. <a class="reference external" href="https://doi.org/10.48550/arXiv.1706.03458">https://doi.org/10.48550/arXiv.1706.03458</a></p></li>
+<li><p>Gao, Z., Shi, X., Wang, H., Zhu, Y., Wang, Y., Li, M., and Yeung, D. (2023). PreDiff: Precipitation Nowcasting with Latent Diffusion Models. <a class="reference external" href="https://doi.org/10.48550/arXiv.2307.10422">https://doi.org/10.48550/arXiv.2307.10422</a>.</p></li>
+<li><p>Chen, L., Cao, Y., Ma, L., &amp; Zhang, J. (2020). A deep learning-based methodology for precipitation nowcasting with radar. Earth and Space Science, 7, e2019EA000812. <a class="reference external" href="https://doi.org/10.1029/2019EA000812">https://doi.org/10.1029/2019EA000812</a>.</p></li>
+<li><p>Wang, Y., Wu, H., Zhang, J., Gao, Z., Wang, J., Yu, P., and Long, M. (2022) PredRNN: A recurrent neural network for spatiotemporal predictive learning. <a class="reference external" href="https://doi.org/10.48550/arXiv.2103.09504">https://doi.org/10.48550/arXiv.2103.09504</a>.</p></li>
+<li><p>Gao, Z., Shi, X., Han, B., Wang, H., Jin, X., Maddix, D., Zhu, Y., Wang, Y., Li, M., (2022). Earthformer: Exploring space-time transformers for earth system forecasting. <a class="reference external" href="https://doi.org/10.48550/arXiv.2207.05833">https://doi.org/10.48550/arXiv.2207.05833</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ChangeClimateForecasting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Change climate forecasting: Lierature Review</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-skillful-precipitation-nowcasting-using-deep-generative-models-of-radar">Paper 1: Skillful precipitation nowcasting using deep generative models of radar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-deep-learning-for-precipitation-nowcasting-a-benchmark-and-a-new-model">Paper 2: Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-prediff-precipitation-nowcasting-with-latent-diffusion-models">Paper 3: PreDiff: Precipitation Nowcasting with Latent Diffusion Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-a-deep-learning-based-methodology-for-precipitation-nowcasting-with-radar">Paper 4: A Deep Learning-Based Methodology for Precipitation Nowcasting With Radar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-a-predrnn-a-recurrent-neural-network-for-spatiotemporal-predictive-learning">Paper 5: A PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-earthformer-exploring-space-time-transformers-for-earth-system-forecasting">Paper 6: Earthformer: Exploring Space-Time Transformers for Earth System Forecasting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

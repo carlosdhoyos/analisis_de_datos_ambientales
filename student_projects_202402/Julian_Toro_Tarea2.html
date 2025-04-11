@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/Julian_Toro_Tarea2';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review" href="task_2_alejandro_betancur.html" />
+    <link rel="prev" title="Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review" href="dccruzs_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/Julian_Toro_Tarea2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/Julian_Toro_Tarea2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-the-self-organizing-map-a-new-approach-to-apprehend-the-maddenjulian-oscillation-influence-on-the-intraseasonal-variability-of-rainfall-in-the-southern-african-region">Paper 1: The self-organizing map, a new approach to apprehend the Madden–Julian oscillation influence on the intraseasonal variability of rainfall in the southern African region.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-a-sequential-autoencoder-for-teleconnection-analysis">Paper 2: A Sequential Autoencoder for Teleconnection Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-a-deep-learning-filter-for-the-intraseasonal-variability-of-the-tropics">Paper 3: A Deep Learning Filter for the Intraseasonal Variability of the Tropics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-using-simple-explainable-neural-networks-to-predict-the-madden-julian-oscillation">Paper 4: Using Simple, Explainable Neural Networks to Predict the Madden-Julian Oscillation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-machine-learning-prediction-of-the-madden-julian-oscillation">Paper 5: Machine learning prediction of the Madden-Julian oscillation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-interpretable-deep-learning-for-probabilistic-mjo-prediction">Paper 6: Interpretable Deep Learning for Probabilistic MJO Prediction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-for-intraseasonal-variability-detection-or-prediction-still-to-be-define-a-literature-review">
+<h1>Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review<a class="headerlink" href="#machine-learning-for-intraseasonal-variability-detection-or-prediction-still-to-be-define-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Intraseasonal variability (ISV) represents one of the most significant sources of climate variability,
+occurring on timescales ranging from 30 to 90 days,
+and profoundly influencing global weather patterns and regional extreme events.
+The Madden-Julian Oscillation (MJO) is one of the most prominent examples of ISV,
+driving planetary-scale interactions between tropical convection and atmospheric circulation.
+Traditional methods, such as statistical and dynamical models,
+have made significant progress in understanding and uncovering some of the mechanisms behind intraseasonal variability.
+However, recent advances in machine learning and artificial intelligence offer a novel approach to enhance the identification and prediction of intraseasonal phenomena like the MJO. These new algorithms and computational frameworks show promising results, achieving comparable or better performance with significantly reduced computational demands compared to traditional dynamical models.</p>
+<p>In this review, we explore machine learning techniques for teleconnection detection, starting with the use of self-organizing maps to identify the influence of the Madden-Julian Oscillation (MJO) on regions in Africa. The second approach highlights the Sequential Autoencoder for Teleconnection Analysis (SATA), a method designed to detect and extract intraseasonal variability (ISV) patterns. Lastly, we examine a deep learning filter based on convolutional neural networks, which is used to isolate ISV signals effectively.</p>
+<p>Additionally, we review methodologies for predicting future states of the MJO using artificial neural networks, convolutional neural networks, and probabilistic techniques. These approaches demonstrate promising results when compared to traditional dynamical models, offering improved efficiency and comparable predictive skill with less computational demand.</p>
+</section>
+<section id="paper-reviews">
+<h2>Paper Reviews<a class="headerlink" href="#paper-reviews" title="Link to this heading">#</a></h2>
+<section id="paper-1-the-self-organizing-map-a-new-approach-to-apprehend-the-maddenjulian-oscillation-influence-on-the-intraseasonal-variability-of-rainfall-in-the-southern-african-region">
+<h3>Paper 1: The self-organizing map, a new approach to apprehend the Madden–Julian oscillation influence on the intraseasonal variability of rainfall in the southern African region.<a class="headerlink" href="#paper-1-the-self-organizing-map-a-new-approach-to-apprehend-the-maddenjulian-oscillation-influence-on-the-intraseasonal-variability-of-rainfall-in-the-southern-african-region" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Pascal Oettli, Tomoki tozuka, Takeshi Izumo Francois A. Engelbrecht and Toshio Yamagata</p></li>
+<li><p><strong>Key Highlights:</strong>
+Looks to reduce high-dimensionality data st into a low dimensional version.
+SOM is not constrained by orthogonality and linearity, and for the applications
+described here, only bandpass ﬁltered OLRanomalies are needed, compared to ﬁltered OLR and zonal wind anomalies</p></li>
+<li><p><strong>Data Used:</strong> The 5-day version of the CPC merged analysis of precipitation
+(CMAP) dataset .
+The outgoing longwave radiation (OLR) MJO NOAA.
+The NOAA High-resolution Blended Analysis of Daily
+Sea Surface Temperature (SST) and Ice dataset</p></li>
+<li><p><strong>Methodology:</strong> Use Self organizin map: Classification is based on an unsupervised artificial neural network.
+Input: 2,190 vectors, made up of pentads of bandpass ﬁltered OLR for the period 1980–2009
+Output: Reference Vectors.
+Method requirers training.</p></li>
+<li><p><strong>Key Results:</strong> conﬁrmed the existence of a 10-day lag between
+the tropical forcing over the Indian Ocean and the response
+in both convection and rainfall in the SAR.
+demonstrated the apparent importance of the region 65E–85E/10S–
+10N for the rainfall in the SAR.</p></li>
+<li><p><strong>Strengths:</strong> The SOM is not constrained
+by orthogonality and linearity</p></li>
+<li><p><strong>Limitations:</strong> SOM applied on unﬁltered OLR
+anomalies tends to include non-MJO features inside MJO
+nodes, because of similar OLR pattern</p></li>
+<li><p><strong>Relevance:</strong> This method of Self organizing maps show capture patterns of MJO teleconnections. Article shows that SOM can distinguish patterns with weak and strong signals in convection.</p></li>
+</ul>
+</section>
+<section id="paper-2-a-sequential-autoencoder-for-teleconnection-analysis">
+<h3>Paper 2: A Sequential Autoencoder for Teleconnection Analysis<a class="headerlink" href="#paper-2-a-sequential-autoencoder-for-teleconnection-analysis" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Jiena He, J. Ronald Eastman</p></li>
+<li><p><strong>Key Highlights:</strong>
+introduces a novel, efficient method to extract teleconnection patterns by iteratively isolating spatial-temporal modes through residual analysis.
+Faster than traditional methods like empirical orthogonal teleconnections (EOT) and principal component analysis (PCA).
+SATA handles teleconnections with multiple centers of action.
+The method is transparent and reproducible.</p></li>
+<li><p><strong>Data Used:</strong> Interpolated monthly sea surface temperature imagery at a 1 degree
+resolution
+Resolution: 1° spatial resolution, processed as anomalies standardized over time
+Projection: Mollweide projection ensures equal area weighting across pixels</p></li>
+<li><p><strong>Methodology:</strong> Uses Autoencoder with hidden layers.
+Input: Time series of images and weights
+Output: an image which is a function of the
+decoder weights and the scalar value of the hidden node vector at each time step</p></li>
+<li><p><strong>Key Results:</strong>  Correlation with Climate Indices: SATA components achieved higher correlations with established teleconnection indices (e.g., Oceanic Niño Index, Atlantic Multidecadal Oscillation) compared to EOT.
+New Teleconnections: SATA identified patterns such as the Antarctic Dipole (ADI) and South Atlantic Ocean Dipole (SAOD), not detected by EOT in the first 10 components.
+Efficiency in Pattern Extraction: SATA captures deep residuals, such as the Pacific Meridional Mode (PMM), even at the 9th or 10th component.</p></li>
+<li><p><strong>Strengths:</strong> The SATA method is significantly faster than empirical orthogonal teleconnections (EOT) and principal components analysis (PCA), achieving results in orders of magnitude less time.
+Improved Pattern Detection: SATA identifies teleconnection patterns with stronger correlations to known climate indices and can effectively handle multiple centers of action.
+Dimensionality Reduction: Uses a linear autoencoder to reduce the data dimensionality while retaining meaningful temporal-spatial patterns.
+Reproducibility: The methodology and code are openly available, ensuring transparency and usability.</p></li>
+<li><p><strong>Limitations:</strong> SATA relies heavily on correlation for identifying key patterns. This focus could make it sensitive to noise or non-linear relationships that might exist but are not captured by simple linear correlation.</p></li>
+<li><p><strong>Relevance:</strong> Enhancing Climate Pattern Understanding: By extracting clearer and more accurate teleconnection patterns, it aids in understanding global climate dynamics
+SATA is suitable for analyzing large, complex datasets common in climate and remote sensing studies, making it a valuable tool for researchers.
+The speed and simplicity of the method make it accessible for broader use, including real-time climate monitoring and modeling.</p></li>
+</ul>
+</section>
+<section id="paper-3-a-deep-learning-filter-for-the-intraseasonal-variability-of-the-tropics">
+<h3>Paper 3: A Deep Learning Filter for the Intraseasonal Variability of the Tropics<a class="headerlink" href="#paper-3-a-deep-learning-filter-for-the-intraseasonal-variability-of-the-tropics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Cristiana Stan, Rama Sesha Sridhar Mantripragada</p></li>
+<li><p><strong>Key Highlights:</strong>
+High Agreement with Conventional Filters:
+Index of Agreement (IOA) of 95–99% with Lanczos-filtered results.
+Retains variability within the 30–90-day range with minimal spurious frequencies.
+Accurately extracts MJO signals, outperforming proxy methods, and improves phase and amplitude consistency.</p></li>
+<li><p><strong>Data Used:</strong>
+Wind stress: Blended Sea Winds (1988–2016) and Advanced Scatterometer.
+Daily means of NOAA interpolated OLR</p></li>
+<li><p><strong>Methodology:</strong>
+Two convolutional layers with kernel sizes 90 and 30 days.
+Extracts intraseasonal variability progressively by filtering variability above 90 days and isolating 30–90-day variability.
+input: Time series and weights</p></li>
+<li><p><strong>Key Results:</strong><br />
+Accurately extracts MJO signals, outperforming proxy methods, and improves phase and amplitude consistency.
+Low mean error and standard deviation, especially beyond the start of the testing period.
+Retains variability within the 30–90-day range with minimal spurious frequencies.</p></li>
+<li><p><strong>Strengths:</strong><br />
+Introduces a CNN-based filter that efficiently extracts intraseasonal variability (ISV) signals in the 30–90-day range.
+Versatile application to different atmospheric fields, including zonal wind stress and outgoing longwave radiation (OLR).
+Outperforms conventional filters (e.g., Lanczos) on shorter time series, which are common in operational forecasting.
+Produces physically interpretable outputs, maintaining coherence with known patterns like the Madden-Julian Oscillation (MJO).</p></li>
+<li><p><strong>Limitations:</strong>
+requires adequate training data to achieve high accuracy
+small reduction in accuracy at the beginning and end of the time series
+The CNN filter is constrained by the kernel sizes used
+overfitting remains a common concern in deep learning approaches.
+does not consider spatial pattern information</p></li>
+<li><p><strong>Relevance:</strong>
+Better suited for real-time monitoring of tropical intraseason variability signals.
+Supports analysis of tropical-extratropical teleconnections and MJO-related weather phenomena.
+Could be adapted for even shorter S2S forecasts, further enhancing operational prediction systems.</p></li>
+</ul>
+</section>
+<section id="paper-4-using-simple-explainable-neural-networks-to-predict-the-madden-julian-oscillation">
+<h3>Paper 4: Using Simple, Explainable Neural Networks to Predict the Madden-Julian Oscillation<a class="headerlink" href="#paper-4-using-simple-explainable-neural-networks-to-predict-the-madden-julian-oscillation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Zane K.Martin, Elizabeth A. Barnes and Eric Maloney</p></li>
+<li><p><strong>Key Highlights:</strong>
+ANNs outperform traditional statistical models.
+Provides Computationally affordable alternative to complex dynamical models.</p></li>
+<li><p><strong>Data Used:</strong>
+Real time multivariate MJO index.
+Zonal winds at 850hPa and 200 hPa
+OLR data from NOAA
+NOAA OI SST V2 High Resolution data set
+ERA data at 2.5 X 2.5</p></li>
+<li><p><strong>Methodology:</strong>
+Artificial Neural Networks one regression model and a classification model.
+Regression ANN: Predicts MJO indices (RMM1 and RMM2) at specific lead times.
+Classification ANN: Outputs the probability of the MJO being active in a specific phase.
+Inputs: OLR, zonal winds at 850hPa and 200hPa. Processed daily maps.
+output: Models returns information about the RMM index in the future.</p></li>
+<li><p><strong>Key Results:</strong><br />
+Winter: Predicts MJO skillfully for ~18 days using regression models and ~16 days probabilistically.
+Summer: Predicts MJO for ~11 days, with better performance than traditional statistical models.
+ANNs outperformed persistence, vector autoregressive (VAR), and multi-linear regression (MLR) models, especially at longer lead times.</p></li>
+<li><p><strong>Strengths:</strong><br />
+Simplicity and Efficiency: Implements shallow artificial neural networks (ANNs) that are computationally inexpensive compared to dynamical models.
+Utilizes explainable AI (XAI) techniques like layer-wise relevance propagation (LRP) to identify the key regions and variables influencing prediction skill.
+Demonstrates that simple machine learning (ML) models can achieve results comparable to more complex frameworks, encouraging adoption in the climate community.</p></li>
+<li><p><strong>Limitations:</strong>
+achieve prediction skill up to ~18 days in winter and ~11 days in summer,
+which is significantly shorter than the ~25–35 days typical of state-of-the-art dynamical models.
+architectures struggle to accurately predict weak MJO events.
+cannot directly capture MJO strength or location as precisely as regression models.</p></li>
+<li><p><strong>Relevance:</strong>
+Demonstrates the potential of ML for improving subseasonal-to-seasonal (S2S) MJO predictions.
+The framework can be applied to study other Earth system phenomena beyond the MJO.</p></li>
+</ul>
+</section>
+<section id="paper-5-machine-learning-prediction-of-the-madden-julian-oscillation">
+<h3>Paper 5: Machine learning prediction of the Madden-Julian oscillation<a class="headerlink" href="#paper-5-machine-learning-prediction-of-the-madden-julian-oscillation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Riccardo Silini, Marcelo Barreiro and Cristina Masoller.</p></li>
+<li><p><strong>Key Highlights:</strong>
+found a prediction skill of 26–27 days, which is comparable to most dynamical
+models.
+major advantage of the ANNs considered is that they are
+computationally low-cost</p></li>
+<li><p><strong>Data Used:</strong>
+Real time multivariate MJO index.
+Zonal winds at 850hPa and 200 hPa
+OLR data from NOAA</p></li>
+<li><p><strong>Methodology:</strong>
+Artificial Neural Networks
+Feed forward Neural network
+Autoregressive recurrent neural network.</p></li>
+<li><p><strong>Key Results:</strong><br />
+Acceptable prediction of the RMM phase compare to dynamical models
+large variability in prediction skills in boreal winter and fall
+most difficult conditions to predict MJO is in boreal fall
+when the initial MJO phase is phase 1</p></li>
+<li><p><strong>Strengths:</strong><br />
+Implements artificial neural networks (ANNs) that are computationally inexpensive compared to dynamical models.
+the very own nature of ANNs preclude the understanding of the physical processes involved and thus they represent a complementary approach with dynamical models</p></li>
+<li><p><strong>Limitations:</strong>
+ANN prediction skill is not comparable to dynamical models
+poor prediction of the RMM amplitude, which was systematically underestimated.</p></li>
+<li><p><strong>Relevance:</strong>
+Use of low computational cost methods to generate relevant predictions in the phase and amplitude of the MJO. Where the phase prediction showed well behaviour.</p></li>
+</ul>
+</section>
+<section id="paper-6-interpretable-deep-learning-for-probabilistic-mjo-prediction">
+<h3>Paper 6: Interpretable Deep Learning for Probabilistic MJO Prediction<a class="headerlink" href="#paper-6-interpretable-deep-learning-for-probabilistic-mjo-prediction" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Antoine Delaunay and  Hannah M. Christensen</p></li>
+<li><p><strong>Key Highlights:</strong>
+CNN spreads are correlated with actual forecast errors, unlike many dynamical models.
+CNNs complement dynamical models, with potential for hybrid approaches to further improve MJO forecasting.</p></li>
+<li><p><strong>Data Used:</strong>
+Daily anomalies of outgoing longwave radiation (OLR),
+zonal wind (850 hPa and 200 hPa),
+specific humidity (400 hPa),
+and sea surface temperature (SST).</p></li>
+<li><p><strong>Methodology:</strong>
+Convolutional neural network.
+Input: Maps of six atmospheric variables over the tropics.
+Outputs: Predicted means and variances of real-time multivariate MJO (RMM) indices (RMM1 and RMM2).</p></li>
+<li><p><strong>Key Results:</strong><br />
+probabilistic forecasts outperform traditional models in reliability and calibration, especially for short lead times.
+Stronger initial MJO signals correspond to higher forecast uncertainty, linked to variability in the Walker Circulation.</p></li>
+<li><p><strong>Strengths:</strong><br />
+The convolutional neural network (CNN) dynamically adjusts forecast uncertainty based on the predictability of the Madden-Julian Oscillation (MJO) under given conditions.
+The CNN is as skillful as state of the art dynamical models from the Subseasonal-to-Seasonal (S2S) database, with superior probabilistic reliability at short lead times (1–5 days).</p></li>
+<li><p><strong>Limitations:</strong>
+The CNNs uncertainty estimates might be less reliable during rare or extreme MJO events, as such conditions are underrepresented in the training data.
+The study emphasizes 10-day forecasts, and the conclusions regarding predictability might differ for longer lead times, where different features and uncertainties could dominate.</p></li>
+<li><p><strong>Relevance:</strong>
+The framework can be extended to other climate phenomena, improving Earth system predictability.
+The models ability to adjust uncertainty dynamically provides actionable insights for probabilistic MJO forecasts.</p></li>
+</ul>
+</section>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methodology/Technique</p></th>
+<th class="head"><p>Key Strengths</p></th>
+<th class="head"><p>Key Limitations</p></th>
+<th class="head"><p>Example Papers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Self organizing map</p></td>
+<td><p>is not constrained by orthogonality and linearity</p></td>
+<td><p>applied on unﬁltered OLR anomalies tends to include non-MJO features inside MJO nodes</p></td>
+<td><p>Oettli et al.(2013)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Autoencoder with hidden layers</p></td>
+<td><p>identifies teleconnection patterns with stronger correlations to known climate indices</p></td>
+<td><p>relies heavily on correlation for identifying key patterns</p></td>
+<td><p>He et al.(2020)</p></td>
+</tr>
+<tr class="row-even"><td><p>Two convolutional layers</p></td>
+<td><p>efficiently extracts intraseasonal variability (ISV) signals in the 30–90-day range</p></td>
+<td><p>filter is constrained by the kernel sizes</p></td>
+<td><p>Stan et al.(2023)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Artificial Neural Networks</p></td>
+<td><p>computationally inexpensive compared to dynamical models</p></td>
+<td><p>Has limitations for long-range forecasts (25-35 días)</p></td>
+<td><p>Martin et al.(2022)</p></td>
+</tr>
+<tr class="row-even"><td><p>Artificial Neural Networks</p></td>
+<td><p>complementary approach with dynamical models</p></td>
+<td><p>poor prediction of the RMM amplitude</p></td>
+<td><p>Silini et al.(2021)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convolutional neural network</p></td>
+<td><p>probabilistic reliability at short lead times (1–5 days)</p></td>
+<td><p>estimates might be less reliable during rare or extreme MJO events</p></td>
+<td><p>Delaunay et al.(2021)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use of simple ANN can be used not only for predictions but for hypothesis testing.</p></li>
+<li><p>Use of filters like the CNN in the extraction of signals from S2S forecast models which are shorter than 45 days.</p></li>
+<li><p>Improvement in code availability for replication of models.</p></li>
+<li><p>Usage of Machine learning techniques that are more robust in capturing signals that EOT analysis.</p></li>
+<li><p>Use of deep learning and Neural networks for the detection of signals in different time scales.</p></li>
+<li><p>MJO prediction skill could be potentially improved by training the ANNs independently for each season.</p></li>
+<li><p>Use of Artificial neural network alongside dynamical models could improve forecast.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>With the rise of new algorithms and techniques based on artificial intelligence and machine learning, we are witnessing more robust and precise methods to detect and extract patterns that were previously challenging for traditional decomposition approaches. In this review, we examined various machine learning techniques for identifying and extracting teleconnection patterns on intraseasonal timescales. For instance, the use of convolutional neural networks (CNNs), as demonstrated by Stan et al. (2023), has shown notable improvements in representing Madden-Julian Oscillation (MJO) signals by retaining signal coherence.</p>
+<p>Moreover, the application of CNNs and artificial neural networks (ANNs) has yielded promising results in forecasting the MJO over short periods. The key advantage of these models lies in their low computational requirements compared to traditional dynamical models. However, these methods still require further refinement, as their accuracy does not yet match that of dynamical models. Some studies have suggested that combining machine learning approaches with traditional dynamical models could lead to more robust and reliable results.</p>
+<p>The approaches presented in this review, both for signal detection and MJO prediction, are particularly relevant to this semester’s research. In the case of teleconnections, the use of convolutional neural networks appears to be a compelling avenue to explore, as it aligns with current research efforts, offers general applicability, and can be readily replicated. On the other hand, the work of Martin et al. (2022) provides an excellent starting point for utilizing ANNs in forecasting, making it a promising tool for further investigation.</p>
+</section>
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<p>This section identifies critical questions that guide understanding of the methodologies and machine learning (ML) techniques used in the reviewed papers. It covers aspects such as data preparation, model design, training processes, evaluation metrics, reproducibility, and practical applications. The purpose is to highlight areas where additional clarity or details are needed to replicate or extend the research, especially for those less familiar with the technical intricacies.</p>
+<ol class="arabic simple">
+<li><p>Why we use band filtered data for some methodologies?</p></li>
+<li><p>What is the Kernel and what process performs for the ANN or CNN?</p></li>
+<li><p>Differences between Artificial neural networks and Convolutional Neural Networks?</p></li>
+<li><p>How do we evaluate model performance?</p></li>
+<li><p>Are there different loss functions and how do they work?</p></li>
+<li><p>How do you determine which neural network architecture to use?</p></li>
+<li><p>In which cases does the data require preprocessing?</p></li>
+<li><p>What kind of computational power does it takes to run this models?</p></li>
+<li><p>How can one determine if the extracted signals are relevant?</p></li>
+<li><p>Are the models sensitive to grid size?</p></li>
+</ol>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Oettli, P., Tozuka, T., Izumo, T., Engelbrecht, F. A., &amp; Yamagata, T. (2014). The self-organizing map, a new approach to apprehend the Madden–Julian oscillation influence on the intraseasonal variability of rainfall in the southern African region. Climate dynamics, 43, 1557-1573.</p></li>
+<li><p>Martin, Z. K., Barnes, E. A., &amp; Maloney, E. (2022). Using simple, explainable neural networks to predict the Madden‐Julian oscillation. Journal of Advances in Modeling Earth Systems, 14(5), e2021MS002774.</p></li>
+<li><p>Stan, C., &amp; Mantripragada, R. S. S. (2023). A deep learning filter for the intraseasonal variability of the tropics. Artificial Intelligence for the Earth Systems, 2(4), e220079.</p></li>
+<li><p>He, J., &amp; Eastman, J. R. (2020). A sequential autoencoder for teleconnection analysis. Remote Sensing, 12(5), 851.</p></li>
+<li><p>Delaunay, A., &amp; Christensen, H. M. (2022). Interpretable deep learning for probabilistic MJO prediction. Geophysical Research Letters, 49(16), e2022GL098566.</p></li>
+<li><p>Silini, R., Barreiro, M., &amp; Masoller, C. (2021). Machine learning prediction of the Madden-Julian oscillation. npj Climate and Atmospheric Science, 4(1), 57.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dccruzs_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="task_2_alejandro_betancur.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-the-self-organizing-map-a-new-approach-to-apprehend-the-maddenjulian-oscillation-influence-on-the-intraseasonal-variability-of-rainfall-in-the-southern-african-region">Paper 1: The self-organizing map, a new approach to apprehend the Madden–Julian oscillation influence on the intraseasonal variability of rainfall in the southern African region.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-a-sequential-autoencoder-for-teleconnection-analysis">Paper 2: A Sequential Autoencoder for Teleconnection Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-a-deep-learning-filter-for-the-intraseasonal-variability-of-the-tropics">Paper 3: A Deep Learning Filter for the Intraseasonal Variability of the Tropics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-using-simple-explainable-neural-networks-to-predict-the-madden-julian-oscillation">Paper 4: Using Simple, Explainable Neural Networks to Predict the Madden-Julian Oscillation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-machine-learning-prediction-of-the-madden-julian-oscillation">Paper 5: Machine learning prediction of the Madden-Julian oscillation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-interpretable-deep-learning-for-probabilistic-mjo-prediction">Paper 6: Interpretable Deep Learning for Probabilistic MJO Prediction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,934 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Task 2: Review of Key Papers &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/task_2';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Review de Técnicas de Forecasting de Precipitación" href="Forecasting_Precipitation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Task 2: Review of Key Papers</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/task_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/task_2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Task 2: Review of Key Papers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-oscar-sanchez">Student: Oscar Sanchez</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-adopting-the-margin-of-stability-for-spacetime-landslide-prediction-a-data-driven-approach-for-generating-spatial-dynamic-thresholds">Paper 1: Adopting the margin of stability for space–time landslide prediction – A data-driven approach for generating spatial dynamic thresholds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-developing-real-time-nowcasting-system-for-regional-landslide-hazard-assessment-under-extreme-rainfall-events">Paper 2: Developing Real-Time Nowcasting System for Regional Landslide Hazard Assessment under Extreme Rainfall Events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-towards-landslide-space-time-forecasting-through-machine-learning-the-influence-of-rainfall-parameters-and-model-setting">Paper 3: Towards landslide space-time forecasting through machine learning: the influence of rainfall parameters and model setting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-regional-scale-spatiotemporal-landslide-probability-assessment-through-machine-learning-and-potential-applications-for-operational-warning-systems-a-case-study-in-kvam-norway">Paper 4: Regional-scale spatiotemporal landslide probability assessment through machine learning and potential applications for operational warning systems: a case study in Kvam (Norway)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-an-ensemble-neural-network-approach-for-space-time-landslide-predictive-modelling">Paper 5: An ensemble neural network approach for space-time landslide predictive modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-from-spatio-temporal-landslide-susceptibility-to-landslide-risk-forecast">Paper 6: From spatio-temporal landslide susceptibility to landslide risk forecast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-7-speech-recognition-in-landslide-predictive-modelling-a-case-for-a-next-generation-early-warning-system">Paper 7: Speech-recognition in landslide predictive modelling: A case for a next generation early warning system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-8-space-time-modeling-of-landslide-size-by-combining-static-dynamic-and-unobserved-spatiotemporal-factors">Paper 8: Space-time modeling of landslide size by combining static, dynamic, and unobserved spatiotemporal factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-9-landslide-hazard-spatiotemporal-prediction-based-on-data-driven-models-estimating-where-when-and-how-large-landslide-may-be">Paper 9: Landslide hazard spatiotemporal prediction based on data-driven models:Estimating where, when and how large landslide may be</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="task-2-review-of-key-papers">
+<h1>Task 2: Review of Key Papers<a class="headerlink" href="#task-2-review-of-key-papers" title="Link to this heading">#</a></h1>
+<section id="student-oscar-sanchez">
+<h2>Student: Oscar Sanchez<a class="headerlink" href="#student-oscar-sanchez" title="Link to this heading">#</a></h2>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>A landslode is defined as the displacement of a mass of soil, vegetation, rock, debris, or a mixture of these materials that slides along a slope [1]. When these events occur near inhabited areas, they become one of the most frequent and devastating natural hazards, causing thousands of casualties and significant economic losses each year [2]. According to Gómez (2023)[3], 61% of mass movements that have resulted in fatalities are primarily triggered by rainfall. Thus, precipitation becomes one of the most common and essential factors in understanding the occurrence of this phenomenon [4,5,6].</p>
+<p>In Colombia, a specific and detailed methodology for implementing a daily-scale model to provide an overview of critical areas prone to landslides in a specific region has not yet been established. Although studies on the subject have been conducted in the Aburrá Valley and other parts of the country, the relationship between rainfall conditions and landslides remains insufficiently explored [7].</p>
+<p>This gap motivates the present research, which aims to analyze and understand the variables influencing the occurrence of landslides, particularly their spatial and temporal variations, with a focus on rainfall.  This study seeks to utilize machine learning or AI models to establish a predictive model for landslide probability based on prior days’ rainfall. This understanding enables the development of models or methodologies that, when integrated into an early warning system, can identify critical areas and serve as essential tools for decision-making. As a first step, a comprehensive literature review was conducted on research focused on establishing spatio-temporal analyses of landslides occurrence through various machine learning models.</p>
+</section>
+<section id="paper-1-adopting-the-margin-of-stability-for-spacetime-landslide-prediction-a-data-driven-approach-for-generating-spatial-dynamic-thresholds">
+<h2>Paper 1: Adopting the margin of stability for space–time landslide prediction – A data-driven approach for generating spatial dynamic thresholds<a class="headerlink" href="#paper-1-adopting-the-margin-of-stability-for-spacetime-landslide-prediction-a-data-driven-approach-for-generating-spatial-dynamic-thresholds" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Authors:</strong> Stefan Steger et al.</p></li>
+<li><p><strong>Year</strong>: 2024</p></li>
+<li><p><strong>Key Highlights:</strong> The main aim of this research is to generate a dynamic spatial landslide initiation model that operates at a daily scale and explicitly counteracts potential errors in the available landslide data.</p></li>
+<li><p><strong>Study area:</strong> Northern Italy, in the province of Bolzano – South Tyrol, covers an area of 7.400 km². The region’s elevation ranges from 200 up to 3.900 m a.s.l. Mean annual precipitation ranging from about 600 mm in the lower-lying west to more than 1.500 mm in the higher-lying parts in the north and northeast.</p></li>
+<li><p><strong>Data used:</strong></p>
+<ul class="simple">
+<li><p><em><strong>Landslide inventory:</strong></em> 555 records of rain-induced landslides with their occurrence dates between 2000 and 2020. They exhibit a spatial bias, as they systematically reflect damage-causing slope instabilities while underrepresenting landslides in remote and high-altitude locations.</p></li>
+<li><p><em><strong>Variables representing landslide predisposition:</strong></em> Morphometric variables derived from a 30 m DEM include: <strong>slope angle</strong>, <strong>slope aspect</strong>, <strong>normalized relative height index</strong>, <strong>convergence index</strong>, <strong>forest cover map</strong>, <strong>lithology</strong>, and <strong>mean annual precipitation</strong>. The categorical variable <strong>LOC_ID</strong> identifies each unique location where landslides have been recorded.</p></li>
+<li><p><em><strong>Variables representing dynamic landslide controls:</strong></em> Gridded daily precipitation data  derived from meteorological stations with a cell size of 250 m  was used: <strong>Triggering precipitation (T)</strong>, which represents the cumulative amount of precipitation that fell shortly before and on the observation day, and <strong>preparatory precipitation (P)</strong>, which describes the antecedent cumulative precipitation for a specific time period before T. <strong>T</strong>: day 0 to day 5 and <strong>P</strong> day 1 to day 30. Seasonal effects that cannot be explained by the two precipitation variables were assessed using a <strong>day-of-the-year variable (DOY)</strong>. An additional variable <strong>YEAR</strong> was used as a random effect to isolate data variability related to a potential bias across years in landslide recording.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodology:</strong></p>
+<p><img alt="Figura 1: General research methodology." src="../_images/methods_paper1.PNG" /></p>
+<p><strong>1. Masking and data sampling:</strong></p>
+<ul class="simple">
+<li><p>A characteristic area was selected where the majority of landslide records are present, and areas without records and flat regions were excluded.</p></li>
+<li><p>Random absence points for landslides were chosen at a minimum distance of 150 meters, and multiple random days were selected for each absence location, ensuring a balanced representation across different years and months. In total, there are 555 landslide presences compared to 1,808 absences.</p></li>
+<li><p>A minimum temporal gap of 30 days between observations of the same location was imposed, and all observations, whether of the presence or absence of landslides, with precipitation levels &lt; 1.1 mm on the observation day or the day before were excluded from the analysis.</p></li>
+</ul>
+<p><strong>2. Generalized Additive Mixed model and variable selection:</strong></p>
+<ul>
+<li><p><strong>What is GAMM?</strong>
+A <strong>GAMM</strong> combines features of <strong>Mixed Models</strong> and <strong>Generalized Additive Models (GAM)</strong>, enabling the analysis of complex data by handling:</p>
+<ul class="simple">
+<li><p><strong>Fixed and Random Effects:</strong> Captures both systematic and random variations in the data.</p></li>
+<li><p><strong>Non-Linear Relationships:</strong> Models complex interactions between independent and dependent variables using smooth functions.</p></li>
+<li><p><strong>Nested or Grouped Data:</strong> Ideal for hierarchical or spatial-temporal data structures.</p></li>
+</ul>
+<p><strong>General Formula of a GAMM</strong></p>
+<p>The general formula of a GAMM is:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(\mathbb{E}[Y_i]) = \beta_0 + f_1(X_{1i}) + f_2(X_{2i}, X_{3i}) + \dots + Z_i b + \epsilon_i
+    \]</div>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\( Y_i \)</span>:</strong> Dependent (response) variable for observation <span class="math notranslate nohighlight">\( i \)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( g \)</span>:</strong> Link function connecting the mean of <span class="math notranslate nohighlight">\( Y \)</span> to the model’s linear predictions.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \mathbb{E}[Y_i] \)</span>:</strong> Expected value of <span class="math notranslate nohighlight">\( Y_i \)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \beta_0 \)</span>:</strong> Model intercept.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( f_1(X_{1i}), f_2(X_{2i}, X_{3i}), \dots \)</span>:</strong> Smooth functions capturing non-linear relationships between predictors <span class="math notranslate nohighlight">\( X \)</span> and the response <span class="math notranslate nohighlight">\( Y \)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( Z_i b \)</span>:</strong> Random effects term, where <span class="math notranslate nohighlight">\( Z_i \)</span> is the design matrix for random effects and <span class="math notranslate nohighlight">\( b \)</span> are the random coefficients.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\( \epsilon_i \)</span>:</strong> Random error term.</p></li>
+<li><p><strong>Smooth Functions:</strong> Allow flexible modeling of non-linear patterns without specifying a particular functional form.</p></li>
+<li><p><strong>Random Effects:</strong> Account for variability across different groups or clusters in the data, such as locations or time periods.</p></li>
+<li><p><strong>Link Function:</strong> Connects the linear predictor to the mean of the response variable, suitable for different types of data (e.g., logistic for binary outcomes).</p></li>
+</ul>
+</li>
+<li><p><strong>Variable Selection in GAMM Through Two Steps</strong></p>
+<ul class="simple">
+<li><p><strong>First Step: Double Penalty Approach:</strong> A double penalty approach is employed consisting of two types of penalties:</p>
+<ul>
+<li><p><strong>Wiggliness Penalty:</strong></p></li>
+<li><p><strong>Function:</strong> Controls how “wiggly” or flexible the smooth function can be that models the relationship between an independent variable and the dependent variable.</p></li>
+<li><p><strong>Shrinkage Penalty:</strong></p></li>
+<li><p><strong>Function:</strong> Reduces the influence of less important variables in the model by “shrinking” their coefficients towards zero.</p></li>
+<li><p><strong>Benefits:</strong></p>
+<ul>
+<li><p>Selects relevant variables.</p></li>
+<li><p>Prevents overfitting.</p></li>
+<li><p>Both penalties are applied iteratively to construct a balanced and efficient model.</p></li>
+<li><p><strong>Application of Penalties:</strong></p></li>
+<li><p><strong>Wiggliness Penalty:</strong> Applied to smooth functions to control their flexibility.</p></li>
+<li><p><strong>Shrinkage Penalty:</strong> Applied to the coefficients of variables to diminish the impact of less important ones.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Second Step: Validation of the T-P Temporal Window</strong></p>
+<ul>
+<li><p><strong>Cross-Validation:</strong> The dataset is divided into parts to repeatedly test the model. Ensures the model performs well across different scenarios.</p></li>
+<li><p><strong>Grid-Search:</strong> Tests different combinations of T and P to identify the most effective pair.</p></li>
+<li><p><strong>Iteration:</strong> The steps are repeated until the selected variables stabilize and no longer change in subsequent iterations.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Evaluation and visualization of modelled relationships:</strong></p>
+<ul class="simple">
+<li><p><strong>Inter-variable:</strong> The importance of different variables in the model is analyzed using <strong>Deviance Explained</strong>, a measure that indicates how well the model fits the data. This is done by comparing the full model, which includes all variables, with reduced models that exclude one variable at a time. If removing a variable significantly decreases the Deviance Explained, that variable is deemed highly important for the model.</p></li>
+<li><p><strong>Intra-variable:</strong> <strong>Contour Plots</strong> illustrate how the probability of landslides changes when two variables are adjusted simultaneously. These plots help in understanding how different combinations of variables influence the occurrence of landslides.</p></li>
+</ul>
+<p><strong>4. Calculation of model performance threshold-building and dynamic maps:</strong>
+The models were evaluated using the calculation of the AUROC curve and cross-validation. This approach was utilized to select the pair of antecedent rainfall days that best fit the data and to establish different rainfall thresholds. Cross-validation was implemented in three forms:</p>
+<ul class="simple">
+<li><p><strong>Random Cross-Validation:</strong> The data were randomly divided into multiple subsets.Created 50 random partitions, each consisting of 5 subsets with 10 repetitions each.</p></li>
+<li><p><strong>Temporal Cross-Validation:</strong> The data were split based on time. Conducted both annual and monthly partitions, systematically leaving out single time units during model training and testing the model’s performance on these excluded periods.</p></li>
+<li><p><strong>Spatial Cross-Validation:</strong> The data were divided according to their geographical locations. Used the k-means clustering method with 𝑘=10 to create spatial clusters. Subsequently, the study area was divided into four main geographical zones (North, West, East, South), and cross-validation was applied to each of these zones.</p></li>
+</ul>
+</li>
+<li><p><strong>Key results:</strong></p>
+<ul class="simple">
+<li><p><strong>Variable importance and modelled relationships</strong></p>
+<ul>
+<li><p>Short-term precipitation (T) was found to be the most important variable in explaining landslide occurrence, followed by slope angle and forest cover.</p></li>
+<li><p>Dynamic variables (precipitation) were generally more important than static predisposition factors in the model.</p></li>
+<li><p>Landslide occurrence probability was found to be higher in typically drier areas for the same precipitation event, supporting the concept of landscape equilibrium.</p></li>
+<li><p>During summer, more rainfall was required to trigger landslides compared to winter/spring due to higher evapotranspiration and vegetation effects.</p></li>
+</ul>
+</li>
+<li><p><strong>Model Performance:</strong></p>
+<ul>
+<li><p>AUROC Score: The model had a high AUROC of 0.91, indicating strong predictive performance.</p></li>
+<li><p>Thresholds: The study derived three thresholds—TPR95 (95% true positive rate), OPT (balanced between sensitivity and specificity), and TPR25 (25% true positive rate). TPR95 had a high false alarm rate (44%), while TPR25 was associated with a very low false alarm rate (0.4%).</p></li>
+<li><p>Cross-validation: The model showed consistent performance across random, temporal, and spatial cross-validation, with some exceptions for certain years with lower AUROCs due to the limited effectiveness of the precipitation variables.</p></li>
+</ul>
+</li>
+<li><p><strong>Spatial Dynamic Thresholds:</strong></p>
+<ul>
+<li><p>The model generated dynamic spatial thresholds that varied based on short-term and antecedent precipitation. Threshold exceedance was found to depend on local predisposition and precipitation conditions, demonstrating its use for hindcasting and forecasting landslide scenarios.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Figura 1: General research methodology." src="../_images/1-s2.0-S167498712400046X-mmc1.gif" /></p>
+<p><a class="reference external" href="https://ars.els-cdn.com/content/image/1-s2.0-S167498712400046X-mmc1.gif">daily model</a></p>
+<p><a class="reference external" href="https://ars.els-cdn.com/content/image/1-s2.0-S167498712400046X-mmc2.gif">daily model 2</a></p>
+</li>
+<li><p><strong>Machine Learning tool used:</strong></p>
+<ul class="simple">
+<li><p><strong>Generalized Additive Mixed Model (GAMM):</strong> A statistical model capable of handling both non-linear relationships and hierarchical data structures, providing flexibility and interpretability in the analysis.</p></li>
+</ul>
+</li>
+<li><p><strong>Strenghts:</strong></p>
+<ul class="simple">
+<li><p><strong>Model Interpretability:</strong> Emphasis on model interpretability allowed understanding the influence of different landslide controls.</p></li>
+<li><p><strong>Dynamic Prediction Capability:</strong> The approach effectively integrates spatial and temporal dynamics to generate realistic landslide prediction maps.</p></li>
+<li><p><strong>Effective Data Bias Handling:</strong> The use of GAMM and careful sampling design addressed spatial and temporal biases in the input landslide data.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p><strong>Dependence on Data Quality:</strong> The quality of the landslide inventory significantly influences model performance, with data biases requiring careful handling.</p></li>
+<li><p><strong>Limited Seasonal Prediction Ability:</strong> The model’s ability to capture winter/spring effects such as snowmelt is limited, suggesting a need for incorporating dynamic snow-related variables.</p></li>
+<li><p><strong>Model Transferability:</strong> While spatial and temporal cross-validation indicated good performance, certain years exhibited lower predictive accuracy, highlighting challenges in generalizability across different temporal conditions.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-2-developing-real-time-nowcasting-system-for-regional-landslide-hazard-assessment-under-extreme-rainfall-events">
+<h2>Paper 2: Developing Real-Time Nowcasting System for Regional Landslide Hazard Assessment under Extreme Rainfall Events<a class="headerlink" href="#paper-2-developing-real-time-nowcasting-system-for-regional-landslide-hazard-assessment-under-extreme-rainfall-events" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Authors:</strong> Yuan-Chang Deng et al.</p></li>
+<li><p><strong>Year</strong>: 2021</p></li>
+<li><p><strong>Study area:</strong> Southern Taiwan, Xiaolin is located in the Jiasian District, Kaohsiung City.</p></li>
+<li><p><strong>Key Highlights:</strong> The aims of this research was to integrate a real-time rainfall data retrieving system, a landslide-susceptibility analysis program (TRISHAL), and a real-time landslide-potential display system to implement a real-time nowcasting system for regional landslides.</p></li>
+<li><p><strong>Data used:</strong></p>
+<ul class="simple">
+<li><p><strong>Real-Time Rainfall Data Retrieving System:</strong> The research utilized real-time hourly rainfall data retrieved from the Central Weather Bureau (CWB) website.</p></li>
+<li><p><strong>Hydrogeological parameters:</strong>, including soil cohesion, internal friction angle, saturated hydraulic conductivity, and hydraulic diffusivity, were calibrated using a Real-coded Genetic Algorithm (RGA) integrated with the TRIGRS model.</p></li>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Metodology:</strong></p>
+<p><img alt="Figura 1: General research methodology." src="../_images/methods_paper2.PNG" /></p>
+<ul class="simple">
+<li><p><strong>Integration of a Real-Time Rainfall Data Retrieval System</strong></p></li>
+<li><p><strong>Real-Time Landslide Susceptibility Analysis (TRISHAL)</strong>: An improved version of the TRIGRS (Transient Rainfall Infiltration and Grid-based Regional Slope-Stability) model was used as the core of the analysis.</p></li>
+<li><p><strong>Inverse Optimization Analysis to Calibrate Regional Parameters:</strong> A Real-coded Genetic Algorithm (RGA) was integrated with the TRIGRS model to calibrate regional hydrogeological parameters (such as cohesion, internal friction angle, hydraulic conductivity, and hydraulic diffusivity). A fitness function that includes penalties and considers evaluation indices based on a confusion matrix was used to optimize the calibration.</p></li>
+<li><p><strong>Model Performance Evaluation:</strong> The success rate in landslide prediction, the false alarm rate, and the area under the curve (AUC) were used to measure the quality of the predictions.</p></li>
+<li><p><strong>Real-Time Landslide Potential Visualization System:</strong> A system was implemented in ArcGIS that displays real-time landslide susceptibility maps, utilizing ArcGIS object functions and the Windows API library.</p></li>
+</ul>
+</li>
+<li><p><strong>Key results:</strong></p>
+<p><img alt="Figura 4: Typhoon Morakot landslide inventory for the Xiaolin area." src="../_images/study_area_paper2.PNG" /></p>
+<p><img alt="Figura 5: The real-time regional landslide-susceptibility display during Typhoon Morakot. (a) 06:00 on 7 August 2009. (b) 12:00 on 7 August 2009. (c) 00:00 on 8 August 2009. (d) 00:00 on 10 August 2009." src="../_images/results_paper2.PNG" /></p>
+<ul class="simple">
+<li><p>Established an integrated system combining real-time rainfall data retrieval, a landslide susceptibility analysis program (TRISHAL), and a landslide potential visualization system.</p></li>
+<li><p>Tested the system using real data from the 2009 Typhoon Morakot-induced landslides in Xiaolin, Taiwan. Safety Factor (FS) maps highlighted unstable areas (FS &lt; 1) and stable areas (FS ≥ 1), enabling visualization of landslide susceptibility evolution during the event.</p></li>
+<li><p>Employed inverse optimization analysis using a Real-coded Genetic Algorithm (RGA) integrated with the TRIGRS model to calibrate parameters such as soil cohesion, internal friction angle, saturated hydraulic conductivity, and hydraulic diffusivity.</p></li>
+</ul>
+</li>
+<li><p><strong>Machine Learning tool used:</strong></p></li>
+<li><p><strong>Strenghts:</strong></p>
+<ul class="simple">
+<li><p>Successfully combined real-time rainfall data retrieval, physical model-based susceptibility mapping, and integration into a single automated system.</p></li>
+<li><p>Achieved improved calculation speeds when processing large volumes of data.</p></li>
+<li><p>Utilized genetic algorithms to effectively calibrate hydrogeological parameters.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p>The success rate in prediction and the AUC index indicate moderate precision, suggesting the model requires refinement.</p></li>
+<li><p>Parameter calibration was based on a single prior event, which is insufficient to ensure the model’s robustness.</p></li>
+<li><p>The model does not account for rising groundwater levels or lateral flow conditions, factors that can significantly influence landslide occurrences.</p></li>
+<li><p>Evaluation was limited to a single study area, restricting the generalizability of the results to other regions.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-3-towards-landslide-space-time-forecasting-through-machine-learning-the-influence-of-rainfall-parameters-and-model-setting">
+<h2>Paper 3: Towards landslide space-time forecasting through machine learning: the influence of rainfall parameters and model setting<a class="headerlink" href="#paper-3-towards-landslide-space-time-forecasting-through-machine-learning-the-influence-of-rainfall-parameters-and-model-setting" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Nicola Nocentini et al.</p></li>
+<li><p><strong>Year</strong>: 2023</p></li>
+<li><p><strong>Key Highlights:</strong> The main objective of this study is to develop and evaluate a dynamic machine learning approach using Random Forest to predict landslides in both space and time by combining static susceptibility indicators with dynamic rainfall variables, and to determine which rainfall parameters and model settings most effectively identify the timing and location of landslides.</p></li>
+<li><p><strong>Study area:</strong> The Metropolitan City of Florence, central Italy. Area of 3.514 km2. Mean annual precipitation varies between 600 mm/year in the south areas and in the Florence Plain and 1,200 mm/year in the mountainous areas of the north.</p></li>
+<li><p><strong>Data used:</strong></p>
+<ul>
+<li><p><em><strong>Landslide inventory:</strong></em> 410 landslides were extracted, mainly shallow landslides and small debris or mudflows, for the period from 2010 to 2019; with an estimated spatial and temporal resolution of 1 km and 1 days respectively.</p></li>
+<li><p><em><strong>Cumulative rainfall (CR_x [mm]):</strong></em> was calculated over various time intervals ranging from 1 to 30 days (where x represents the number of days). The cumulative rainfall data were obtained using weather radar measurements.</p></li>
+<li><p><em><strong>The month of observation of the events (landslide or non-landslide events) (Month [-])</strong></em> inserted as a categorical type (from 1 to 12).</p></li>
+<li><p><em><strong>Landslide Susceptibility Index (LSI [-]):</strong></em> A susceptibility map with a resolution of 100 m² was created using the Random Forest algorithm, incorporating the following variables: elevation, slope, aspect, total curvature, profile curvature, planar curvature, lithology, and land use. Through an Out-of-Bag (OOB) methodology, the most influential variables were identified as elevation, lithology, slope, and land use.</p></li>
+<li><p><em><strong>Random variable (Random [-]):</strong></em> A random variable with values between 0 and 1 was included in the analysis.  This random variable serves as a control or benchmark to evaluate the predictive power of the actual variables used in the model.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodology:</strong></p>
+<ul>
+<li><p><strong>Data Pre-processing and Sampling:</strong> study compiled a dataset of landslide occurrences and created six different methods to select non-landslide events, varying in spatial and temporal relation to the landslide events (same/different locations and days). Balanced and Unbalanced Datasets: To assess the model under different conditions, both balanced (1:1 ratio) and unbalanced datasets (up to 1:10 ratio of landslide to non-landslide events) were prepared, totaling six testing scenarios.</p></li>
+<li><p><strong>Random Forest Model Configuration:</strong> Four Model Configurations Tested: The Random Forest algorithm was configured in four different ways, varying the number of input variables (all variables vs. selected important ones) and the balance of datasets (balanced vs. highly unbalanced). Variable Selection: The models included static variables like the Landslide Susceptibility Index (LSI) and dynamic variables such as cumulative rainfall over various periods (from 1 to 30 days) and the month of occurrence to capture seasonality effects.</p></li>
+<li><p><strong>Model Execution and Evaluation:</strong> Each model configuration was executed seven times with different random splits of training and testing data to ensure the reliability of results, totaling 168 model runs. The Random Forest models were built using 2,000 trees to achieve stable Out-of-Bag Error (OOBE) rates, enhancing the consistency of variable importance measures. The models evaluated the influence of each variable on landslide occurrence using metrics like OOBE and variable importance scores, aiming to identify the most significant rainfall parameters and validate the applicability of the dynamic modeling approach for spatiotemporal landslide prediction.</p></li>
+</ul>
+</li>
+<li><p><strong>Key results:</strong></p>
+<ul>
+<li><p><strong>Short-Term Rainfall as a Critical Predictor:</strong> The Random Forest model identified short-term cumulative rainfall (1-3 days) as the most important variable in predicting landslides when non-landslide events were selected on different days. This confirms that recent intense rainfall significantly influences landslide triggering.</p></li>
+<li><p><strong>Landslide Susceptibility Index (LSI) Importance in Spatial Variation:</strong> When non-landslide events were chosen at different locations but on the same days as landslides, the Landslide Susceptibility Index emerged as the most important variable. This highlights the significance of spatial factors in landslide occurrence.</p></li>
+<li><p><strong>Model Alignment with Physical Mechanisms:</strong> Partial Dependence Plots demonstrated that the model’s predictions are consistent with known physical processes. Landslide probability increases with higher short-term rainfall amounts, and certain months (February, March, November) showed higher risks, reflecting seasonal patterns.</p></li>
+<li><p><strong>Robustness with Unbalanced Datasets:</strong> Even when using highly unbalanced datasets (with many more non-landslide events), the model consistently identified key variables influencing landslide occurrences. However, the peak importance of rainfall variables shifted to higher rainfall values, indicating the model adapts to data distribution while maintaining relevant predictors.</p></li>
+</ul>
+</li>
+<li><p><strong>Machine Learning tool used:</strong></p>
+<ul>
+<li><p><strong>What is Random Forest?:</strong> is an ensemble learning method used for classification and regression tasks. It builds multiple decision trees during training and outputs the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees.  Can process both numerical and categorical variables.</p></li>
+<li><p><strong>Bootstrap Aggregating (Bagging):</strong> Bagging is a technique where multiple subsets of the training data are created by random sampling with replacement. Each subset is used to build a separate decision tree.</p></li>
+<li><p><strong>Out-of-Bag (OOB) Samples:</strong> The observations not included in a particular training subset are called OOB samples. OOB samples are used to estimate prediction errors and variable importance without the need for a separate validation set.</p></li>
+</ul>
+</li>
+<li><p><strong>Strenghts:</strong></p>
+<ul>
+<li><p><strong>Consistency with Physical Processes:</strong> The model accurately reflects the known physical mechanisms of shallow landslides, highlighting the importance of short-term intense rainfall and seasonal factors in triggering events.</p></li>
+<li><p><strong>Effective Variable Identification:</strong> The methodology successfully identified key predictors—short-term rainfall, month (seasonality), and Landslide Susceptibility Index (LSI)—demonstrating their significant influence on landslide occurrences.</p></li>
+<li><p><strong>Promising for Spatiotemporal Prediction:</strong> The proposed dynamic approach using Random Forest shows encouraging results for both spatial and temporal landslide prediction, offering a solid foundation for future forecasting applications.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p><strong>Dependence on Data Quality:</strong> The model’s accuracy is affected by the completeness of the landslide inventory; incomplete data can lead to misclassifications and increased uncertainty in predictions.</p></li>
+<li><p><strong>Sensitivity to Data Imbalance:</strong> The degree of imbalance between landslide and non-landslide events influences model calibration, requiring careful evaluation to prevent skewed or unrealistic results.</p></li>
+<li><p><strong>Limited Generalizability:</strong> The results are highly site-specific; applying the methodology to other regions or different types of landslides necessitates recalibration, limiting its immediate applicability elsewhere.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-4-regional-scale-spatiotemporal-landslide-probability-assessment-through-machine-learning-and-potential-applications-for-operational-warning-systems-a-case-study-in-kvam-norway">
+<h2>Paper 4: Regional-scale spatiotemporal landslide probability assessment through machine learning and potential applications for operational warning systems: a case study in Kvam (Norway)<a class="headerlink" href="#paper-4-regional-scale-spatiotemporal-landslide-probability-assessment-through-machine-learning-and-potential-applications-for-operational-warning-systems-a-case-study-in-kvam-norway" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Nicola Nocentini et al.</p></li>
+<li><p><strong>Year</strong>: 2024</p></li>
+<li><p><strong>Key Highlights:</strong>  This study aims to introduce an innovative application of the Random Forest algorithm for spatiotemporal prediction of landslides in the Kvam area (Norway). It combines both static (lithology, morphology) and dynamic factors (cumulative rainfall, snowmelt, and seasonal variability) to produce landslide hazard maps that can potentially be integrated into early warning systems.</p></li>
+<li><p><strong>Study area:</strong> Kvam, Norway, located in Gudbrandsdalen Valley (2,800 km²). The region experienced significant landslide events in 2011 and 2013, both triggered by extreme rainfall.</p></li>
+<li><p><strong>Data used:</strong></p>
+<ul>
+<li><p><em><strong>Landslide inventory:</strong></em>  Compiled by NGI and extended with the Norwegian National Landslide Inventory (NNLI), totaling 373 landslides from 2010 to 2022.</p></li>
+<li><p><strong>Dynamic factors</strong></p></li>
+<li><p><em><strong>Cumulative rainfall (CR_x [mm]):</strong></em> Calculated over various time intervals (1-30 days) to account for short and long-duration events.</p></li>
+<li><p>*<strong>Cumulative Snowmelt (CS_x):</strong> Similar intervals as rainfall; focuses on snow melting impact on soil.</p></li>
+<li><p><em><strong>Month:</strong></em> Used to capture seasonal variability as a categorical variable from January to December.</p></li>
+<li><p><strong>Static Factor</strong></p></li>
+<li><p><strong>Landslide Susceptibility Index (LSI):</strong> A susceptibility map based on factors like slope, aspect, lithology, and land cover.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodology:</strong></p>
+<ul>
+<li><p><strong>Dynamic RF Model:</strong> The Random Forest model was trained with both balanced (1:1) and imbalanced datasets (up to 1:100 ratio). The dataset included spatial and temporal explicit landslide and non-landslide events, combining both static and dynamic variables.</p></li>
+<li><p><strong>Model Validation:</strong> The model’s performance was assessed using OOBE and PDPs to analyze the significance of each variable. The “Double Threshold Validation Tool (DTVT)” was used to validate the generated landslide hazard maps at a regional scale.</p></li>
+</ul>
+</li>
+<li><p><strong>Key results:</strong></p>
+<ul>
+<li><p><strong>Daily Cumulative Rainfall as Main Trigger:</strong> Short-duration, high-intensity rainfall is the most influential factor for landslides, aligning with known physical processes.</p></li>
+<li><p><strong>Landslide Susceptibility Index (LSI) Validates Spatial Accuracy:</strong> LSI was identified as the most critical static factor, correlating with locations already predisposed to instability.</p></li>
+<li><p><strong>Importance of Seasonal Effects:</strong> The “Month” variable highlights May and June as the most critical months due to snowmelt and increased rainfall, affecting soil saturation.</p></li>
+<li><p><strong>Database Imbalance Increases Model Reliability:</strong>  Increasing the number of non-landslide events improved the representativeness of the model but needs careful calibration to avoid misinterpretations.</p></li>
+</ul>
+</li>
+<li><p><strong>Machine Learning tool used:</strong></p>
+<ul>
+<li><p><strong>Random Forest Algorithm:</strong> Used for both the static LSI map and the dynamic spatiotemporal analysis, capable of handling complex data without assumptions about statistical distribution.</p></li>
+<li><p><strong>Partial Dependence Plots (PDPs) and Out-of-Bag Error (OOBE):</strong> These metrics were used to validate variable importance and ensure model outcomes were physically consistent.</p></li>
+</ul>
+</li>
+<li><p><strong>Strenghts:</strong></p>
+<ul>
+<li><p><strong>Comprehensive Spatiotemporal Analysis:</strong> Successfully integrates dynamic and static factors for predicting landslides over both space and time.</p></li>
+<li><p><strong>High Predictive Power for Short-term Rainfall:</strong> The model effectively identifies the role of short-term intense rainfall in landslide triggering.</p></li>
+<li><p><strong>Potential for Early Warning Systems:</strong> The methodology provides a solid framework for integration into operational early warning systems, especially with high predictive power demonstrated during major events.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p><strong>Dependence on Data Completeness:</strong> The quality and completeness of the landslide inventory significantly affect model reliability.</p></li>
+<li><p><strong>Sensitivity to Database Imbalance:</strong> Over-imbalance can lead to unrealistic predictions, reducing model effectiveness.</p></li>
+<li><p><strong>Site-specific Results::</strong> The model’s applicability is limited to the study area, requiring recalibration for other regions with different landslide typologies.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-5-an-ensemble-neural-network-approach-for-space-time-landslide-predictive-modelling">
+<h2>Paper 5: An ensemble neural network approach for space-time landslide predictive modelling<a class="headerlink" href="#paper-5-an-ensemble-neural-network-approach-for-space-time-landslide-predictive-modelling" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Jana Lim et al.</p></li>
+<li><p><strong>Year</strong>: 2024</p></li>
+<li><p><strong>Key Highlights:</strong> This study introduces an ensemble neural network model integrating Gated Recurrent Units (GRU) to use rainfall as a continuous time series for predicting landslides. The methodology focuses on combining terrain characteristics with dynamic rainfall data to enhance accuracy in space-time landslide prediction, using a proof-of-concept in Vietnam.</p></li>
+<li><p><strong>Study area:</strong> Vietnam, particularly the northern provinces, where the topography is complex (elevation from sea level to 3098 m). The region is prone to rainfall-induced landslides, especially during the monsoon season (May to October).</p></li>
+<li><p><strong>Data used:</strong></p>
+<ul>
+<li><p><em><strong>Landslide inventory:</strong></em> Event-based inventory obtained from the Lower Mekong region (Cambodia, Myanmar, Laos, Vietnam) using semi-automatic NDVI change detection from PlanetScope and RapidEye images between 2009 and 2020.</p></li>
+<li><p><em><strong>Rainfall Data:</strong></em> Satellite-derived rainfall data from Climate Hazards group Infrared Precipitation with Stations (CHIRPS) at a daily resolution. Rainfall was represented by several metrics such as sum, maximum, cumulative sum, and sum difference over 7, 14, 21, and 30-day windows.</p></li>
+<li><p>*<strong>Static Terrain Data:</strong> Factors included slope, elevation, lithology, land cover, distance to faults, slope curvature, among others, derived from open-source datasets such as MERIT DEM and global land cover data.</p></li>
+</ul>
+</li>
+<li><p><strong>Metodology:</strong></p>
+<ul>
+<li><p><strong>Data Partitioning and Predictors:</strong> The study area was partitioned into slope units (SUs) for independent modelling of landslide occurrences. Predictors were classified as static (terrain characteristics) and dynamic (rainfall metrics). GRUs were used to handle rainfall time series data, and a second neural network processed terrain data.</p></li>
+<li><p><strong>Model Setup:</strong> A Gated Recurrent Unit (GRU) was employed for the temporal rainfall data, while a Fully Connected Neural Network (FCNN) was used for the terrain data. The outputs from these two components were integrated to form a final prediction using another FCNN. Hyperparameter optimization was performed using the Hyperband and Bayesian Optimization algorithms.</p></li>
+<li><p><strong>Benchmarking:</strong> A model benchmark was conducted by comparing the results of using the full time series of rainfall against a scalar representation (cumulative value). The 14-day antecedent rainfall window was found to yield the best results in terms of prediction accuracy.</p></li>
+</ul>
+</li>
+<li><p><strong>Key results:</strong></p>
+<ul>
+<li><p><strong>Superior Performance of Time Series Model:</strong> The use of rainfall as a continuous time series improved prediction accuracy (AUC ~0.78) compared to using a scalar representation (~0.69), highlighting the benefit of preserving temporal rainfall information for landslide prediction.</p></li>
+<li><p><strong>Optimal Time Window for Rainfall:</strong> The 14-day antecedent rainfall window was found to be optimal for predicting landslides, achieving better accuracy and reducing both False Positives (FP) and False Negatives (FN) compared to longer windows.</p></li>
+<li><p><strong>Classification Accuracy and Confusion Analysis:</strong> The model demonstrated good consistency across multiple trials, with accuracy ranging between 69-71%. Spatial confusion maps indicated a higher proportion of correctly predicted landslide occurrences (True Positives) with the 14-day model, making it preferable for a more conservative approach in Early Warning Systems.</p></li>
+<li><p><strong>Challenges with Temporal Uncertainty:</strong> Temporal uncertainty in landslide records, particularly in inventories with 6-day uncertainties, negatively affected model accuracy, emphasizing the importance of accurate time attribution for landslide occurrences.</p></li>
+</ul>
+</li>
+<li><p><strong>Machine Learning tool used:</strong></p>
+<ul>
+<li><p><strong>Gated Recurrent Units (GRU):</strong> GRUs were used to handle temporal aspects of the data, providing flexibility in handling varying lengths of rainfall time series.</p></li>
+<li><p><strong>Fully Connected Neural Network (FCNN):</strong> FCNNs were used for processing static terrain data and integrating it with the temporal output.</p></li>
+<li><p><strong>Hyperparameter Optimization:</strong> Hyperband and Bayesian Optimization were utilized for tuning the model parameters.</p></li>
+</ul>
+</li>
+<li><p><strong>Strenghts:</strong></p>
+<ul>
+<li><p><strong>Enhanced Model Accuracy through Time Series Representation</strong> By using rainfall as a continuous time series, the model provided a more nuanced understanding of rainfall’s role in landslide triggering, outperforming traditional cumulative measures.</p></li>
+<li><p><strong>High Predictive Power for Short-term Rainfall:</strong> The model effectively identifies the role of short-term intense rainfall in landslide triggering.</p></li>
+<li><p><strong>Open-Source Data and Applicability in Data-Scarce Contexts:</strong> The model leveraged open-source data, which can be replicated in other data-poor regions, enhancing the utility of the methodology.</p></li>
+<li><p><strong>Integrated Space-Time Modelling:</strong> The combined use of terrain characteristics and dynamic rainfall metrics allowed for a more comprehensive model, capturing both spatial and temporal dimensions of landslide occurrence.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p><strong>Dependence on Rainfall Data Quality:</strong> The accuracy of predictions was affected by the quality of rainfall data, which was derived from satellite sources (CHIRPS) that may lack spatial and temporal precision compared to in-situ measurements.</p></li>
+<li><p><strong>High Computational Cost:</strong> The model required considerable computational resources, making it potentially challenging to scale up for larger areas or finer spatial/temporal resolutions.</p></li>
+<li><p><strong>Limited Generalizability:</strong> The model was trained on site-specific data, and transferring it to different regions with varied climatic or topographic conditions would require substantial retraining or recalibration.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-6-from-spatio-temporal-landslide-susceptibility-to-landslide-risk-forecast">
+<h2>Paper 6: From spatio-temporal landslide susceptibility to landslide risk forecast<a class="headerlink" href="#paper-6-from-spatio-temporal-landslide-susceptibility-to-landslide-risk-forecast" title="Link to this heading">#</a></h2>
+</section>
+<section id="paper-7-speech-recognition-in-landslide-predictive-modelling-a-case-for-a-next-generation-early-warning-system">
+<h2>Paper 7: Speech-recognition in landslide predictive modelling: A case for a next generation early warning system<a class="headerlink" href="#paper-7-speech-recognition-in-landslide-predictive-modelling-a-case-for-a-next-generation-early-warning-system" title="Link to this heading">#</a></h2>
+</section>
+<section id="paper-8-space-time-modeling-of-landslide-size-by-combining-static-dynamic-and-unobserved-spatiotemporal-factors">
+<h2>Paper 8: Space-time modeling of landslide size by combining static, dynamic, and unobserved spatiotemporal factors<a class="headerlink" href="#paper-8-space-time-modeling-of-landslide-size-by-combining-static-dynamic-and-unobserved-spatiotemporal-factors" title="Link to this heading">#</a></h2>
+</section>
+<section id="paper-9-landslide-hazard-spatiotemporal-prediction-based-on-data-driven-models-estimating-where-when-and-how-large-landslide-may-be">
+<h2>Paper 9: Landslide hazard spatiotemporal prediction based on data-driven models:Estimating where, when and how large landslide may be<a class="headerlink" href="#paper-9-landslide-hazard-spatiotemporal-prediction-based-on-data-driven-models-estimating-where-when-and-how-large-landslide-may-be" title="Link to this heading">#</a></h2>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<p>[1] Cruden, D. M., &amp; Varnes, D. J. (1996). Landslide types and processes. Special Report - National Research Council, Transportation Research Board, 247(February), 36–75.</p>
+<p>[2] Dilley, M., Chen, R. S., Deichmann, U., Lerner-Lam, A. L., &amp; Arnold, M. (2005). Natural Disasyer Hotspots. A Global Risk Analysis. In Disaster Risk Management Series (Issue 5). <a class="reference external" href="https://doi.org/10.1080/01944360902967228">https://doi.org/10.1080/01944360902967228</a></p>
+<p>[3] Gómez, D., García, E. F., &amp; Aristizábal, E. (2023). Spatial and temporal landslide distributions using global and open landslide databases. In Natural Hazards (Vol. 117, Issue 1). Springer Netherlands. <a class="reference external" href="https://doi.org/10.1007/s11069-023-05848-8">https://doi.org/10.1007/s11069-023-05848-8</a></p>
+<p>[4] Guzzetti, F. (2000). Landslide fatalities and the evaluation of landslide risk in Italy. ELSEVIER, 58, 89–107.</p>
+<p>[5] Kirschbaum, D. B., Adler, R., Hong, Y., Hill, S., &amp; Lerner-Lam, A. (2010). A Global landslide catalog for hazard applications: method, results, and limitations. Springer, 561–575. <a class="reference external" href="https://doi.org/10.1007/s11069-009-9401-4">https://doi.org/10.1007/s11069-009-9401-4</a></p>
+<p>[6] Petley, D. (2012). Global patterns of loss of life from landslides. Geology, 40(10), 927–930. <a class="reference external" href="https://doi.org/10.1130/G33217.1">https://doi.org/10.1130/G33217.1</a></p>
+<p>[7] Hidalgo, C. A., &amp; Vega, J. A. (2014). Estimación de la amenaza por deslizamientos detonados por sismos y lluvia (Valle de Aburrá-Colombia). Revista EIA, 11(22), 103–117.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Forecasting_Precipitation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Review de Técnicas de Forecasting de Precipitación</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-oscar-sanchez">Student: Oscar Sanchez</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-adopting-the-margin-of-stability-for-spacetime-landslide-prediction-a-data-driven-approach-for-generating-spatial-dynamic-thresholds">Paper 1: Adopting the margin of stability for space–time landslide prediction – A data-driven approach for generating spatial dynamic thresholds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-developing-real-time-nowcasting-system-for-regional-landslide-hazard-assessment-under-extreme-rainfall-events">Paper 2: Developing Real-Time Nowcasting System for Regional Landslide Hazard Assessment under Extreme Rainfall Events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-towards-landslide-space-time-forecasting-through-machine-learning-the-influence-of-rainfall-parameters-and-model-setting">Paper 3: Towards landslide space-time forecasting through machine learning: the influence of rainfall parameters and model setting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-regional-scale-spatiotemporal-landslide-probability-assessment-through-machine-learning-and-potential-applications-for-operational-warning-systems-a-case-study-in-kvam-norway">Paper 4: Regional-scale spatiotemporal landslide probability assessment through machine learning and potential applications for operational warning systems: a case study in Kvam (Norway)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-an-ensemble-neural-network-approach-for-space-time-landslide-predictive-modelling">Paper 5: An ensemble neural network approach for space-time landslide predictive modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-from-spatio-temporal-landslide-susceptibility-to-landslide-risk-forecast">Paper 6: From spatio-temporal landslide susceptibility to landslide risk forecast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-7-speech-recognition-in-landslide-predictive-modelling-a-case-for-a-next-generation-early-warning-system">Paper 7: Speech-recognition in landslide predictive modelling: A case for a next generation early warning system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-8-space-time-modeling-of-landslide-size-by-combining-static-dynamic-and-unobserved-spatiotemporal-factors">Paper 8: Space-time modeling of landslide size by combining static, dynamic, and unobserved spatiotemporal factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-9-landslide-hazard-spatiotemporal-prediction-based-on-data-driven-models-estimating-where-when-and-how-large-landslide-may-be">Paper 9: Landslide hazard spatiotemporal prediction based on data-driven models:Estimating where, when and how large landslide may be</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

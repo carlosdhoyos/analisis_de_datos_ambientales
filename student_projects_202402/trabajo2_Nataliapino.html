@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/trabajo2_Nataliapino';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Precipitation Nowcasting: A Literature Review" href="Nowcasting_review.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2.html">Task 2: Review of Key Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="duvan.html">Machine Learning Applications in Tropical Cyclone Analysis Using Satellite Imagery: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChangeClimateForecasting.html">Change climate forecasting: Lierature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nowcasting_review.html">Precipitation Nowcasting: A Literature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introducción</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/trabajo2_Nataliapino.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/trabajo2_Nataliapino.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introducción</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1"><strong>Paper 1</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#titulo">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autores">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideas-principales">Ideas principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologia">Metodología:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-del-modelo">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-de-entrada-y-de-salida">Datos de entrada y de salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-error">Funciones de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamiento">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-importantes">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortalezas-del-paper">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2">Paper 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ideas Principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Datos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Metodología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-de-los-modelos">Arquitectura de los modelos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-de-entrada-y-salida">Datos de entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-error">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Entrenamiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3"><strong>Paper 3</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Ideas principales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Metodología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-entrada-y-salida">Datos entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4">Paper 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Ideas principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Datos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Metodología:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Datos de entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5">Paper 5</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Ideas principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Metodología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Datos de entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortalezas-del-paer">Fortalezas del paer::</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#retos-y-futuras-direcciones">Retos y futuras direcciones</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas">Preguntas</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><strong>Nombre: Natalia Andrea Pino Serna</strong></p>
+<section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<p>La humedad del suelo juega un papel fundamental en la mejora de los modelos predictivos de movimientos en masa, los cuales tradicionalmente se han enfocado en umbrales de precipitación. Sin embargo, estos enfoques no consideran el comportamiento del agua en el suelo que es un factor importante para entender con mayo precisión la ocurrencia de movimientos en masa. En la actualidad, los sensores in situ de humedad están ganando relevancia en el estudio de estos fenómenos, ya que permiten obtener datos más detallados y específicos sobre las condiciones del suelo, incluso, dentro del Sistema de Alertas Tempranas del Valle de Aburrá (SIATA), existe una red de sensores instalados para monitorear la humedad del suelo. Sin embargo, estos sensores cuentan con retos como fallos técnicos que generan huecos en las lecturas o picos que se entienden poco en los datos. Por esta razón, predecir cómo se comportará la humedad del suelo de de gran relevancia, ya que no solo ayudaría a corregir los errores de datos causados por fallos en los sensores, sino que también mejoraría la aplicación de estos datos en la predicción de movimientos en masa, lo que proporciona un enfoque más preciso  de estos datos en la gestión del riesgo de desastres.</p>
+<p>La predicción de la humedad del suelo mediante machine learning es de gran importancia debido a su impacto en la agricultura, la gestión de recursos hídricos y su aplicabilidad a sistemas de alerta temprana para desastres de origen natural (Huffake et al., 2024; Wang et al., 2024). Las redes de sensores inalámbricos permiten la recolección de grandes volúmenes de datos sobre la humedad del suelo, que presentan patrones influenciados por la precipitación y las propiedades del suelo, pero también pueden tener irregularidades debido a fallos en los sensores y procesos no lineales (Vereecken, 2016;  Huffake et al., 2024; Togneri et al., 2022). Los modelos tradicionales de balance hídrico, aunque son útiles, tienen limitaciones para predecir estos fenómenos de manera precisa y con alta resolución temporal (Jensen &amp; Allen, 2016). En este sentido, el uso de machine learning, como los modelos LSTM, permite capturar dinámicas no lineales y complejas, mejorando la precisión de las predicciones (Wang et al., 2024; Custódio et al., 2024 ). Teniendo como resultado que el estudio de la humedad del suelo mediante técnicas de ML es esencialpara mejorar la gestión de recursos hídricos, optimizar actividades de agricultura y ser de gran utilidad en la Gestión del Riesgo de Desastres, asociado a fenómenos amenazante como inundaciones y movimientos en masa (Vereecken et al., 2022; Sampathkumar et al., 2013; Basak et al., 2023).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paper-1">
+<h1><strong>Paper 1</strong><a class="headerlink" href="#paper-1" title="Link to this heading">#</a></h1>
+<section id="titulo">
+<h2>Título:<a class="headerlink" href="#titulo" title="Link to this heading">#</a></h2>
+<p>Sensor records can be used to forecast complex soil moisture dynamics with symbiosis of empirical nonlinear dynamics and echo state neural network AI</p>
+</section>
+<section id="autores">
+<h2>Autores:<a class="headerlink" href="#autores" title="Link to this heading">#</a></h2>
+<p>Ray Huffaker, Rafael Muñoz-Carpena, Kati W. Migliaccio.</p>
+</section>
+<section id="ideas-principales">
+<h2>Ideas principales:<a class="headerlink" href="#ideas-principales" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El articulo busca reconstruir la dinámica de la humedad del suelo a partir de registros de sensores, mediante modelos de redes neuronales de ecoestado (ESNN), empleando arquitecturas ESNN hábiles como gemelos digitales para pronosticar niveles de humedad del suelo del mundo real fuera de muestra.</p></li>
+<li><p>La aplicación operativa de la ESNN a datos como la humedad tiene repercusiones más amplias a la hora de abordar problemas medioambientales acuciantes relacionados con procesos biofísicos no lineales y de crear sistemas de alerta temprana basados en IA que pronostiquen fenómenos medioambientales extremos (inundaciones, sequías, deslizamientos, incendios).</p></li>
+<li><p>Las ESNN pueden aprender dinámicas no lineales complejas a partir de datos limpios generados por modelos «de juguete» cerrados con dinámicas de espacio de estados conocidas.</p></li>
+<li><p>Para la humedad se infieren las dinámicas de espacio de estados.</p></li>
+<li><p>Un modelo RNN que sufre este problema no consigue aprender dependencias a largo plazo en datos secuenciales, ya que los pesos del modelo sólo se actualizan para los efectos cercanos.</p></li>
+<li><p>SSA es útil para aislar ruido en señales no periódicas</p></li>
+</ul>
+</section>
+<section id="datos">
+<h2>Datos:<a class="headerlink" href="#datos" title="Link to this heading">#</a></h2>
+<p>dos registros de contenido volumétrico de agua en el suelo de sensores que representaban diferentes prácticas de riego recogidas en ensayos de campo en el sur de Florida. Estos datos son de un año con una resolución temporal de 1 h.</p>
+</section>
+<section id="metodologia">
+<h2>Metodología:<a class="headerlink" href="#metodologia" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Preprocesamiento de datos: En general se métodos de dinámica empírica no lineal para filtrar el ruido, comprobar la estacionariedad y reconstruir la dinámica del espacio de estados a partir de datos sin ruido.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Limpieza de ruido (SSA)</p></li>
+<li><p>pruebas de estacionariedad (Space time separation plot- Time Dalay Embedding)</p></li>
+<li><p>Estacionariedad y no linealidad (Surrogate data analysis)</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Modelación ( ESNN, hiperparametros con Nvidia GPU)</p></li>
+<li><p>Validación del modelo (Indice de eficiencia de Nash-Sutcliffe (NSE))</p></li>
+</ol>
+</section>
+<section id="arquitectura-del-modelo">
+<h2>Arquitectura del modelo:<a class="headerlink" href="#arquitectura-del-modelo" title="Link to this heading">#</a></h2>
+<p>El modelo utilizado fue <em>Echo State Neural Networks (ESNN</em>), que es un tipo de red neuronal recurrente (RNN) diseñada para procesar y modelar dinámicas temporales complejas de manera eficiente.</p>
+<p>Se empleó la infraestructura UF-NVIDIA-GPU para muestrear uniformemente una amplia red de hiperparámetros de ESNN</p>
+</section>
+<section id="datos-de-entrada-y-de-salida">
+<h2>Datos de entrada y de salida:<a class="headerlink" href="#datos-de-entrada-y-de-salida" title="Link to this heading">#</a></h2>
+<p>Entrada: Datos de humedad del suelo preprocesados (cm³/cm³) con una resolución temporal de 1 h.</p>
+<p>Salida: Datos de humedad del suelo resultado de predicciones</p>
+</section>
+<section id="funciones-de-error">
+<h2>Funciones de error:<a class="headerlink" href="#funciones-de-error" title="Link to this heading">#</a></h2>
+<p>Indice de eficiencia de Nash-Sutcliffe (NSE), que analiza la similitud entre las predicciones del modelo y los datos reales, donde los valores cercanos a 1 indican una mejor predicción.</p>
+</section>
+<section id="entrenamiento">
+<h2>Entrenamiento:<a class="headerlink" href="#entrenamiento" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>División de los datos en conjuntos de entrenamiento y prueba.</p></li>
+<li><p>Se empleó la infraestructura UF-NVIDIA-GPU para muestrear uniformemente una amplia red de hiperparámetros de ESNN</p></li>
+</ul>
+</section>
+<section id="resultados-importantes">
+<h2>Resultados importantes:<a class="headerlink" href="#resultados-importantes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Las ESNN lograron predecir las dinámicas de humedad del suelo a partir de las dinámicas reconstruidas, tanto en los datos de entrenamiento como en los datos fuera de muestra</p></li>
+<li><p>Las ESNN fueron capaces de diferenciar entre eventos extremos recurrentes y eventos aleatorios de humedad del suelo.</p></li>
+<li><p>La combinación de técnicas de dinámica no lineal empírica con ESNN redujo la complejidad computacional</p></li>
+<li><p>Se logró reconstruir dinámicas no lineales deterministas de baja dimensión en los registros de humedad del suelo de los sensores</p></li>
+<li><p>Se logró un NSE de 0.93 y 0.99</p></li>
+</ul>
+</section>
+<section id="fortalezas-del-paper">
+<h2>Fortalezas del paper:<a class="headerlink" href="#fortalezas-del-paper" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Disponibilidad de datos con alta resolución temporal</p></li>
+<li><p>ESNN consume requiere de menos capacidad computacional</p></li>
+<li><p>Se lograron predicciones muy buenas con un NSE de 0.93 y 0.99</p></li>
+<li><p>Demuestra como se puede trabajar con datos no lineales que pueden estar controlados por factores deterministas ambientales, climáticos y topológicos</p></li>
+</ul>
+<p>Huffaker, R., Muñoz-Carpena, R., &amp; Migliaccio, K. W. (2024). Sensor records can be used to forecast complex soil moisture dynamics with symbiosis of empirical nonlinear dynamics and echo state neural network AI. <em>Computers and Electronics in Agriculture</em>, <em>222</em>. <a class="reference external" href="https://doi.org/10.1016/j.compag.2024.109031">https://doi.org/10.1016/j.compag.2024.109031</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paper-2">
+<h1>Paper 2<a class="headerlink" href="#paper-2" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Título:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>A Comprehensive Study of Deep Learning for Soil Moisture Prediction</p>
+</section>
+<section id="id2">
+<h2>Autores:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Yanling Wang, Liangsheng Shi, Yaan Hu, Xiaolong Hu, Wenxiang Song, y Lijun Wang.</p>
+</section>
+<section id="id3">
+<h2>Ideas Principales:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Predecir con precisión la humedad del suelo presenta retos debido a la no linealidad del transporte de agua del suelo y a la variabilidad de las condiciones.</p></li>
+<li><p>Deep Learning ha surgido como un enfoque prometedor para simular la dinámica de la humedad del suelo</p></li>
+<li><p>El análisis Shapley (SHAP) Additive Explanations es un enfoque utilizado para interpretar modelos de aprendizaje automático y obtener explicaciones sobre cómo cada característica de entrada contribuye a las predicciones realizadas por un modelo, en el articulo se usó para para comprender cómo los modelos aprovechan los datos y entender patrones.</p></li>
+<li><p>Se analizan modelo 10 modelos, 3 puros y 7 híbridos, de los cuales 6 nunca habían sido usado en modelos de humedad del suelo</p></li>
+<li><p>Las CNN pueden extraer información temporal local de los datos deslizando núcleos convolucionales a lo largo de la dimensión temporal, por otro lado, las RNN destacan en la captura de la información global de la secuencia temporal</p></li>
+<li><p>Las estrategias de entrenamiento específicas con estructuras de red adecuadas pueden mejorar el rendimiento de la predicción, por ejemplo, las GAN permiten que el objetivo de entrenamiento de las redes neuronales vaya más allá de minimizar el error cuadrático medio de los datos y utilizar el entrenamiento adversarial para captar plenamente las regularidades de los datos.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>Datos:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Datos in situ de humedad del suelo recopilados en 30 disitintos lugares del mundo provenientes de la red de <em>International Soil Moisture Network (ISMN),</em> con datos de hasta 22 años.</p></li>
+<li><p>Datos de precipitación, temperatura atmosférica, radiación de onda larga y corta, velocidad del viento y humedad relativa, provenientes del proyecto NASA POWER.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>Metodología<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Recopilación de datos a escala global</p></li>
+<li><p>Corrida de modelos: Se compararon modelos tradicionales de aprendizaje automático (RF, ELM, SVR) y de aprendizaje profundo (CNN, LSTM, Transformer) con arquitecturas híbridas (e.g., CNN-LSTM, FTA-LSTM).</p></li>
+<li><p>Evaluación de modelos: Coeficiente de determinación (R²) y error cuadrático medio (RMSE).</p></li>
+</ul>
+</section>
+<section id="arquitectura-de-los-modelos">
+<h2>Arquitectura de los modelos:<a class="headerlink" href="#arquitectura-de-los-modelos" title="Link to this heading">#</a></h2>
+<p>Machine learning models:** random forest (RF), extreme learning machine (ELM), and support vector machine (SVM) machine learning.**</p>
+<p>Random forest, se utiliza para tareas de regresión y clasificación y ha ganado popularidad por su gran precisión. Extreme learning machine utiliza una red neuronal de una sola capa como base. ELM consigue una velocidad de aprendizaje rápida y una gran capacidad de generalización empleando pesos y sesgos aleatorios en la capa de entrada y aplicando la teoría de la matriz inversa generalizada para calcular los pesos de la capa de salida. Support vector machine se propuso para aplicaciones de clasificación y regresión. Su objetivo es encontrar el hiperplano de margen máximo que mejor separa los puntos de la muestra.</p>
+<p>Basic deep neural networks: LSTM, CNN y Transformers</p>
+<p>LSTM, pueden superar el problema de la desaparición del gradiente del las RNN y memorizar más información útil a través de una unidad especial llamada cell state. CNN, se aplicaron originalmente al reconocimiento de imágenes. Las capas de convolución y agrupación de las CNN pueden extraer las características distintivas de los datos dados y reducir al mismo tiempo el número de datos que hay que procesar. Transformer, el mecanismo de autoatención puede modelar las dependencias y agregar características a partir de las entradas. Por lo tanto, una estructura de apilamiento de mecanismos de autoatención como Transformer (Vaswani et al., 2017) puede lograr las funciones de las CNN y las RNN sin iteraciones</p>
+<p>Hybrid deep learning models: Hybrid structure of CNN and LSTM, Hybrid structure of attention and LSTM</p>
+<p>Hybrid structure of CNN and LSTM**,** estos modelos híbridos poseen capacidades avanzadas para manejar diversos tipos de datos, lo que suele mejorar la precisión de las predicciones. Hybrid structure of attention and LSTM, Sirven para mejorar la precisión de los modelos de aprendizaje profundo y abordar el problema de la falta de interpretabilidad, se han incorporado mecanismos de atención a los modelos LSTM para ponderar la importancia de las diferentes dimensiones de los vectores de entrada y salida.</p>
+<p>GAN-LSTM</p>
+<p>Los GAN (Goodfellow et al., 2014) constan de un generador y un discriminador. El generador está diseñado para generar predicciones similares a la verdad, mientras que el discriminador intenta distinguir entre la verdad y las predicciones, muy eficaces en diversos campos, especialmente en la predicción difusa.</p>
+</section>
+<section id="datos-de-entrada-y-salida">
+<h2>Datos de entrada y salida:<a class="headerlink" href="#datos-de-entrada-y-salida" title="Link to this heading">#</a></h2>
+<p>Entrada: Datos de los últimos 4 días de:</p>
+<ul class="simple">
+<li><p>humedad del suelo.</p></li>
+<li><p>Precipitación</p></li>
+<li><p>temperatura del suelo</p></li>
+<li><p>radiación de onda corta y larga</p></li>
+<li><p>velocidad del viento</p></li>
+<li><p>humedad relativa</p></li>
+</ul>
+<p>Salida: Predicción de la humedad del suelo para el quinto día.</p>
+</section>
+<section id="funcion-de-error">
+<h2>Función de error:<a class="headerlink" href="#funcion-de-error" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Error cuadrático medio (RMSE) para las predicciones.</p></li>
+<li><p>En GAN-LSTM con el discriminador</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>Entrenamiento<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>División de datos: 60% para entrenamiento, 20% para validación y 20% para pruebas.</p></li>
+<li><p>Hiperparámetros en la función de pérdida de GAN es crucial</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>Resultados importantes:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El modelo long short-term memory (LSTM) es muy adecuado para las predicciones de humedad del suelo</p></li>
+<li><p>El mejor Accuaracy fue logrado con feature attention LSTM (FA-LSTM) y the generative-adversarial-network-based LSTM (GAN-LSTM)</p></li>
+<li><p>La visualización de la incrustación estocástica de vecinos distribuida en t (t-SNE) ilustra las diferencias en las características codificadas entre los distintos modelos</p></li>
+<li><p>Los coeficientes de autocorrelación para el contenido de agua del suelo a diferentes profundidades disminuyen al aumentar el número de días de retraso.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>Fortalezas del paper:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Tienen gran cantidad de datos, con diversas características topográficas que son tenidas en cuenta.</p></li>
+<li><p>Estudian los resultados de la predicción de la humedad con distintos modelos de Machine Learning .</p></li>
+<li><p>Se utilizan modelos de basic feature e hibridos</p></li>
+<li><p>Seis de los modelos se aplican a la predicción de la humedad del suelo por primera vez</p></li>
+<li><p>Se comparan sistemáticamente las capacidades predictivas y los costos computacionales de los modelos en diferentes texturas y profundidades del suelo.</p></li>
+</ul>
+<p>Wang, Y., Shi, L., Hu, Y., Hu, X., Song, W., &amp; Wang, L. (2024). A comprehensive study of deep learning for soil moisture prediction. <em>Hydrology and Earth System Sciences</em>, <em>28</em>(4), 917–943. <a class="reference external" href="https://doi.org/10.5194/hess-28-917-2024">https://doi.org/10.5194/hess-28-917-2024</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paper-3">
+<h1><strong>Paper 3</strong><a class="headerlink" href="#paper-3" title="Link to this heading">#</a></h1>
+<section id="id9">
+<h2>Título:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>Soil moisture forecast for smart irrigation: The primetime for machine learning</p>
+</section>
+<section id="id10">
+<h2>Autores:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>Rodrigo Togneri, Diego Felipe dos Santos, Glauber Camponogara, Hitoshi Nagano, Gilliard Custódio, Ronaldo Prati, Stênio Fernandes, Carlos Kamienski**.**</p>
+</section>
+<section id="id11">
+<h2>Ideas principales<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El auge del Internet de las Cosas ha permitido obtener datos de humedad del suelo de mayor resolución espaciotemporal mediante sensores in situ.</p></li>
+<li><p>La abundancia de datos permite la predicción de la humedad del suelo basada en el aprendizaje automático como alternativa a los enfoques tradicionales para la estimación.</p></li>
+<li><p>Se predicen los valores mínimo y máximo de los días siguientes.</p></li>
+<li><p>LightGBM tiene mejores resultados en la predicción de humedad del suelo respecto a la regresión lineal, arboles de decisión, random forest, LSTM y StemGNN.</p></li>
+<li><p>La predicción de la humedad del suelo alcanza su máximo rendimiento considerando únicamente la humedad pasada del suelo, un índice contextual y una predicción de precipitaciones.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h2>Datos<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Los datos provienen de sensores de Agrosmart3, un proveedor brasileño de riego inteligente. Son tomados de regiones con distintas características de cobertura, topográfica y climática. Los datos son capturados a distintas profundidades en el suelo (profundidades de 20 cm, 40 cm, 60 cm)</p></li>
+<li><p>Otros datos de los sensores: temperatura, radiación solar, humedad relativa, velocidad del viento, precipitación.</p></li>
+<li><p>Datos de pronósticos meteorológicos.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h2>Metodología<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>División del conjunto de datos: Entrenamiento (70%), validación (20%) y prueba (10%)</p></li>
+<li><p>Inclusión de características basadas en datos contextuales mediante autoencoders para capturar comportamientos atípico.</p></li>
+<li><p>Aplicaciónde algoritmos de aprendizaje automático (LightGBM, bosques aleatorios (RF), redes neuronales recurrentes (LSTM, StemGNN), y perceptrón multicapa (MLP)</p></li>
+<li><p>Evaluación de modelos (RMSE, MAE y MAPE)</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>Arquitectura del modelo:<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<p>Modelos: LightGBM, bosques aleatorios (RF), redes neuronales recurrentes (LSTM, StemGNN), y perceptrón multicapa (MLP).</p>
+<p>Para los conjuntos de árboles de decisión, se eligió RF como representante del tipo de predictores independientes y LightGBM como representante del tipo de predictores secuenciales. Elegimos LSTM y StemGNN como representantes de los enfoques RNN, que dieron resultados competitivos en problemas de series temporales. Se eligió StemGNN también porque mostró gran rendimiento en series tmeporales. N-BEATS es un algoritmo que ha demostrado previamente superar a los ganadores de M4 en los conjuntos de datos de M4. Por último, se añadió MLP como otra línea de base, un enfoque estándar de redes neuronales artificiales (ANN), sin el componente de recurrencia.</p>
+<p>Autoencoder**:** captura el comportamiento típico intradiario de la humedad del suelo para calcular el error medio de cada día frente a este comportamiento típico. Se usó para para análisis de contextos anómalos.</p>
+</section>
+<section id="datos-entrada-y-salida">
+<h2>Datos entrada y salida:<a class="headerlink" href="#datos-entrada-y-salida" title="Link to this heading">#</a></h2>
+<p>Entrada: Datos de humedad, temperatura, radiación solar, humedad relativa, velocidad del viento, precipitación y datos de pronósticos meteorológicos</p>
+<p>Salida: Predicción de valores mínimos y máximos diarios de humedad del suelo en las próximas 48 horas.</p>
+</section>
+<section id="id15">
+<h2>Función de error:<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<p>Error cuadrático medio (RMSE), MAE (error absoluto medio), R² ajustado y MAPE (error porcentual absoluto medio).</p>
+</section>
+<section id="id16">
+<h2>Entrenamiento:<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Optimización de hiperparámetros utilizando la biblioteca <em>scikit-optimize</em>.</p></li>
+<li><p>División del conjunto de datos: Entrenamiento (70%), validación (20%) y prueba (10%)</p></li>
+</ul>
+</section>
+<section id="id17">
+<h2>Resultados importantes:<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>LightGBM logró la mayor precisión con un R² ajustado entre 0.94 y 0.98 para predicciones diarias.</p></li>
+</ul>
+</section>
+<section id="id18">
+<h2>Fortalezas del paper:<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Alta resolución temporal de los datos, teniendo datos horarios mediante IOT.</p></li>
+<li><p>Características de las zonas en donde se encuentran instalados los sensores, lo que permite generalizar los resultados de los modelos.</p></li>
+<li><p>Mediciones de humedad a distintas profundidades (profundidades de 20 cm, 40 cm, 60 cm).</p></li>
+</ul>
+<p>Togneri, R., Felipe dos Santos, D., Camponogara, G., Nagano, H., Custódio, G., Prati, R., Fernandes, S., &amp; Kamienski, C. (2022). Soil moisture forecast for smart irrigation: The primetime for machine learning. <em>Expert Systems with Applications</em>, <em>207</em>. <a class="reference external" href="https://doi.org/10.1016/j.eswa.2022.117653">https://doi.org/10.1016/j.eswa.2022.117653</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paper-4">
+<h1>Paper 4<a class="headerlink" href="#paper-4" title="Link to this heading">#</a></h1>
+<section id="id19">
+<h2>Título:<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
+<p>Comparing modern and traditional modeling methods for predicting soil moisture in IoT-based irrigation systems</p>
+</section>
+<section id="id20">
+<h2>Autores:<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<p>Gilliard Custódio, Ronaldo Cristiano Prati.</p>
+</section>
+<section id="id21">
+<h2>Ideas principales:<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dentro de los modelos de ML, Random Forest fue el modelo más eficiente y estable.</p></li>
+<li><p>Este estudio utilizó modelado de series temporales mediante ML y modelos estadísticos como ARIMA, NAIVE</p></li>
+<li><p>Algoritmos estadísticos útiles para predicción de series de tiempo Naive, Vector Autore-gression (VAR), Exponential Smoothing (ES) [19], and Autore-gressive Integrated Moving Average (ARIMA). Donde ARIMA demostró ser el mejor para la predicción de humedad.</p></li>
+</ul>
+</section>
+<section id="id22">
+<h2>Datos:<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
+<p>Datos de humedad del suelo utilizando dos años de datos que se obtienen mediante sensores con tecnología de IOT, incluyendo factores como la humedad del suelo, temperatura y clima.</p>
+<p>Los datos provienen de dos fuentes: Red Internacional de Humedad del Suelo (ISMN) y Cook Agronomy Farm (CAF) de Estados Unidos.</p>
+<p>CAF: 42 sensores: Each sensor records SM, temperature, and bulk electrical con-ductivity at five depths: 0.3, 0.6, 0.9, 1.2, and 1.5 meters. Los datos incluyen: Daily temperature and rainfall data from the near-est meteorological station.</p>
+<p>ISMN: 10 datasets de distintas partes del mundo, incluyendo CAF. Contiene datos de humedad del sulo, temperatura del suelo, temperatura del aire y precipitación.</p>
+</section>
+<section id="id23">
+<h2>Metodología:<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
+<p>La metodología en general, utiliza ventanas móviles para el entrenamiento y validación, con una optimización de hiperparámetros en la primera fase, y evaluaciones de desempeño utilizando métricas como MAE, RMSE y MAPE y se finaliza con una comparación de resultados. A continuación se describe con mayor detalle cada paso:</p>
+<p>División del conjunto de datos:** El conjunto de datos se dividió en dos períodos de un año. El primer período se utilizó para optimizar los hiperparámetros de los modelos, mientras que el segundo período se usó para la validación.</p>
+<p>Se utilizó un formato de ventana móvil sobre el primer período de datos para el entrenamiento.</p>
+<p>El conjunto de prueba se definió como el 25% del tamaño del conjunto de entrenamiento.</p>
+<p>Se optimizan los hiperparámetros y se registran los valores de predicción de la serie para calcular las métricas de evaluación (MAE, RMSE, MAPE).</p>
+<p>Para cada predicción diaria, se utilizan los datos de los días anteriores y, después de 30 días, se vuelve a ajustar el modelo. También se realizó otra corrida utilizando 15 días.</p>
+<p>Se seleccionó el mejor modelo estadístico y el mejor modelo de ML.</p>
+</section>
+<section id="id24">
+<h2>Arquitectura del modelo:<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Random forest:</strong> Es una técnica de ensamblaje derivada del bagging, Consiste en <strong>n</strong> predictores construidos a partir de <strong>árboles de decisión</strong>, introduciendo <strong>selección aleatoria de variables</strong> durante la construcción de los predictores. Permitiendo que el algoritmo se entrene con conjuntos de entrada diversos, lo que reduce la <strong>varianza de los predictores</strong> y mejora la <strong>exactitud de la predicción final</strong>.</p></li>
+<li><p><strong>Extreme Gradient Boasting:</strong> Es una implementación de <strong>Gradient Boosting Machines</strong> que utiliza <strong>árboles de decisión</strong> como predictores débiles.</p></li>
+<li><p>N-BEATS: Es una arquitectura diseñada para la <strong>predicción de series temporales univariantes</strong>. Consiste en <strong>M apilamientos</strong>, que funcionan como un modelo de ensamblaje similar al boosting.</p></li>
+<li><p><strong>Spectral Temporal Graph Neural Network (StemGNN)</strong>:  Combina Transformada Discreta de Fourier Gráfica (GDFT), Transformada de Fourier Discreta (TFD), y componentes de aprendizaje profundo. La matriz espectral se filtra a través de una red neuronal convolucional en grafos.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h2>Datos de entrada y salida:<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Entrada: Variables de humedad del suelo (a diferentes profundidades), temperatura del aire y precipitación.</p></li>
+<li><p>Salida: Predicción diaria de humedad del suelo a corto plazo..</p></li>
+</ul>
+</section>
+<section id="id26">
+<h2>Entrenamiento:<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Uso de ventanas móviles para entrenar y validar modelos en diferentes intervalos de tiempo.</p></li>
+<li><p>Optimización de hiperparámetros mediante selección iterativa.</p></li>
+<li><p>El conjunto de entrenamiento se definió como el 80% de los datos y el conjunto de prueba el 20%.</p></li>
+<li><p>Ajustes periódicos cada 15 o 30 días para evaluar estabilidad y precisión.</p></li>
+</ul>
+</section>
+<section id="id27">
+<h2>Función de error:<a class="headerlink" href="#id27" title="Link to this heading">#</a></h2>
+<p>Error absoluto medio (MAE), error cuadrático medio (RMSE) y error porcentual absoluto medio (MAPE).</p>
+</section>
+<section id="id28">
+<h2>Resultados importantes:<a class="headerlink" href="#id28" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>ARIMA fue el modelo más preciso en 8 de 10 experimentos, superando a modelos de ML como StemGNN.</p></li>
+<li><p>Los algoritmos univariados fueron más eficientes en la mayoría de los casos, lo que sugiere que las variables exógenas aportan poco a la predicción.</p></li>
+</ul>
+</section>
+<section id="id29">
+<h2>Fortalezas del paper:<a class="headerlink" href="#id29" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Se tienen usan  diferentes modelos como de machine learning: Extreme Gradient Boosting (XGM) and Random Forests (RF), Deep Learning’s Spectral Temporal Graph Neural Network (StemGNN), and Vector Autoregression.</p></li>
+<li><p>Modelos estadísticos: Statistical algorithms included Naive [19], Vector Autore-gression (VAR) [20], Exponential Smoothing (ES) [19], and Autore-gressive Integrated Moving Average (ARIMA)</p></li>
+<li><p>Incluye factores como** humedad del suelo, temperatura y clima</p></li>
+<li><p>Se analizan algoritmos multvariantes y univariantes.</p></li>
+<li><p>Se investiga el tamaño de muestra ideal requerido para construir un modelo eficiente, considerando diferentes escenarios de disponibilidad de datos que van de uno a doce meses o más</p></li>
+<li><p>Se compara el rendimiento de algoritmos univariantes y multivariantes en diez conjuntos de datos de diversas regiones del mundo</p></li>
+<li><p>Busca proporcionar información sobre el rendimiento de diferentes algoritmos de pronóstico de humedad del suelo e identificar los algoritmos más eficientes para ello.</p></li>
+</ul>
+<p><strong>Custódio, G., &amp; Prati, R. C. (2024). Comparing modern and traditional modeling methods for predicting soil moisture in IoT-based irrigation systems. <em>Smart Agricultural Technology</em>, <em>7</em>. <a class="reference external" href="https://doi.org/10.1016/j.atech.2024.100397">https://doi.org/10.1016/j.atech.2024.100397**</a></strong></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="paper-5">
+<h1>Paper 5<a class="headerlink" href="#paper-5" title="Link to this heading">#</a></h1>
+<section id="id30">
+<h2>Título:<a class="headerlink" href="#id30" title="Link to this heading">#</a></h2>
+<p>** From data to interpretable models: machine learning for soil moisture forecasting</p>
+</section>
+<section id="id31">
+<h2>Autores:<a class="headerlink" href="#id31" title="Link to this heading">#</a></h2>
+<p>Aniruddha Basak, Kevin M. Schmidt, Ole Jakob Mengshoel</p>
+</section>
+<section id="id32">
+<h2>Ideas principales:<a class="headerlink" href="#id32" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Los modelos Accumulative Representation (NAR) and the Additive Exponential Accumulative Representation (AEAR) son modelos basados en datos y se enfocan en la hidrología determinista y física. Los parámetros aprendidos del modelo representan los procesos de redistribución hidrológica no saturada basados físicamente en la gravedad y la succión.</p></li>
+<li><p>El análisis de los datos es complicado por el rápido cambio de la geomorfología observada en las laderas en respuesta incluso a precipitaciones de pequeñas a moderadas.</p></li>
+<li><p>LSTM se utiliza como un modelo de referencia moderno para predicción de humedad del suelo. Su capacidad para manejar dependencias temporales lo hace adecuado para problemas de series temporales complejas, como la humedad del suelo en respuesta a eventos de lluvia.</p></li>
+<li><p>Se señala que los modelos para la humedad del suelo deben ser interpretables (parámetro interpretables por especialistas en ciencias de la tierra), basados en datos y que tenga predicciones precisas y aplicables en un lapso de 5 a 24 horas.</p></li>
+</ul>
+</section>
+<section id="id33">
+<h2>Metodología<a class="headerlink" href="#id33" title="Link to this heading">#</a></h2>
+<p>Inicialmente se sigue la metodología para lo siguientes modelos</p>
+<p><strong>NAR Y EAR:</strong></p>
+<ol class="arabic simple">
+<li><p>Mediciones de humedad del suelo y precipitación</p></li>
+<li><p>Pronóstico de condiciones futuras del suelo: Se emplea un modelo hidrológico con predicciones de precipitación y el contenido actual de agua en el suelo.</p></li>
+<li><p>Preprocesamiento de los datos: Se hace un submuestreo para reducir la demanda computacional.</p></li>
+<li><p>Entrenamiento del modelo  hidrológico en función de la precipitación y el tiempo.</p></li>
+<li><p>Validación: se valida si los parámetros estimados son consistentes con las propiedades del suelo y se ajustan a la realidad de los datos.</p></li>
+</ol>
+<p><strong>LSTM:</strong></p>
+<ol class="arabic simple">
+<li><p>Mediciones de humedad del suelo y precipitación</p></li>
+<li><p>Optimización y ajuste de parámetros: se ajustan los parámetros de la red utilizando el optimizador Adam.</p></li>
+</ol>
+<p>Posteriormente se comparan las métricas para entender cuál fue el mejor modelo.</p>
+</section>
+<section id="id34">
+<h2>Arquitectura del modelo:<a class="headerlink" href="#id34" title="Link to this heading">#</a></h2>
+<p>Modelos basados en datos: <strong>Accumulative Representation (NAR) and the Additive Exponential Accumulative Representation (AEAR)</strong></p>
+<ul class="simple">
+<li><p>NAR: Modelo acumulativo basado en tasas de secado (kd) y humedecimiento (kw), con constantes físicas ajustadas.</p></li>
+<li><p>AEAR: Extensión de NAR que incorpora sumas de exponenciales para capturar dinámicas complejas.</p></li>
+</ul>
+<p><strong>LSTM</strong> se utiliza como un modelo de referencia moderno para predicción de humedad del suelo. Su capacidad para manejar dependencias temporales lo hace adecuado para problemas de series temporales complejas, como la humedad del suelo en respuesta a eventos de lluvia.</p>
+</section>
+<section id="id35">
+<h2>Datos de entrada y salida:<a class="headerlink" href="#id35" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Entrada: Datos históricos de humedad del suelo y lluvia acumulada.</p></li>
+<li><p>Salida: Predicciones de humedad del suelo para horizontes de 5 a 24 horas.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h2>Entrenamiento:<a class="headerlink" href="#id36" title="Link to this heading">#</a></h2>
+<p>En general se siguieron los siguientes pasos para el entrenamiento de los modelos:</p>
+<ul class="simple">
+<li><p>Preprocesamiento de los datos mediante submuestreo.</p></li>
+<li><p>División en datos de entrenamiento y prueba.</p></li>
+<li><p>Optimización y ajuste de parámetros mediante ADAM</p></li>
+</ul>
+</section>
+<section id="id37">
+<h2>Función de error:<a class="headerlink" href="#id37" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Optimización: Minimización del error cuadrático medio (MSE).</p></li>
+<li><p>Además se corrieron las siguientes métricas: Error absoluto medio (MAE), error cuadrático medio (RMSE) y error porcentual absoluto medio (MAPE).</p></li>
+</ul>
+</section>
+<section id="resultados">
+<h2>Resultados:<a class="headerlink" href="#resultados" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Los modelos NAR y AEAR propuestos han demostrado, en experimentos de previsión, ser competitivos con varias líneas de base establecidas y de última generación.</p></li>
+<li><p>El modelo AEAR se ajusta bien a los datos para tres texturas de suelo distintas a profundidades variables por debajo de la superficie del suelo (5, 15 y 30 cm).</p></li>
+<li><p>El modelo AEAR incluye parámetros hidrológicos y proporciona previsiones más precisas que los modelos existentes para horizontes temporales de 10-24 h. Estos periodos son útiles para alertas de ocurrenciade fenómenos amenazates como como inundaciones y movimientos en masa.</p></li>
+<li><p>Los modelos LSTM(2) y LSTM(4) lograron los mejores resultados en términos de error absoluto medio porcentual (MAPE), con valores de 9.8% y 6.3%, respectivamente, superando a otros enfoques como SEM y ARMAX.</p></li>
+<li><p>LSTM mostró inestabilidad durante eventos de lluvia prolongada o en pendientes pronunciadas de las curvas de humedecimiento y secado. Esto llevó a errores máximos elevados en comparación con AEAR, lo cual es crítico en aplicaciones como la predicción de deslizamientos.</p></li>
+<li><p>AEAR supera a LSTM en consistencia y precisión para horizontes largos (10–24 horas), con un MAPE menor (&lt;10%) y errores máximos más bajos en todos los escenarios.</p></li>
+<li><p>El artículo sugiere que combinar las fortalezas de AEAR (robustez y consistencia) con las capacidades de modelado de secuencias de LSTM podría ofrecer un enfoque más equilibrado y robusto para la predicción de humedad del suelo.</p></li>
+<li><p>Se observa que los modelos LSTM con h=2h = 2h=2 y h=4h = 4h=4 tienen un mejor desempeño que otros modelos LSTM.</p></li>
+</ul>
+</section>
+<section id="fortalezas-del-paer">
+<h2>Fortalezas del paer::<a class="headerlink" href="#fortalezas-del-paer" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Se evalúa el rendimiento del modelo utilizando datos de humedad del suelo obtenidos en experimentos controlados de laboratorio.</p></li>
+<li><p>Validación de los modelos propuestos de humedad del suelo en campo.</p></li>
+<li><p>Simulación de la respuesta de la humedad del suelo tras un incendio con un experimento controlado.</p></li>
+</ul>
+<p>Basak, A., Schmidt, K. M., &amp; Mengshoel, O. J. (2023). From data to interpretable models: machine learning for soil moisture forecasting. <em>International Journal of Data Science and Analytics</em>, <em>15</em>(1), 9–32. <a class="reference external" href="https://doi.org/10.1007/s41060-022-00347-8">https://doi.org/10.1007/s41060-022-00347-8</a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="retos-y-futuras-direcciones">
+<h1>Retos y futuras direcciones<a class="headerlink" href="#retos-y-futuras-direcciones" title="Link to this heading">#</a></h1>
+<p>Un reto importante en la predicción de la humedad del suelo es la optimización de hiperparámetros en los modelos de Machine Learning, si bien enfoques se han usado distintas técnicas como ADAM, <em>scikit-optimize</em>, ESNN y demás, aún existe una necesidad de estrategias que respondan mejor a la naturaleza heterogénea y no lineal de los datos de humedad del suelo.</p>
+<p>Los artículos revisados indican que el rendimiento de modelos tanto físicos como de ML pueden variar significativamente según la configuración de los parametros y la calidad de los datos de entrada. En este contexto, una futura dirección de investigaciones podría incluir métodos híbridos que combinen técnicas basadas en conocimiento físico y ML, lo que permitiría aprovechar las características intrínsecas de los sistemas hidrológicos, reduciendo el riesgo de sobreajuste y mejorando la generalización en distintos escenarios, sobre todo en una zona como VdeA que con tiene gran variedad de geoformas y tipos de suelo.</p>
+<p>Lo anterior, le apunta a un aspecto fundamental que es abordar la falta de interpretabilidad de los modelos puramente de ML, que a menudo son percibidos como “cajas negras”.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusiones">
+<h1>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h1>
+<p>El avance en la predicción de la humedad del suelo se evidencia mediante la  combinación de modelos estadísticos, de aprendizaje automático (ML) y de aprendizaje profundo (DL). Los modelos tradicionales como ARIMA y NAIVE destacan por su simplicidad y capacidad para escenarios univariantes, mientras que LightGBM y Random Forest han mostrado eficiencia y estabilidad en contextos multivariantes. Por otro lado, modelos basados en redes neuronales como LSTM y StemGNN aportan herramientas más sofisticadas para el manejo de series temporales complejas, aunque presentan limitaciones en eventos extremos y mayor consumo computacional. Los modelos como AEAR y NAR, que combinan principios físicos y data-driven, han demostrado ser particularmente útiles al incluir parámetros hidrológicos interpretables y obtener resultados más precisos en un rango de tiempo de 10 a 24 horas.</p>
+<p>Por otro lado, la combinación de enfoques empíricos no lineales con arquitecturas como las redes neuronales de ecoestado (ESNN) y las GANs ha permitido reconstruir dinámicas no lineales, diferenciando eventos recurrentes de los aleatorios. Además, el uso de técnicas como SHAP para interpretar modelos ayuda a que estas herramientas no sean “cajas negras”, lo cual es importante para la adopción en sistemas de alerta temprana y toma de decisiones en la GRD.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preguntas">
+<h1>Preguntas<a class="headerlink" href="#preguntas" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>¿Cómo mantener el equilibrio entre mayor precisión y optimización en la computacional requerida?</p></li>
+<li><p>¿Qué enfoques consideran más efectivos para garantizar que los modelos de aprendizaje profundo sean interpretables y aceptables?</p></li>
+<li><p>¿Qué desafíos técnicos se tienen al combinar modelos de ML con modelos hidrológicos físicos?</p></li>
+<li><p>¿Qué estrategias son más eficientes para la calidad de datos ruidosos o incompletos provenientes de sensores?</p></li>
+<li><p>¿Cómo podrían integrarse estos modelos basados en datos de Sensores In Situ con datos de satélites como SMAP?</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Nowcasting_review.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Precipitation Nowcasting: A Literature Review</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introducción</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1"><strong>Paper 1</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#titulo">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autores">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideas-principales">Ideas principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologia">Metodología:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-del-modelo">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-de-entrada-y-de-salida">Datos de entrada y de salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-error">Funciones de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamiento">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-importantes">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortalezas-del-paper">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2">Paper 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ideas Principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Datos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Metodología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-de-los-modelos">Arquitectura de los modelos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-de-entrada-y-salida">Datos de entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-error">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Entrenamiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3"><strong>Paper 3</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Ideas principales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Metodología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-entrada-y-salida">Datos entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4">Paper 4</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Ideas principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Datos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Metodología:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Datos de entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Resultados importantes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Fortalezas del paper:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5">Paper 5</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Título:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Autores:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Ideas principales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Metodología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Arquitectura del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Datos de entrada y salida:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Entrenamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Función de error:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortalezas-del-paer">Fortalezas del paer::</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#retos-y-futuras-direcciones">Retos y futuras direcciones</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas">Preguntas</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

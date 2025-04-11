@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/dccruzs_2';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Extreme events detection: A Literature Review" href="Task_JuanDavidZuluagaOrtiz.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/dccruzs_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/dccruzs_2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-hybrid-precipitation-downscaling-over-coastal-watersheds-in-japan-using-wrf-and-cnn">Paper 1: Hybrid precipitation downscaling over coastal watersheds in Japan using WRF and CNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-configuration-and-intercomparison-of-deep-learning-neural-models-for-statistical-downscaling">Paper 2: Configuration and Intercomparison of Deep Learning Neural Models for Statistical Downscaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-on-the-suitability-of-deep-convolutional-neural-networks-for-continental-wide-downscaling-of-climate-change-projections">Paper 3: On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-coupling-dynamical-and-statistical-downscaling-for-high-resolution-rainfall-forecasting-case-study-of-the-red-river-delta-vietnam">Paper 4: Coupling dynamical and statistical downscaling for high-resolution rainfall forecasting: case study of the Red River Delta, Vietnam</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-statistical-downscaling-and-dynamical-downscaling-of-regional-climate-in-china-present-climate-evaluations-and-future-climate-projections">Paper 5: Statistical downscaling and dynamical downscaling of regional climate in China: Present climate evaluations and future climate projections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-case-study-development-of-the-cnn-model-considering-teleconnection-for-spatial-downscaling-of-precipitation-in-a-climate-change-scenario">Paper 6: Case study: Development of the CNN model considering teleconnection for spatial downscaling of precipitation in a climate change scenario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hybrid-dynamical-statistical-downscaling-with-machine-learning-approach-a-literature-review">
+<h1>Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review<a class="headerlink" href="#hybrid-dynamical-statistical-downscaling-with-machine-learning-approach-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Downscaling techniques are essential for improving the resolution of climate data, especially when addressing regional-scale climate modeling. For example, high-quality precipitation data is crucial for hydrological modeling and effective water resources management. As we face the challenges of climate change, accurate and high-resolution climate predictions are vital for understanding and mitigating impacts on water availability, agriculture, and infrastructure.</p>
+<p>Traditional methods, such as statistical and dynamical downscaling, provide ways to refine coarse global climate models or reanalysis data, producing more localized and accurate predictions. With the growing application of machine learning (ML) and deep learning (DL), these methods have been enhanced by data-driven approaches capable of modeling complex relationships in climate variables, including precipitation. By integrating ML techniques with downscaling methods, we can achieve more precise, region-specific climate forecasts, which are essential for informed decision-making in a changing climate.</p>
+</section>
+<section id="paper-reviews">
+<h2>Paper Reviews<a class="headerlink" href="#paper-reviews" title="Link to this heading">#</a></h2>
+</section>
+<section id="paper-1-hybrid-precipitation-downscaling-over-coastal-watersheds-in-japan-using-wrf-and-cnn">
+<h2>Paper 1: Hybrid precipitation downscaling over coastal watersheds in Japan using WRF and CNN<a class="headerlink" href="#paper-1-hybrid-precipitation-downscaling-over-coastal-watersheds-in-japan-using-wrf-and-cnn" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Tu, T., Ishida, K., Ercan, A., Kiyama, M., Amagasaki, M., &amp; Zhao, T. (2021).</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>This paper proposes a hybrid precipitation downscaling framework combining the Weather Research and Forecasting (WRF) model with Convolutional Neural Networks (CNNs). The hybrid WRF-CNN approach is applied to the Kuma River watershed (KRW) in Kumamoto Prefecture, Japan, an area historically impacted by severe floods.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Figura 2" src="../_images/Fig2.png" /></p>
+<ul class="simple">
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p><strong>APHRODITE</strong> (observational precipitation), <strong>WRF simulations</strong>, <strong>ERA-Interim</strong> (precipitation)</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p>The WRF modeling is driven by ERA-Interim reanalysis datasets which are of about 80 km grid resolution and the WRF produces daily results of three different spatial resolutions that are 54 km, 18 km and 6 km.</p></li>
+<li><p>Different CNN models are constructed based on the resolution of datasets used or generated in WRF.</p></li>
+<li><p>Basin-averaged downscaled daily precipitation by WRF-CNN: each watershed is treated as a pixel.</p></li>
+<li><p><strong>Dynamical downscaling</strong></p>
+<ul>
+<li><p>WRF model, three one-way nested grids with 54, 18, 6 km, boundary conditions for WRF simulations are from 6 hourly, 0.75◦× 0.75° gridded ERA-Interim datasets, 40 vertical levels and top is fixed at 50hPa.</p></li>
+<li><p>Physical parameterizations were carefully selected based on simulations conducted in similar regions (similar regions es ahí mismo pero otros ejercicios, o regiones topográficas similares), outputs WRF were every hour.</p></li>
+</ul>
+</li>
+<li><p><strong>Statistical downscaling</strong></p>
+<ul>
+<li><p>The architecture of CNNs, as a class of neural networks, includes an input layer, hidden layers and an output layer.</p></li>
+<li><p>Different CNN models are constructed in order to evaluate the impact of the resolution of the input datasets on the downscaling performance, a CNN model for each input, precipitation form ERA5, and 3 domains of WRF (therefore, different sizes latxlon)</p></li>
+<li><p>Structure of CNN. Batch normalization is applied between a convolutional layer and a max pooling layer. The ReLU activation function is utilized between the fully connected layers.</p></li>
+<li><p>This study employs mean square error (MSE) as the loss function.</p></li>
+<li><p>The output size of daily precipitation is 164, which is the number of the subwatersheds.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Figura 1" src="../_images/Fig1.png" /></p>
+<ul class="simple">
+<li><p>The precipitation datasets are divided into three subsets: the training dataset (1980−2005), the validation dataset (2006−2010), and the test dataset (2011−2015).</p>
+<ul>
+<li><p><strong>Hybrid downscaling by WRF-CNN</strong></p>
+<ul>
+<li><p>The outputs from WRF were used as inputs to the CNN models  (The CNNs were trained based on inputs that are of different resolutions.)</p></li>
+<li><p>The target downscaling resolution is 6 km and it was referred to as CNN-6 km.</p></li>
+<li><p>The performance of CNN downscaling was evaluated by comparing the resulting CNN- 6 km results with WRF-6 km results.</p></li>
+</ul>
+</li>
+<li><p><strong>Metrics</strong>: NSE, PBias (Percentage Bias), RMSE, correlation</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>Differences in daily mean precipitation patterns were observed across each database.</p></li>
+<li><p>For coarse resolutions (WRF-54 and ERA-Interim), precipitation was lower compared to APHRODITE data.</p></li>
+<li><p>ERA-Interim precipitation fields were used as inputs for CNN downscaling.</p></li>
+<li><p>The hybrid method of WRF and CNN successfully generated 6-km resolution precipitation datasets from 80-km ERA-Interim and WRF simulated 54-km and 18-km gridded datasets. CNN downscaled precipitation was compared with direct WRF-6 km downscaled results.</p></li>
+<li><p>Results showed that while WRF downscaling is needed to provide results at intermediate scales, CNN results can be significantly improved when integrated with WRF outputs.</p></li>
+<li><p>The CNN model can adequately capture the key dynamics of the precipitation simulation based on inputs from WRF18 km.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>The different input resolutions allow determining which resolution best approaches the 6 km target</p></li>
+<li><p>The hybrid WRF-CNN method allows for improved precipitation downscaling.</p></li>
+<li><p>The hybrid downscaling approach (WRF - CNN), is attractive because it captures the physical dynamics of precipitation while reducing computational time and maintaining reasonable accuracy.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>The method’s sensitivity to the resolution of input data.</p></li>
+<li><p>The architecture of CNN models can be affected by the dimensions of the input data.</p></li>
+<li><p>The current downscaling experiments only focus on precipitation and takes precipitation as the only input variable to the CNNs.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance to downscaling:</strong></p>
+<ul>
+<li><p>This paper makes a significant contribution to downscaling techniques by combining dynamical and statistical methods, providing an idea of how to use input data, specifically WRF-downscaled information. It is applied in coastal regions.</p></li>
+<li><p>This includes an approach that incorporates the physics of the phenomenon.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="paper-2-configuration-and-intercomparison-of-deep-learning-neural-models-for-statistical-downscaling">
+<h2>Paper 2: Configuration and Intercomparison of Deep Learning Neural Models for Statistical Downscaling<a class="headerlink" href="#paper-2-configuration-and-intercomparison-of-deep-learning-neural-models-for-statistical-downscaling" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Baño-Medina, J., Manzanas, R., &amp; Gutiérrez, J. M. (2020).</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>This paper provides a comprehensive assessment of deep learning techniques for continental-scale statistical downscaling, with a focus on convolutional neural networks (CNNs). The study targets downscaling of precipitation and temperature.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>20 standard predictors from the ERA-Interim reanalysis, selected over a European domain with a 2° resolution, for the 30-year period 1979–2008.</p></li>
+<li><p>The predictor set includes 5 large-scale thermodynamic variables (geopotential height, zonal and meridional wind, temperature, and specific humidity) at four different vertical levels (1000, 850, 700, and 500 hPa).</p></li>
+<li><p>The target predictands are daily mean temperature and accumulated precipitation.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Preprocessing</strong>: predictors and predictands are standardized.</p></li>
+<li><p><strong>Evaluation indices and cross-validation</strong>: Bias (mean), Bias (2nd percentile, P2), Bias (98th percentile, P98), Root mean square error (RMSE), Ratio of standard deviations, Pearson correlation, Spearman correlation, ROC skill score (ROCSS), Bias (warm annual max spell, WAMS), Bias (cold annual max spell, CAMS), Bias (wet annual max spell, WetAMS), Bias (dry annual max spell, DryAMS), Bias (lag 1 autocorrelation, AC1), Bias (relative amplitude of the annual cycle).</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Figura 3" src="../_images/Fig3.png" /></p>
+<ul class="simple">
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>CNNs outperform traditional linear methods (GLMs) for downscaling precipitation by effectively capturing nonlinearity and important spatial features.</p></li>
+<li><p>For temperature, CNNs mainly enhance the prediction of extremes, while linear models perform well for general temperature variability.</p></li>
+<li><p>CNNs are particularly useful for large-domain downscaling, as they efficiently handle spatiotemporal datasets and reduce the complexity of feature selection.</p></li>
+<li><p>For precipitation, CNNs outperform linear models due to their ability to capture important spatial features and nonlinearity between precipitation and atmospheric circulation.</p></li>
+<li><p>CNN1 and CNN10 are the best models for precipitation and temperature, respectively.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>The study demonstrates the power of CNNs for downscaling both temperature and precipitation over large domains, highlighting their ability to handle spatiotemporal datasets and reduce feature selection complexity.</p></li>
+<li><p>CNNs use a set of atmospheric variables as input.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>The study does not focus on temporal aspects like extreme weather spells, which are crucial for climate predictions.</p></li>
+<li><p>Over-parameterization in some CNN architectures (e.g., CNN-PR and CNN10) may lead to overfitting, particularly in precipitation downscaling.</p></li>
+<li><p>The evaluation was primarily conducted over Europe, limiting generalizability to other regions.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance to Downscaling:</strong></p>
+<ul>
+<li><p>This paper contributes to the advancement of statistical downscaling techniques by demonstrating how CNNs can be applied to large-scale climate models. It offers a potential improvement over traditional methods like GLMs (multiple linear and generalized linear regression models), particularly for global climate change studies that require large-domain downscaling.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-3-on-the-suitability-of-deep-convolutional-neural-networks-for-continental-wide-downscaling-of-climate-change-projections">
+<h2>Paper 3: On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections<a class="headerlink" href="#paper-3-on-the-suitability-of-deep-convolutional-neural-networks-for-continental-wide-downscaling-of-climate-change-projections" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Baño-Medina, J., Manzanas, R., &amp; Gutiérrez, J. M. (2021).</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>Builds on Baño-Medina et al. (2019), which concluded CNNs are suitable for continental-scale applications.</p></li>
+<li><p>Extends the analysis by assessing the suitability of CNNs for downscaling future climate change projections using Global Climate Model (GCM) outputs.</p></li>
+<li><p>Focuses on temperature and precipitation downscaling in Europe.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p><strong>Training Phase:</strong> ERA-Interim data at 2° resolution.</p></li>
+<li><p><strong>Downscaling Phase:</strong> EC-Earth model from CMIP5, station data, and global reanalysis data (NCAR/NCEP).</p></li>
+<li><p><strong>Variables:</strong> Geopotential height (z), temperature (t), specific humidity (q), zonal wind (u), meridional wind (v).</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Preprocessing:</strong></p>
+<ul>
+<li><p>CMIP model data are regridded from 1.12° to 2° resolution.</p></li>
+<li><p>CMIP predictors are bias-corrected to ensure accurate representation of climatology.</p></li>
+</ul>
+</li>
+<li><p><strong>Statistical Downscaling:</strong></p>
+<ul>
+<li><p>CNN architecture: Input layer (stacked spatial predictors) connected to three convolutional layers with spatial kernels of size 3 × 3.</p>
+<ul>
+<li><p>Layers: 50:25:1 filters for precipitation and 50:25:10 for temperature.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Metrics:</strong></p>
+<ul>
+<li><p>Kolmogorov-Smirnov (KS) test for statistical evaluation.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>Statistical downscaling, particularly with CNNs, effectively reduces systematic errors in GCMs for both mean and extreme values, yielding more realistic climate information.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Provides a reproducible technique applicable to multiple CMIP models.</p></li>
+<li><p>Employs bias-correction, enhancing predictor accuracy.</p></li>
+<li><p>Utilizes diverse predictors beyond just precipitation, expanding its applicability.</p></li>
+</ul>
+</li>
+<li><p>Reproducibility of results: <a class="github reference external" href="https://github.com/SantanderMetGroup/DeepDownscaling">SantanderMetGroup/DeepDownscaling</a></p></li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Statistical downscaling models (SDMs), including CNNs, tend to underestimate extreme precipitation values (e.g., 98th percentile)</p></li>
+<li><p>Some systematic biases remain, particularly for precipitation extremes.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Introduces a CNN architecture and methodology applicable to climate change studies.</p></li>
+<li><p>Demonstrates the effectiveness of CNNs for improving GCM projections, making them more reliable for climate change impact assessments.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-4-coupling-dynamical-and-statistical-downscaling-for-high-resolution-rainfall-forecasting-case-study-of-the-red-river-delta-vietnam">
+<h2>Paper 4: Coupling dynamical and statistical downscaling for high-resolution rainfall forecasting: case study of the Red River Delta, Vietnam<a class="headerlink" href="#paper-4-coupling-dynamical-and-statistical-downscaling-for-high-resolution-rainfall-forecasting-case-study-of-the-red-river-delta-vietnam" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Authors:</strong> Tran Anh, Q., &amp; Taniguchi, K. (2018)</p></li>
+<li><p><strong>Key Highlights:</strong><br />
+Propose a dynamical-statistical downscaling technique by incorporating a regional climate model (RCM) with artificial neural networks (ANN) to downscale rainfall information over the Red River Delta in Vietnam.</p></li>
+<li><p><strong>Data Used:</strong></p>
+<ul class="simple">
+<li><p>38 rain gauges</p></li>
+<li><p>17 Variables in total: <strong>Rd1</strong>: Rainfall taken from D1, <strong>v10</strong>: Vertical wind speed at 10 m, <strong>u10</strong>: Horizontal wind speed at 10 m, <strong>hgt</strong>: Terrain height, <strong>t_diff</strong>: Temperature difference between <code class="docutils literal notranslate"><span class="pre">tk</span></code> and <code class="docutils literal notranslate"><span class="pre">t2</span></code>, <strong>slp</strong>: Sea level pressure, <strong>tk</strong>: Temperature at 1400 m height, <strong>t2</strong>: Temperature at 2 m, <strong>q2</strong>: Specific humidity at 2 m, <strong>psfc</strong>: Surface pressure, <strong>vasso</strong>: Variance of sub-grid orography, <strong>pblh</strong>: Planetary boundary layer height, <strong>tslb</strong>: Soil temperature, <strong>smois</strong>: Soil moisture, <strong>grdflx</strong>: Ground heat flux, <strong>canwat</strong>: Canopy water, <strong>sfroff</strong>: Surface runoff.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul class="simple">
+<li><p><strong>WRF simulation:</strong></p>
+<ul>
+<li><p>In the context of this study, the physical parameterization settings were selected based on the optimal combination of schemes used in various studies across Asia.</p></li>
+<li><p>Since this research focuses on the rainfall season, dynamical downscaling was applied to each JJA period of the research duration.</p></li>
+<li><p><strong>Boundary conditions:</strong> Used JRA-55, NCEP-FNL, and NOAA OI SST datasets.</p></li>
+<li><p>The two-domain nesting method was applied with 30- and 6-km horizontal grid resolutions for the outer and inner domains (D1 and D2). D2 has complex topography, including alternating mountain ranges, midlands, lowlands, and a small section of the East Sea.</p></li>
+</ul>
+</li>
+<li><p><strong>Statistical downscaling:</strong></p>
+<ul>
+<li><p>The target area for precipitation estimation using ANN was placed inland inside D2, named D2T.</p></li>
+<li><p>The goal for the WRF model was to accurately reproduce detailed information about rainfall in the D2T.</p></li>
+<li><p><strong>Statistical measures:</strong> The mean absolute error (MAE), Pearson’s correlation (R), root mean square error (RMSE), and index of agreement (IOA). IOA returns the degree of model prediction error, varying between 0 and 1, with a higher value indicating better agreement between the model predictions and observations, while a lower value indicates worse agreement.</p></li>
+<li><p><strong>Architecture:</strong> Adopted the architecture most widely implemented in the climatology field: the feed-forward artificial neural network (FFANN), a multi-layer perceptron trained using the back-propagation learning algorithm (MLP-BP).</p></li>
+<li><p>Predictor variables were selected and tested using the trial-and-error method, from a simple network of several correlated variables to the larger sets, including the combination of uncorrelated variables.</p></li>
+<li><p>A group of distinctive ANN models was considered, 13 ANN models in total.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Figura 4" src="../_images/Fig4.png" /></p>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul class="simple">
+<li><p><strong>Performance WRF simulation</strong>: The evaluation shows that the WRF modeling system can reproduce temporal variation in the JJA daily rainfall rea- sonably well, but underestimates the total precipitation.</p></li>
+<li><p><strong>Computational cost</strong>: Running 30-km WRF and using ANN to downscale to 6 km is 89% less expensive than running nested 30- and 6-km WRF simulations.</p></li>
+<li><p>We developed a calibration method (RE-ANN) to help ANN better capture dry days.</p></li>
+<li><p>Statistical relationships created by ANN can be used to directly downscale climate information from 30-km WRF output to a 6-km grid with rea- sonable accuracy</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p>To improve the predictive accuracy of the WRF-ANN model, a deeper analysis of model biases is necessary, particularly regarding the overestimation of cumulative rainfall during the period of interest.</p></li>
+<li><p>This requires a comprehensive evaluation of model configurations and predictor combinations in the ANN.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance to downscaling:</strong></p>
+<ul class="simple">
+<li><p>Using the coupling methods, we plan to extend the applicability of WRF- ANN to an ensemble of climate models, in which the principal components of the model ensemble can be con- sidered as inputs for ANN downscaling.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-5-statistical-downscaling-and-dynamical-downscaling-of-regional-climate-in-china-present-climate-evaluations-and-future-climate-projections">
+<h2>Paper 5: Statistical downscaling and dynamical downscaling of regional climate in China: Present climate evaluations and future climate projections<a class="headerlink" href="#paper-5-statistical-downscaling-and-dynamical-downscaling-of-regional-climate-in-china-present-climate-evaluations-and-future-climate-projections" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Tang, J., Niu, X., Wang, S., Gao, H., Wang, X., &amp; Wu, J. (2016).</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>This study downscales temperature and precipitation from two Global Climate Models (GCMs) using both statistical and dynamical methods independently.</p></li>
+<li><p>Evaluates the present climate and projects future climate scenarios in China.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p><strong>Observations:</strong> Station data and global reanalysis data from NCAR/NCEP.</p></li>
+<li><p><strong>GCM Outputs:</strong> Two global climate model datasets.</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Statistical Downscaling:</strong></p>
+<ul>
+<li><p>Utilizes the Statistical Downscaling Model (SDSM), which applies a linear regression technique to predict climate variables at station level.</p></li>
+</ul>
+</li>
+<li><p><strong>Dynamical Downscaling:</strong></p>
+<ul>
+<li><p>Employs the Weather Research and Forecasting (WRF) model configured with two nested domains, with a target resolution of 50 km.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>Comprehensive comparison of statistical and dynamical downscaling methodologies, highlighting differences in their applicability and performance.</p></li>
+<li><p>SDSM and WRF agree on temperature changes but not precipitation changes</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Demonstrates the limitations of dynamical downscaling in specific regions, providing valuable insights for its application in China.</p></li>
+<li><p>Offers a detailed evaluation of the performance of both techniques under different scenarios.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Does not explore the combination of statistical and dynamical methods, which could leverage the strengths of both approaches.</p></li>
+<li><p>The statistical method employed (SDSM) is a standard linear technique, lacking non-linear modeling capabilities.</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance to downscaling:</strong></p>
+<ul>
+<li><p>Provides a set of potential parameterizations and methodologies tailored for climate studies in China.</p></li>
+<li><p>Highlights the need for hybrid approaches to enhance the accuracy and applicability of downscaling methods.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-6-case-study-development-of-the-cnn-model-considering-teleconnection-for-spatial-downscaling-of-precipitation-in-a-climate-change-scenario">
+<h2>Paper 6: Case study: Development of the CNN model considering teleconnection for spatial downscaling of precipitation in a climate change scenario<a class="headerlink" href="#paper-6-case-study-development-of-the-cnn-model-considering-teleconnection-for-spatial-downscaling-of-precipitation-in-a-climate-change-scenario" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Kim, J., Lee, M., Han, H., Kim, D., Bae, Y., &amp; Kim, H. S. (2022).</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>This study aims to develop a deep learning-based method for downscaling the precipitation products generated from GCMs and compare it with the traditional method.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p><strong>Observations:</strong> Station data</p></li>
+<li><p><strong>GCM Outputs:</strong> MIROC6</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p><strong>Statistical Downscaling:</strong></p>
+<ul>
+<li><p>CNN</p></li>
+<li><p>The CNN Model Considering Teleconnection</p></li>
+</ul>
+</li>
+<li><p>Metrics: MSE, RMSE, correlation</p></li>
+<li><p>Predictors: The variables include Clt, which represents the cloud area fraction of the GCM; Hurs, indicating the relative humidity of the GCM; Pr, the precipitation of the GCM; Prw, which refers to the atmospheric mass content of water vapor in the GCM; Ps, the surface air pressure; Psl, the sea level pressure; Tas, the air temperature of the GCM; SST+, the most positively correlated sea surface temperature; and SST-, the negatively correlated sea surface temperature</p></li>
+<li><p>Compare CNN method with QM (quantile mapping)</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>CNN has better performance than the traditional QM method.</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>CNN model is replicable.</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong><br />
+-It is focus on timeseries.</p></li>
+<li><p><strong>Relevance to downscaling:</strong></p>
+<ul>
+<li><p>Provides a CNN architecture</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methodology/Technique</p></th>
+<th class="head"><p>Key Strengths</p></th>
+<th class="head"><p>Key Limitations</p></th>
+<th class="head"><p>Example Papers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hybrid WRF-CNN (Precipitation Downscaling)</p></td>
+<td><p>- Combines dynamical and statistical methods <br> - Captures physical dynamics of precipitation</p></td>
+<td><p>-Performance WRF simulations (choose correct parametrizations)</p></td>
+<td><p>Tu, T., et al. (2021)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convolutional neural networks (CNNs)</p></td>
+<td><p>- Effective for large-domain downscaling <br> - Handles spatiotemporal datasets</p></td>
+<td><p>- Choose the architecture for any region</p></td>
+<td><p>Baño-Medina, J., et al. (2020)</p></td>
+</tr>
+<tr class="row-even"><td><p>CNN for Climate Change Projections (CMIP5)</p></td>
+<td><p>- Replicable to GCMs</p></td>
+<td><p>- Tends to underestimate extreme precipitation values (e.g., 98th percentile)</p></td>
+<td><p>Baño-Medina, J., et al. (2021)</p></td>
+</tr>
+<tr class="row-odd"><td><p>WRF-ANN (artificial neural networks) (Dynamical-Statistical Downscaling)</p></td>
+<td><p>- Combines dynamical and statistical methods</p></td>
+<td><p>- Model biases remain in WRF simulation, especially for cumulative rainfall <br> - ANN performance depends heavily on predictor selection</p></td>
+<td><p>Tran Anh, Q., et al. (2018)</p></td>
+</tr>
+<tr class="row-even"><td><p>SDSM vs WRF (Dynamical vs Statistical Downscaling)</p></td>
+<td><p>- Offers insight into the differences in methodology</p></td>
+<td><p>- Does not combine statistical and dynamical methods</p></td>
+<td><p>Tang, J., et al. (2016)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convolutional neural networks (CNNs)</p></td>
+<td><p>- Compares QM with CNN, CNN captures better spatial patterns</p></td>
+<td><p>- Use a different set of predictor variables</p></td>
+<td><p>Kim, J., et al. (2022)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Este es el contenido en formato Markdown.</p>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Enhancing the model’s ability to integrate spatial variability could lead to better predictions in regions with complex climate patterns.</p></li>
+<li><p>Inclusion of more diverse environmental data, <strong>which set of predictors are basic</strong> and have a good performance?</p></li>
+<li><p>Addressing the computational complexity of CNN models remains an area for exploration, as their performance often comes at the cost of increased processing time and data requirements.</p></li>
+<li><p>Future research could also focus on <strong>refining model architectures to enhance their ability to handle larger and more diverse datasets</strong>, thereby improving generalizability.</p></li>
+<li><p>Is it possible for different types of architectures to be used in regions with varying climatic characteristics?</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>There are already approaches that combine dynamic and statistical methods. From the statistical perspective, using machine learning, studies suggest that CNNs (convolutional neural networks) are an effective learning method and are easily replicable in CMIP models. On the other hand, dynamic approaches provide finer resolutions and, despite certain biases, achieve a good representation of precipitation in the studied regions.</p>
+<p>The idea of adopting a hybrid approach between these techniques enables the development of a methodology that is easily replicable. This approach combines physical learning (through parameterizations of WRF simulations) with machine learning (ML). This raises key questions:</p>
+<ul class="simple">
+<li><p>is it possible to separate regions based on their biophysical characteristics, such as high mountain areas, coastal zones, deserts, etc.?</p></li>
+<li><p>Could all these ecosystems or regions be integrated into a single architecture, or, on the contrary,</p></li>
+<li><p>should the methodology be designed based on the specific characteristics of each region?</p></li>
+</ul>
+</section>
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>How sensitive is the model to the input data dimensions?</p></li>
+<li><p>How many CNN models are needed to replicate the process?</p></li>
+<li><p>Which is the desirable target resolution?</p></li>
+<li><p>What period should be simulated in WRF in order to train CNN models?</p></li>
+<li><p>Can this CNN architecture be used in other regions?</p></li>
+<li><p>How sensitive is the model to the resolution and dimensionality of the input data?</p></li>
+<li><p>What improvements could be made to prevent overfitting in CNN models?</p></li>
+<li><p>How does the methodology (paper 3) perform when applied to other regions?</p></li>
+<li><p>Could additional predictors, such as WRF simulations and precipitation, further enhance the downscaling performance for extremes?</p></li>
+<li><p>Do the set of predictor variables that work in historical periods also perform well in the future? Could the future signal change? Is the signal from GCMs preserved?</p></li>
+<li><p>How to integrate the approaches from Papers 1, 2, and 3, WRF-CNN?</p></li>
+<li><p>Ensamble of models?</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Tu, T., et al. (2021). Hybrid precipitation downscaling over coastal watersheds in Japan using WRF and CNN. Journal of Hydrology: Regional Studies, 37, 100921. <a class="reference external" href="https://doi.org/10.1016/j.ejrh.2021.100921">https://doi.org/10.1016/j.ejrh.2021.100921</a></p></li>
+<li><p>Baño-Medina, J., et al. (2020). Configuration and intercomparison of deep learning neural models for statistical downscaling. Geoscientific Model Development, 13(4), 2109-2124. <a class="reference external" href="https://doi.org/10.5194/gmd-13-2109-2020">https://doi.org/10.5194/gmd-13-2109-2020</a></p></li>
+<li><p>Baño-Medina, J., et al. (2021). On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections. Climate Dynamics, 57(11), 2941-2951. <a class="reference external" href="https://link.springer.com/article/10.1007/s00382-021-05847-0">https://link.springer.com/article/10.1007/s00382-021-05847-0</a></p></li>
+<li><p>Tran Anh, Q., et al. (2018). Coupling dynamical and statistical downscaling for high-resolution rainfall forecasting: Case study of the Red River Delta, Vietnam. Progress in Earth and Planetary Science, 5, 1-18. <a class="reference external" href="https://progearthplanetsci.springeropen.com/articles/10.1186/s40645-018-0185-6">https://progearthplanetsci.springeropen.com/articles/10.1186/s40645-018-0185-6</a></p></li>
+<li><p>Tang, J., et al. (2016). Statistical downscaling and dynamical downscaling of regional climate in China: Present climate evaluations and future climate projections. Journal of Geophysical Research: Atmospheres, 121(5), 2110-2129.  <a class="reference external" href="https://doi.org/10.1002/2015JD023977">https://doi.org/10.1002/2015JD023977</a></p></li>
+<li><p>Kim, J., Lee, M., Han, H., Kim, D., Bae, Y., &amp; Kim, H. S. (2022). Case study: Development of the CNN model considering teleconnection for spatial downscaling of precipitation in a climate change scenario. Sustainability, 14(8), 4719.  <a class="reference external" href="https://doi.org/10.3390/su14084719">https://doi.org/10.3390/su14084719</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Task_JuanDavidZuluagaOrtiz.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Extreme events detection: A Literature Review</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-hybrid-precipitation-downscaling-over-coastal-watersheds-in-japan-using-wrf-and-cnn">Paper 1: Hybrid precipitation downscaling over coastal watersheds in Japan using WRF and CNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-configuration-and-intercomparison-of-deep-learning-neural-models-for-statistical-downscaling">Paper 2: Configuration and Intercomparison of Deep Learning Neural Models for Statistical Downscaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-on-the-suitability-of-deep-convolutional-neural-networks-for-continental-wide-downscaling-of-climate-change-projections">Paper 3: On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-coupling-dynamical-and-statistical-downscaling-for-high-resolution-rainfall-forecasting-case-study-of-the-red-river-delta-vietnam">Paper 4: Coupling dynamical and statistical downscaling for high-resolution rainfall forecasting: case study of the Red River Delta, Vietnam</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-statistical-downscaling-and-dynamical-downscaling-of-regional-climate-in-china-present-climate-evaluations-and-future-climate-projections">Paper 5: Statistical downscaling and dynamical downscaling of regional climate in China: Present climate evaluations and future climate projections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-case-study-development-of-the-cnn-model-considering-teleconnection-for-spatial-downscaling-of-precipitation-in-a-climate-change-scenario">Paper 6: Case study: Development of the CNN model considering teleconnection for spatial downscaling of precipitation in a climate change scenario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

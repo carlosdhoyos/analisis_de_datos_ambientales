@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Extreme events detection: A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/Task_JuanDavidZuluagaOrtiz';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review" href="dccruzs_2.html" />
+    <link rel="prev" title="Data-Driven of Clud Properties: A Literature Review" href="JuianSepulveda_H2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/Task_JuanDavidZuluagaOrtiz.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/Task_JuanDavidZuluagaOrtiz.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Extreme events detection: A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-machine-learning-models-to-complete-rainfall-time-series-databases-affected-by-missing-or-anomalous-data">Paper 1: Machine learning models to complete rainfall time series databases affected by missing or anomalous data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-deep-learning-rainfallrunoff-predictions-of-extreme-events">Paper 2: Deep learning rainfall–runoff predictions of extreme events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-prediction-of-occurrence-of-extreme-events-using-machine-learning">Paper 3: Prediction of Occurrence of Extreme Events using Machine Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-extreme-rainfall-events-classification-using-machine-learning-for-kikuletwa-river-floods">Paper 4: Extreme Rainfall Events Classification Using Machine Learning for Kikuletwa River Floods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-automatic-detection-and-classification-of-low-level-orographic-precipitation-processes-from-space-borne-radars-using-machine-learning">Paper 5: Automatic Detection and Classification of Low-Level Orographic Precipitation Processes from Space-Borne Radars using Machine Learning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questiones-about-methodologies-and-ml-approaches">Questiones about Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="extreme-events-detection-a-literature-review">
+<h1>Extreme events detection: A Literature Review<a class="headerlink" href="#extreme-events-detection-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Currently, humans face constantly changes that affect their way of living. From a meteorological perspective, extreme rainfall events are a significant factor that challenges the normal conditions of populations, causing damage, significant alterations to their infrastructure and resources, among other impacts. The identification of these events has become a necessity to prepare and warn populations about their magnitudes, permiting improvements in risk management for public policies.</p>
+<p>Additionally, the changing conditions generated due to climate change, challenges traditional knowledge and skills, creating a need for the implementation of new technologies and tools that helps the generation of effective results to acomplish these needs. The use of artificial intelligence and machine learning in these processes has transformed how problems are approached, providing tools for data analysis, pattern recognition, and phenomenon modeling. This allows for addressing various variables used to train models from multiple perspectives, offering a much broader spectrum of potential solutions. To implement these technologies in the detection of extreme events, the following academic articles demonstrate the application of these information processing alternatives.</p>
+</section>
+<section id="paper-reviews">
+<h2>Paper Reviews<a class="headerlink" href="#paper-reviews" title="Link to this heading">#</a></h2>
+<section id="paper-1-machine-learning-models-to-complete-rainfall-time-series-databases-affected-by-missing-or-anomalous-data">
+<h3>Paper 1: Machine learning models to complete rainfall time series databases affected by missing or anomalous data<a class="headerlink" href="#paper-1-machine-learning-models-to-complete-rainfall-time-series-databases-affected-by-missing-or-anomalous-data" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Andrea Lupi, Marco Luppichini, Michele Barsanti, Monica Bini,
+Roberto Giannecchini</p></li>
+<li><p><strong>Key Higlights:</strong>	- Machine learning models capable of predicting rainfall data starting from the values of the nearest raingauges at one historic time point.	- Influence of the anomalous input data on the prediction of rainfall data.</p></li>
+<li><p><strong>Data used:</strong>	-  Tuscany Region Hydrologic Service (SIR) and contains data acquired from several meteorological stations: automated download procedure through codes written in Python and HTTP protocol.</p></li>
+<li><p><strong>Methodology:</strong>	- Database and data input pre‑processing: Use only the validated data to minimize errors		- Model architecture: open-source framework Tensorflow. LR model is developed using the scikit-learn framework, implementing two model architectures: CNN-LSTM and ED-LSTM.</p></li>
+<li><p><strong>Key results:</strong> 	- Measurement anomalies in time series cause major errors in deep learning models	- Compareing the model errors with those derived from other methods (Beauchamp et al. 1989; Gyau-Boakye and Schultz 1994; Abebe and Price 2003; Coulibaly and Evora 2007; Caldera et al. 2016; Balcha et al. 2023), recognizing a reasonable comparability, concludes that AI techniques could have higher accuracy than traditional methods</p></li>
+<li><p><strong>Machine Learning Tool Used:</strong>	- Two CNNs layers of 64 and 128 filters (with a kernel size of 2 and stride length of 1), respectively, followed by a Max Pooling layer with size 1, an LSTM layer of 200 units, a dense layer of 50 neurons, and an output layer of one neuron	-  Encoder-decoder LSTM, with two LSTM nodes. Both the encoder and the decoder consist of a pair of sequence layers (LSTM) of 32 and 16 units followed by a repeat vector node for the encoder and 16 and 32 units for the decoder followed in turn by a time-distributed dense node.</p></li>
+<li><p><strong>Strengths:</strong>	- Evaluation of errors: mean absolute error (MAE) and the average relative error was calculated for each raingauge (RMAE)		- Use of validated data to minimize errors</p></li>
+<li><p><strong>Limitations:</strong>	- Major errors correspond to major differences among the input data or with the output values. The causes of these anomalies can be different. They cannot exclude meteorological factors, but we suppose that the main cause could be linked to raingauges malfunctions, given the specific selection of the input.</p></li>
+<li><p><strong>Relevance to Extreme Event Detection:</strong>	-  This study also demonstrated that the deep learning model performances are strongly influenced by the input data, confirming the data-driven behaviour of</p></li>
+</ul>
+</section>
+<section id="paper-2-deep-learning-rainfallrunoff-predictions-of-extreme-events">
+<h3>Paper 2: Deep learning rainfall–runoff predictions of extreme events<a class="headerlink" href="#paper-2-deep-learning-rainfallrunoff-predictions-of-extreme-events" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Jonathan M. Frame, Frederik Kratzert, Daniel Klotz, Martin Gauch, Guy Shalev, Oren Gilon, Logan M. Qualls, Hoshin V. Gupta, and Grey S. Nearing</p></li>
+<li><p><strong>Key Higlights:</strong>	- The most accurate rainfall–runoff predictions are currently based on deep learning	- There is a concern among hydrologists that the predictive accuracy of data-driven models based on deep learning may not be reliable in extrapolation or for predicting extreme events. This study tests that hypothesis using long short-term memory (LSTM) networks and an LSTM variant that is architecturally constrained to conserve mass</p></li>
+<li><p><strong>Data used:</strong>	- Catchment Attributes and Meteorology for Large-sample Studies (CAMELS) data set curated by the US National Center for Atmospheric Research (NCAR)	- NLDAS</p></li>
+<li><p><strong>Methodology:</strong>	- Models: Definitios of the models, trained with daily dataset using the same procedures, using minibatchs with size of 256. Trained with CAMELS information. Tarined along 9 water years and test including 10 water years.	- Use of normalized squared-error</p></li>
+<li><p><strong>Key results:</strong>	- The results indicate broadly similar performance between the LSTM and MC-LSTM across most metrics in the two test periods. However, there were small differences. The MC-LSTM generally performed slightly worse according to most metrics and test periods.	- All models had increasingly large average errors with increasingly large extreme events. The LSTM average error was lowest in all of the return period bins.</p></li>
+<li><p><strong>Machine Learning Tool Used:</strong>	- A pure LSTM	- Physics-informed LSTM that is architecturally constrained to conserve mass</p></li>
+<li><p><strong>Strengths:</strong>	- Predictions made by data-based rainfall–runoff models are more reliable than other types of physically based models, even in extrapolation to ungauged basins.	-  The data-driven models (both the pure ML model and the physics-informed ML model) were better than benchmark models at predicting peak flows under almost all conditions, including extreme events or when extreme events were not included in the training data set.</p></li>
+<li><p><strong>Limitations:</strong>	- The differences between pure ML and physics-informed ML is worth discussing. 	- It is important to understand that there is only one type of situation in which adding any type of constraint (physically based or otherwise) to a data-driven model can add value: if constraints help optimization.</p></li>
+<li><p><strong>Relevance to Extreme Event Detection:</strong> 	- Finding correlations between identify different models and extreme events precipitation-runoff.	- Provides a new área to investigate due to incorrect initial hypotesis, permiting create new paths to studying LTSM and CM-LSTM models.</p></li>
+</ul>
+</section>
+<section id="paper-3-prediction-of-occurrence-of-extreme-events-using-machine-learning">
+<h3>Paper 3: Prediction of Occurrence of Extreme Events using Machine Learning<a class="headerlink" href="#paper-3-prediction-of-occurrence-of-extreme-events-using-machine-learning" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> J. Meiyazhagan, S. Sudharsan, A. Venkatesan and M. Senthilvelan</p></li>
+<li><p><strong>Key Higlights:</strong>	- Utilize the ability of machine learning algorithms to predict the occurrence of extreme events in a nonlinear mechanical system.	- Prediction involves the determination of reliable indicators or measurable observables of extreme events.	- Non-polynomial mechanical system with external forcing, parametric drive and time delayed feedback and examined the prediction of the occurrence of extreme events with the help of ML tools.</p></li>
+<li><p><strong>Data used:</strong>	- Generation of information bases in three parameters, considering 4 cases.	- Do not applied this information to actual</p></li>
+<li><p><strong>Methodology:</strong>	- Mechanical model describing the motion of a freely sliding particle of unit mass on a parabolic wire rotating with a constant angular velocity.	- Performance of models: Confusion matrix True negative (TN) and positive (TP), and False postive (FP) and negative (FN)	- Acuracy ML models is calculated by dividing the total number of correct classifications by the total number of classifications done.	- Precision denotes how often the model predicts the positive results (extreme cases) correctly. In other words, precision is the ratio between the number of true positives and a total number of predicted positive outcomes.</p></li>
+<li><p><strong>Key results:</strong></p></li>
+<li><p><strong>Machine Learning Tool Used:</strong>	- Logistic Regression	- Support Vector Machine	- Random Forest 	- Multi-Layer Perceptron</p></li>
+<li><p><strong>Strengths:</strong>	- The considerednon-polynomial mechanical system, as far as the prediction of the emergence of extreme events from the parameter values is concerned, one can optimally use the MLP model	-On examining the performance of each model, we found that the performance of the MLP model is high when compared to the other thre</p></li>
+<li><p><strong>Limitations:</strong>	- Do not applies the results to a study case.</p></li>
+<li><p><strong>Relevance to Extreme Event Detection:</strong>	- Brings a solid base of what ML method we could use in our models.</p></li>
+</ul>
+</section>
+<section id="paper-4-extreme-rainfall-events-classification-using-machine-learning-for-kikuletwa-river-floods">
+<h3>Paper 4: Extreme Rainfall Events Classification Using Machine Learning for Kikuletwa River Floods<a class="headerlink" href="#paper-4-extreme-rainfall-events-classification-using-machine-learning-for-kikuletwa-river-floods" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Lawrence Mdegela, Esteban Municio, Yorick De Bock, Edith Talina Luhanga, Judith Leo and Erik Mannens</p></li>
+<li><p><strong>Key Higlights:</strong>	- Application of different machine learning techniques for detecting and classifying extreme rainfall events in a sub-catchment.	- Identification and classification of extreme rainfall event is a preliminary crucial task towards success in predicting rainfall-induced river floods.	-  This study has emphasized the importance of selecting appropriate performance metrics to evaluate algorithms effectiveness in detecting rare events.</p></li>
+<li><p><strong>Data used:</strong>	- The aim of this work was to classify rainfall intensity (heavy, light, none) based on 6 weather parameters namely temperature (Minimum and Maximum), relative humidity, precipitation, solar, and wind speed. 	- The data from each station were checked for missing values before being merged into a single data set</p></li>
+<li><p><strong>Methodology:</strong>	- All variables were provided by Tanzania Meteorological Agency and the Pangani Basin Water Board(PBWB)	- Dataset: The data from each station were checked for missing values before being merged into a single data set. Data splitted into train and set in 4:1 proportion. There was 6 featyres and 1 target class. 	- Model evaluation: Precision, Recall and F1 score.</p></li>
+<li><p><strong>Key results:</strong>	- The generic Multi-layer Perceptron performs best when identifying the heavy rainfall events	- The use of satellite-based rainfall estimates can enhance rainfall monitoring and prediction in regions where traditional measurement methods are sparse or challenging to implement, albeit with the need for continual improvements in their accuracy and uncertainty estimation.	- The scores from F1_score means both XGBoost and Random forest have perfect precision and recall when you give equal importance to both false negatives and false positives. Clasifing the heavy rains, false negatives were the most important.</p></li>
+<li><p>*<em>Machine Learning Tool Used:</em>	- Random Forest	- eXtreme Gradient Boost	- Support Vector Machine	- k-Nearest Neighbors 	- Multi-layer Perceptron</p></li>
+<li><p><strong>Strengths:</strong>	- These models have potential applications in various fields that require accurate predictions of rare events</p></li>
+<li><p><strong>Limitations:</strong>	- Further research is needed to explore the models’ performance in different settings and under different conditions, such as changes in climate patterns and
+data sources.</p></li>
+<li><p><strong>Relevance to Extreme Event Detection:</strong>	- The study provides insights into the potential of machine learning algorithms in predicting rare events and highlights the need for further research to develop more accurate and robust models.</p></li>
+</ul>
+</section>
+<section id="paper-5-automatic-detection-and-classification-of-low-level-orographic-precipitation-processes-from-space-borne-radars-using-machine-learning">
+<h3>Paper 5: Automatic Detection and Classification of Low-Level Orographic Precipitation Processes from Space-Borne Radars using Machine Learning<a class="headerlink" href="#paper-5-automatic-detection-and-classification-of-low-level-orographic-precipitation-processes-from-space-borne-radars-using-machine-learning" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Malarvizhi Arulraj, Ana P. Barros</p></li>
+<li><p><strong>Key Higlights:</strong>	-  The spatial distribution of predicted precipitation classes within the GPM overpass reflects the complex interactions between storms and topography that determine orographic precipitation regimes.	- For each GPM pixel, the local precipitation class informs on the vertical structure of rainfall microphysics aiming to capture low-level processes missed in GPM DPR reflectivity profiles contaminated by ground-clutter	- Develop and demonstrate a generalized framework for precipitation detection and for predicting the vertical structure of  low-level clouds and fog (LLCF) that is needed to initialize the vertical structure of hydrometeors in the rain-shaft model to improve Quatitative Precipitation Estimation (QPE)</p></li>
+<li><p><strong>Data used:</strong>	- MRMS reflectivity	- NEXRAD 3D reflectivity profiles	- Tbs GMI Level-1C	- GPM Ku-PR	- High-ResolutionRapid Refresh (HRRR) Model</p></li>
+<li><p><strong>Methodology:</strong>	- Data Preprocessing: Authorts identify diferent dataset, analyse cluttering of dataset, extract the information they need acording to each model.	- Models and acuracy: Definition of each model and the acuracy for each one.	- Results evaluation.	- Aplications</p></li>
+<li><p><strong>Key results:</strong>	- Automatic Detection and Classification of Low-Level Orographic Precipitation Processes from Space-Borne Radars using Machine Learning	- Error assessment indicates that GPM Ku-PR miss-detection of precipitation is tightly associated with shallow precipitation	- The proposed convolution neural network algorithm (CNN) allows to extract features from GPM DPR and GMI observations to better characterize the precipitation regime.</p></li>
+<li><p><strong>Machine Learning Tool Used:</strong>	- PCM is a Convolutional Neural Network	- PDM relies Random Forest Classifier using GPM Microwave Imager (GMI)</p></li>
+<li><p><strong>Strengths:</strong>	- The AI framework demonstrated is composed of two sequential models: precipitation detection and precipitation regime classification. The detection model inputs (GPM products and NWP reanalysis from operational forecasts centers) are globally available.	- The detection model is applicable globally to possibly improve the GPM Ku-PR algorithm’s detection skill provided that accurate reanalysis data are available.	- The proposed convolution neural network algorithm (CNN) allows to extract features from GPM DPR and GMI observations to better characterize the precipitation regime.</p></li>
+<li><p><strong>Limitations:</strong>	- Skill metrics for both detection and classification models will be location-specific depending on: 1) data availability for Machine Learning and statistical assessment  2) regional characteristics 3) the capability of the NWP reanalysis to capture the dominant precipitation processes at a spatial resolution compatible with GPM Ku-PR measurements.</p></li>
+<li><p>*<em>Relevance to Extreme Event Detection:</em>	- Identify posible source of information based on reanalysis.	- Identify different models which allows to identify and clasify low level orographic proecipitation based on Machine Learning</p></li>
+</ul>
+</section>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methodology/Technique</p></th>
+<th class="head"><p>Key Strengths</p></th>
+<th class="head"><p>Key Limitations</p></th>
+<th class="head"><p>Example Papers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LSTM</p></td>
+<td><p>Higher acuracty tan traditional methods, learn from dependencies to long term, permitting capture complex patterns.</p></td>
+<td><p>Requieres more time to train, sensible due to measurement abnormalities.</p></td>
+<td><p>Lupi et al.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CM-LSTM</p></td>
+<td><p>Better results than benchmark models. Includes a physical mass conservation in the process.</p></td>
+<td><p>Pure LSTM shows better results as CM-LSTM without extreme events training.</p></td>
+<td><p>Frame et al.</p></td>
+</tr>
+<tr class="row-even"><td><p>MLP</p></td>
+<td><p>Better results than other ML tools as Logistic regression and Random Forest. Accurate prediction of rare events. They are more flexible. They are able to train a non linear model</p></td>
+<td><p>Tends to overfitting and need big cuantities of datasets</p></td>
+<td><p>Meiyazhagan et al.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Random Forest:</p></td>
+<td><p>Accurate prediction of rare events. Resolve the problem of overfitting</p></td>
+<td><p>Longer times of training, they are more complex.</p></td>
+<td><p>Mdegela et al.</p></td>
+</tr>
+<tr class="row-even"><td><p>PCM</p></td>
+<td><p>Allows extract features, they are more flexible. They are capable of introduce uncertainty.</p></td>
+<td><p>Complex to use, high computational requirements.</p></td>
+<td><p>Arulraj et al.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- High quality and high resolutions models based in datset, looking to improve AI and ML tools in the models, looking for more acurate predictions.
+- Improving and optimization training looking for reducing times and computational requirements
+- Allow multiple institutions and populations access to models, looking for investigative developement in regions where this resources may not be availeable.
+- Findings in challenges that can help comunities solve complex problems.
+- Machine learning models that allows adapt to multiple variables and challenges.
+</pre></div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>The extreme events detection represent a critical challenge in the face of increasing climate change and its associated risks. Machine learning and artificial intelligence offer excellent tools to fight back these issues taking advantage of data analysis and identification of complex patterns, guiding this problems through effective solutions.</p>
+<p>While these technologies represents significant obstacles like improvings data limitations, computational requirements, and the need for adaptability to different enviroments. The integration of AI models with traditional meteorological methods will be a big step to improve how professionals study this phenomenon.</p>
+</section>
+<section id="questiones-about-methodologies-and-ml-approaches">
+<h2>Questiones about Methodologies and ML Approaches<a class="headerlink" href="#questiones-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Data Preparation and Requirements:</p>
+<ul class="simple">
+<li><p>How does the model requires to introduce input dataset?</p></li>
+<li><p>Does the models require an specific source of information to strat the training process?</p></li>
+<li><p>What volumen of information does the models requires to achieve low uncertainty and avoid overfitting?</p></li>
+<li><p>What kind of preproccesing requieres the information?</p></li>
+<li><p>Are the datasets available to download for free? If not, what barriers exist to replicating the studies?</p></li>
+</ul>
+</li>
+<li><p>Model Architecture:</p>
+<ul class="simple">
+<li><p>How does the different models works internally?</p></li>
+<li><p>Does the models have internal uncertainties formulas?</p></li>
+</ul>
+</li>
+<li><p>Training Process:</p>
+<ul class="simple">
+<li><p>What loss functions and optimization algorithms were used, and why were they selected?</p></li>
+<li><p>How can i improve models to achieve better results in training process?</p></li>
+</ul>
+</li>
+<li><p>Evaluation and Validation:</p>
+<ul class="simple">
+<li><p>Can i replicate multiple metrics for the same results?</p></li>
+</ul>
+</li>
+<li><p>Reproductibility:</p>
+<ul class="simple">
+<li><p>Are the code for these papers publicly available? If not, what barriers exist to replicating the studies?</p></li>
+<li><p>How can i know what computional resources does any model requires?</p></li>
+</ul>
+</li>
+<li><p>Model aplications:</p>
+<ul class="simple">
+<li><p>How can i know which model has better performance under specific conditions.</p></li>
+<li><p>Are this models capable to study diferent variables under the same concept?</p></li>
+</ul>
+</li>
+<li><p>Future improvements:</p>
+<ul class="simple">
+<li><p>Is there any possible way to help the authors of the models with any recomendation?</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Lupi, A., Luppichini, M., Barsanti, M., Bini, M., &amp; Giannecchini, R. (2023). Machine learning models to complete rainfall time series databases affected by missing or anomalous data. Earth Science Informatics, 16(4), 3717-3728.</p></li>
+<li><p>Frame, J. M., Kratzert, F., Klotz, D., Gauch, M., Shalev, G., Gilon, O., … &amp; Nearing, G. S. (2022). Deep learning rainfall–runoff predictions of extreme events. Hydrology and Earth System Sciences, 26(13), 3377-3392.</p></li>
+<li><p>Meiyazhagan, J., Sudharsan, S., Venkatesan, A., &amp; Senthilvelan, M. (2021). Prediction of occurrence of extreme events using machine learning. The European Physical Journal Plus, 137(1), 16.</p></li>
+<li><p>Mdegela, L., Municio, E., De Bock, Y., Luhanga, E., Leo, J., &amp; Mannens, E. (2023). Extreme Rainfall Event Classification Using Machine Learning for Kikuletwa River Floods. Water, 15(6), 1021.</p></li>
+<li><p>Arulraj, M., &amp; Barros, A. P. (2021). Automatic detection and classification of low-level orographic precipitation processes from space-borne radars using machine learning. Remote Sensing of Environment, 257, 112355.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="JuianSepulveda_H2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data-Driven of Clud Properties: A Literature Review</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dccruzs_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-machine-learning-models-to-complete-rainfall-time-series-databases-affected-by-missing-or-anomalous-data">Paper 1: Machine learning models to complete rainfall time series databases affected by missing or anomalous data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-deep-learning-rainfallrunoff-predictions-of-extreme-events">Paper 2: Deep learning rainfall–runoff predictions of extreme events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-prediction-of-occurrence-of-extreme-events-using-machine-learning">Paper 3: Prediction of Occurrence of Extreme Events using Machine Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-extreme-rainfall-events-classification-using-machine-learning-for-kikuletwa-river-floods">Paper 4: Extreme Rainfall Events Classification Using Machine Learning for Kikuletwa River Floods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-automatic-detection-and-classification-of-low-level-orographic-precipitation-processes-from-space-borne-radars-using-machine-learning">Paper 5: Automatic Detection and Classification of Low-Level Orographic Precipitation Processes from Space-Borne Radars using Machine Learning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questiones-about-methodologies-and-ml-approaches">Questiones about Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

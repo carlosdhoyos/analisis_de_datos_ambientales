@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/task_2_alejandro_betancur';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Review de Técnicas de Forecasting de Precipitación" href="Forecasting_Precipitation.html" />
+    <link rel="prev" title="Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review" href="Julian_Toro_Tarea2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/task_2_alejandro_betancur.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/task_2_alejandro_betancur.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-papers">Review of Key Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-fourcastnet-a-global-data-driven-high-resolution-weather-model-using-adaptive-fourier-neural-operators">Paper 1: FOURCASTNET A GLOBAL DATA-DRIVEN HIGH-RESOLUTION WEATHER MODEL USING ADAPTIVE FOURIER NEURAL OPERATORS</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#authors">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-highlights">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-results">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-tools">Machine Learning Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">Strengths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relevance-to-my-investigation">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-fuxi-a-cascade-machine-learning-forecasting-system-for-15-day-global-weather-forecast">Paper 2: FuXi a cascade machine learning forecasting system for 15-day global weather forecast</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Machine Learning Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Strengths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Limitations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-neural-general-circulation-models-for-weather-and-climate">Paper 3: Neural general circulation models for weather and climate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Machine Learning Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Strengths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Limitations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-weatherbench-2-a-benchmark-for-the-next-generation-of-data-driven-global-weather-models">Paper 4: WeatherBench 2 A benchmark for the next generation of data-driven global weather models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-on-some-limitations-of-current-machine-learning-weather-prediction-models">Paper 5: On Some Limitations of Current Machine Learning Weather Prediction Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-can-artificial-intelligence-based-weather-prediction-models-simulate-the-butterfly-effect">Paper 6: Can Artificial Intelligence-Based Weather Prediction Models Simulate the Butterfly Effect?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Relevance to my investigation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="beyond-metrics-evaluating-ml-weather-models-physically-a-literature-review">
+<h1>Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review<a class="headerlink" href="#beyond-metrics-evaluating-ml-weather-models-physically-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Machine learning is increasingly being used in weather prediction, offering the promise of faster and more detailed forecasts. Models like FourCastNet, FuXi, and NeuralGCM have shown impressive abilities to predict complex weather events, which is crucial for disaster preparedness and resource management. Their speed and efficiency make them attractive alternatives to traditional forecasting methods.</p>
+<p>However, these machine learning models often face challenges in capturing the physical realities of the atmosphere. While they perform well on standard metrics like RMSE and ACC, they may not accurately represent important physical phenomena such as small-scale atmospheric processes or the chaotic nature of weather systems. This highlights the need for evaluations that go beyond traditional statistical measures, incorporating physical diagnostics to ensure that the models are both accurate and realistic.</p>
+</section>
+<section id="review-of-key-papers">
+<h2>Review of Key Papers<a class="headerlink" href="#review-of-key-papers" title="Link to this heading">#</a></h2>
+<section id="paper-1-fourcastnet-a-global-data-driven-high-resolution-weather-model-using-adaptive-fourier-neural-operators">
+<h3>Paper 1: FOURCASTNET A GLOBAL DATA-DRIVEN HIGH-RESOLUTION WEATHER MODEL USING ADAPTIVE FOURIER NEURAL OPERATORS<a class="headerlink" href="#paper-1-fourcastnet-a-global-data-driven-high-resolution-weather-model-using-adaptive-fourier-neural-operators" title="Link to this heading">#</a></h3>
+<section id="authors">
+<h4>Authors<a class="headerlink" href="#authors" title="Link to this heading">#</a></h4>
+<p>Jaideep Pathak et al. (NVIDIA)</p>
+</section>
+<section id="key-highlights">
+<h4>Key highlights<a class="headerlink" href="#key-highlights" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>FourCastNet generates week-long forecasts in under 2 seconds. Operates at 0.25° resolution, capturing fine details like small-scale winds and precipitation.</p></li>
+<li><p>Accurately predicts hurricanes, atmospheric rivers, and extreme precipitation.</p></li>
+<li><p>Supports robust probabilistic forecasting by generating large ensembles quickly.</p></li>
+<li><p>Competes with advanced NWP systems for many key variables.</p></li>
+</ul>
+</section>
+<section id="data">
+<h4>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>ERA5 Reanalysis Data</strong>: Global atmospheric data at a resolution of <strong>0.25°</strong>, spanning decades (1979–2018).</p></li>
+</ul>
+</section>
+<section id="methodology">
+<h4>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h4>
+<p><strong>Model Architecture</strong>:</p>
+<ul class="simple">
+<li><p><strong>Adaptive Fourier Neural Operator (AFNO)</strong>:</p>
+<ul>
+<li><p>Combines <strong>Fourier Neural Operators</strong> for efficient spatial representation and <strong>Vision Transformers (ViT)</strong> for modeling long-range dependencies.</p></li>
+</ul>
+</li>
+<li><p>Separate diagnostic model for <strong>precipitation</strong>, addressing its sparse and skewed distribution.</p></li>
+</ul>
+<p><strong>Training Process</strong>:</p>
+<ul class="simple">
+<li><p><strong>Pretraining</strong>: One-step forecasts optimized for initial learning.</p></li>
+<li><p><strong>Fine-Tuning</strong>: Multi-step predictions refined for longer time horizons.</p></li>
+<li><p>Tools: Cosine learning rate schedules and training across 64 NVIDIA A100 GPUs.</p></li>
+</ul>
+<p><strong>Inference</strong>:</p>
+<ul class="simple">
+<li><p><strong>Autoregressive Mode</strong>: Model predicts sequential time steps iteratively.</p></li>
+<li><p>Large ensembles generated by perturbing initial conditions with Gaussian noise for probabilistic forecasting.</p></li>
+</ul>
+<p><strong>Evaluation Metrics</strong>:</p>
+<ul class="simple">
+<li><p>Metrics include <strong>Anomaly Correlation Coefficient (ACC)</strong> and <strong>Root Mean Squared Error (RMSE)</strong>.</p></li>
+<li><p>Comparison with IFS forecasts and other deep learning models.</p></li>
+</ul>
+</section>
+<section id="key-results">
+<h4>Key Results<a class="headerlink" href="#key-results" title="Link to this heading">#</a></h4>
+<p><strong>Qualitative Analysis</strong>:</p>
+<ul class="simple">
+<li><p>FourCastNet demonstrated high accuracy in forecasting small-scale, short-term weather phenomena, such as hurricanes, atmospheric rivers, and extreme precipitation.</p></li>
+<li><p><strong>Example Highlight</strong>: The model successfully tracked <strong>Hurricane Michael (2018)</strong>, accurately predicting its formation, rapid intensification, and trajectory.</p></li>
+</ul>
+<p><strong>Precipitation Diagnosis</strong>:</p>
+<ul class="simple">
+<li><p>Despite the challenges of predicting precipitation due to its intermittent and stochastic nature, FourCastNet achieved remarkable skill in capturing high-resolution features in short-term forecasts.</p></li>
+</ul>
+<p><strong>Comparison with the IFS Model (ECMWF)</strong>:</p>
+<ul class="simple">
+<li><p>FourCastNet proved competitive with IFS in metrics like the <strong>Anomaly Correlation Coefficient (ACC)</strong> and <strong>Root Mean Squared Error (RMSE)</strong>.</p></li>
+<li><p>It outperformed IFS in short-term (up to 48 hours) predictions for key variables such as wind speed and temperature.</p></li>
+</ul>
+<p><strong>Specific Case Studies</strong>:</p>
+<ul class="simple">
+<li><p><strong>Hurricanes</strong>: The model successfully tracked hurricanes like Michael, capturing rapid intensification and accurate trajectories over a 72-hour period.</p></li>
+<li><p><strong>Atmospheric Rivers</strong>: Effectively forecasted water vapor columns, including the “Pineapple Express,” demonstrating potential for flood warning systems.</p></li>
+</ul>
+<p><strong>Overland Forecasting Capabilities</strong>:</p>
+<ul class="simple">
+<li><p>The model delivered precise near-surface wind speed predictions over land, vital for wind energy development and disaster management.</p></li>
+</ul>
+<p><strong>Extreme Weather Predictions</strong>:</p>
+<ul class="simple">
+<li><p>FourCastNet performed well in predicting extreme values (e.g., heavy rainfall, strong winds) but showed a slight underestimation of the most extreme cases.</p></li>
+</ul>
+<p><strong>Computational Advantages</strong>:</p>
+<ul class="simple">
+<li><p>Capable of generating ensemble forecasts with 1,000 members in seconds, enabling robust probabilistic models and improving early extreme event warnings.</p></li>
+<li><p>Operates <strong>45,000 times faster</strong> than traditional models like IFS and uses significantly less energy.</p></li>
+</ul>
+</section>
+<section id="machine-learning-tools">
+<h4>Machine Learning Tools<a class="headerlink" href="#machine-learning-tools" title="Link to this heading">#</a></h4>
+<p><strong>Adaptive Fourier Neural Operator (AFNO)</strong>: The AFNO architecture is the core of FourCastNet, designed to handle high-resolution spatial data efficiently. It leverages Fourier transforms to perform global spatial token mixing, significantly reducing computational complexity compared to traditional methods. By operating in the Fourier domain, it achieves O(Nlog⁡N)O(N \log N)O(NlogN) complexity, enabling scalability for high-resolution grids.</p>
+<p><strong>Vision Transformer (ViT) Backbone</strong>: The architecture incorporates a Vision Transformer to capture long-range dependencies in data. Tokens (spatial patches of the input grid) are processed with multi-head self-attention mechanisms, allowing the model to identify intricate relationships across the globe, such as the interaction of distant atmospheric patterns.</p>
+<p><strong>Diagnostic Precipitation Model</strong>: Precipitation forecasting is treated separately due to its sparse and non-linear nature. A dedicated AFNO-based module predicts accumulated precipitation by post-processing outputs from the main model. It uses a log-transformed representation to handle the skewed data distribution.</p>
+<p><strong>Multi-Step Autoregressive Forecasting</strong>: The model is fine-tuned for autoregressive inference, where predictions from one time step feed into the next. This approach ensures temporal consistency over extended forecasts while maintaining high spatial accuracy.</p>
+<p><strong>Efficient Design for Scalability</strong>: The architecture minimizes memory footprint and computational load by processing high-resolution grids (720×1440 pixels) with efficient token mixing. This makes FourCastNet capable of handling global-scale weather data with unprecedented speed.</p>
+</section>
+<section id="strengths">
+<h4>Strengths<a class="headerlink" href="#strengths" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>FourCastNet generates week-long global forecasts in <strong>under 2 seconds</strong>, significantly faster than traditional Numerical Weather Prediction (NWP) models like IFS.</p></li>
+<li><p>Operates at a <strong>0.25° resolution</strong> (approximately 30 km globally), capturing small-scale atmospheric features such as cyclones and localized precipitation, surpassing many prior deep learning and NWP models.</p></li>
+<li><p>Accurately predicts complex phenomena like hurricanes, atmospheric rivers, and extreme precipitation events, including their formation, trajectory, and intensification.</p></li>
+<li><p>Capable of generating large ensemble forecasts with thousands of members, enabling robust uncertainty quantification and improved reliability for extreme event prediction.</p></li>
+</ul>
+</section>
+<section id="limitations">
+<h4>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Unlike traditional Numerical Weather Prediction (NWP) models, FourCastNet does not incorporate explicit physics-based equations. This may limit its ability to ensure physical consistency in extreme and long-term forecasts.</p></li>
+<li><p>The model operates with fewer vertical levels (5) compared to NWP models like ECMWF IFS, which utilize more than 50 levels. This restricts its ability to capture detailed vertical atmospheric dynamics.</p></li>
+<li><p>Despite high resolution, the diagnostic precipitation model underestimates extremes and struggles with the sparse and skewed distribution of precipitation data.</p></li>
+</ul>
+</section>
+<section id="relevance-to-my-investigation">
+<h4>Relevance to my investigation<a class="headerlink" href="#relevance-to-my-investigation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The model is tested on critical use cases, including hurricane tracking, atmospheric river forecasting, and precipitation prediction</p></li>
+<li><p>Given the inherent chaos of the atmosphere, the paper emphasizes the role of ensemble forecasts in capturing uncertainty and improving prediction reliability</p></li>
+<li><p>The paper uses both deterministic metrics like RMSE and ACC, and probabilistic evaluations through ensemble forecasting to assess model performance comprehensively.</p></li>
+</ul>
+</section>
+</section>
+<section id="paper-2-fuxi-a-cascade-machine-learning-forecasting-system-for-15-day-global-weather-forecast">
+<h3>Paper 2: FuXi a cascade machine learning forecasting system for 15-day global weather forecast<a class="headerlink" href="#paper-2-fuxi-a-cascade-machine-learning-forecasting-system-for-15-day-global-weather-forecast" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>Authors<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Lei Chen et al.</p>
+</section>
+<section id="id2">
+<h4>Key highlights<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>It employs a cascade architecture, using pre-trained models fine-tuned for specific forecast windows: short-term (0–5 days), medium-term (5–10 days), and long-term (10–15 days).</p>
+<p>Through ensemble forecasting, FuXi creates diverse prediction scenarios by introducing noise-based perturbations and model variability.</p>
+</section>
+<section id="id3">
+<h4>Data<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>ERA5</strong>: Produced by ECMWF, this is a reanalysis dataset with historical weather data offering high spatial and temporal resolution. It is used as the ground truth for training and validating the FuXi model.</p></li>
+<li><p><strong>HRES-fc0</strong>: ECMWF’s high-resolution deterministic forecast data (first time step). It serves as a benchmark to compare the accuracy of FuXi’s deterministic weather predictions.</p></li>
+<li><p><strong>ENS-fc0</strong>: ECMWF’s ensemble mean forecast data, representing probabilistic predictions (first time step). It is used to evaluate FuXi’s ensemble forecasts and their ability to quantify uncertainty.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>Methodology<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p><strong>Model Architecture</strong>: FuXi employs a three-stage cascade architecture, each optimized for specific time windows (short, medium, and long-term forecasts). It integrates cube embedding for dimensionality reduction, a U-Transformer for data processing, and a fully connected layer for predictions.</p>
+<p><strong>Inputs and Outputs</strong>: FuXi uses weather data from two previous time steps as inputs, predicting global weather conditions in 6-hour intervals for up to 15 days with high spatial resolution.</p>
+<p><strong>Loss Function</strong>: Latitude-weighted L1 loss is employed to minimize prediction errors with adjustments for geographic variability, enhancing precision across latitudes.</p>
+<p><strong>Training:</strong> The training process includes pre-training for short-term model and targeted fine-tuning for all model (short-term, medium-term and long-term), leveraging advanced GPUs for large-scale data processing.</p>
+</section>
+<section id="id5">
+<h4>Key Results<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>FuXi surpasses ECMWF’s high-resolution forecast (HRES) in terms of accuracy for medium- and long-term predictions.</p></li>
+<li><p>Demonstrates performance on par with GraphCast and other advanced ML models, excelling particularly in longer lead times.</p></li>
+</ul>
+<p>FuXi’s ensemble provides <strong>probabilistic forecasts</strong>, offering comparable CRPS (Continuous Ranked Probability Score) to ECMWF ensembles for up to 9 days.</p>
+<p>The cascaded architecture of FuXi reduces cumulative forecast errors and ensures optimal performance for short (0–5 days), medium (5–10 days), and long-term (10–15 days) forecasting windows.</p>
+<p>FuXi demonstrates a significant computational advantage over traditional numerical weather prediction (NWP) systems, achieving comparable results with lower resource demands.</p>
+</section>
+<section id="id6">
+<h4>Machine Learning Tools<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p><strong>Architecture</strong>:</p>
+<ul class="simple">
+<li><p><strong>U-Transformer</strong> with <strong>Swin Transformer V2</strong> for handling spatial-temporal weather data efficiently.</p></li>
+<li><p>Includes residual post-normalization and scaled cosine attention for stability and precision.</p></li>
+</ul>
+<p><strong>Embedding</strong>:</p>
+<ul class="simple">
+<li><p><strong>Space-Time Cube Embedding</strong> reduces high-dimensional input using 3D convolutions.</p></li>
+</ul>
+<p><strong>Encoder-Decoder</strong>:</p>
+<ul class="simple">
+<li><p><strong>Encoder</strong>: Downsampling with residual blocks, GN normalization, and SiLU activation.</p></li>
+<li><p><strong>Decoder</strong>: Upsampling with transposed convolutions and skip connections.</p></li>
+</ul>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Improve ensemble spread for long-term forecasts.</p></li>
+<li><p>Extend the model to handle 14–28 day forecasts (Sub-Seasonal Predictions)</p></li>
+<li><p>Develop fully ML-based forecasts without relying on numerical models.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h4>Strengths<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The <strong>cascade model architecture</strong> minimizes cumulative errors by optimizing for short, medium, and long-term forecasts.</p></li>
+<li><p>FuXi provides a computationally efficient alternative to traditional numerical weather prediction (NWP) models, requiring fewer resources for similar or better performance.</p></li>
+<li><p>Generates forecasts at a spatial resolution of <strong>0.25°</strong> and temporal resolution of <strong>6 hours</strong>, matching or exceeding the detail of existing systems.</p></li>
+<li><p>Incorporates <strong>ensemble forecasting</strong> for uncertainty quantification, producing results comparable to ECMWF ensembles for short and medium lead times.</p></li>
+<li><p>Designed with flexibility for future enhancements, such as sub-seasonal forecasts (14–28 days) and fully end-to-end ML-based systems.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>Limitations<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>While FuXi performs well for up to 15 days, its ensemble forecasts show <strong>decreasing accuracy beyond 9 days</strong> compared to ECMWF ensemble mean (EM).</p></li>
+<li><p>derived data for initial states and lacks a self-sufficient data assimilation method.</p></li>
+<li><p>Increasing autoregressive steps to improve long-term forecasts results in higher memory and computational requirements, which could limit scalability.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h4>Relevance to my investigation<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The paper evaluates FuXi’s performance using both deterministic (RMSE, ACC) and probabilistic (CRPS, SSR) metrics, ensuring a comprehensive assessment of forecast accuracy and uncertainty.</p></li>
+<li><p>FuXi addresses the unpredictability of the atmosphere by employing ensemble methods to quantify and manage uncertainty.</p></li>
+</ul>
+</section>
+</section>
+<section id="paper-3-neural-general-circulation-models-for-weather-and-climate">
+<h3>Paper 3: Neural general circulation models for weather and climate<a class="headerlink" href="#paper-3-neural-general-circulation-models-for-weather-and-climate" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h4>Authors<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p>Dmitrii Kochkov et al. (Google, MIT, ECMWF)</p>
+</section>
+<section id="id11">
+<h4>Key highlights<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NeuralGCM combines physics-based general circulation models (GCMs) with machine learning</p></li>
+<li><p>NeuralGCM outperforms traditional models in computational efficiency, running up to 5 orders of magnitude faster, while maintaining comparable or better forecasting precision.</p></li>
+<li><p>While effective in current climates, NeuralGCM struggles with extrapolating to extreme future scenarios. It shows promise for integration into broader Earth-system models, advancing forecasting and climate science.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>Data<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>ECMWF-HRES and ECMWF-ENS:</strong> These are high-resolution and ensemble forecasting systems from the European Centre for Medium-Range Weather Forecasts. Used as benchmarks for comparing NeuralGCM’s weather forecasting accuracy over different lead times.</p></li>
+<li><p><strong>GraphCast and Pangu:</strong> State-of-the-art machine learning models for weather forecasting. Served as baselines to evaluate NeuralGCM’s performance in short- and medium-range forecasts.</p></li>
+<li><p><strong>AMIP (Atmospheric Model Intercomparison Project)</strong>: A dataset of climate simulations using prescribed sea surface temperatures. NeuralGCM was evaluated against AMIP runs to test its ability to simulate long-term climate patterns and trends.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h4>Methodology<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p><strong>Model Architecture</strong>: NeuralGCM combines a physics-based atmospheric solver with neural networks to integrate large-scale dynamics and smaller-scale processes into a unified forecasting model.</p>
+<p><strong>Inputs and Outputs</strong>: Inputs are atmospheric profiles and external forcings (); outputs forecast tendencies, capturing the evolution of climate metrics and weather states.</p>
+<p><strong>Loss Function</strong>: Deterministic Models use mean squared error (MSE) to ensure accuracy, with add terms to penalize bias and control high-frequency spatial errors. Stochastic Models use Continuous Ranked Probability Score (CRPS) to balance prediction accuracy with uncertainty representation.</p>
+<p><strong>Training:</strong> Training involves fine-tuning on reanalysis data like ERA5, gradually increasing time horizons to improve stability and accuracy.</p>
+</section>
+<section id="id14">
+<h4>Key Results<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NeuralGCM matches or outperforms traditional physics-based and machine-learning models in short- to medium-range weather forecasts (1–15 days), with lower error metrics like RMSE and CRPS.</p></li>
+<li><p>NeuralGCM delivers forecasts with 3 to 5 orders of magnitude fewer computational resources, enabling faster simulations at coarser resolutions without compromising accuracy.</p></li>
+<li><p>With realistic outputs for long-term climate features, NeuralGCM captures essential patterns like tropical cyclone trajectories and seasonal variations, bridging the gap between short-term and extended forecasts.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h4>Machine Learning Tools<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<p><strong>Architecture</strong>: The architecture features fully connected networks optimized for capturing localized atmospheric dynamics. Shared weights ensure consistent predictions across spatial grids, while residual layers address gradient vanishing issues.</p>
+<p><strong>Embedding</strong>: The neural networks incorporate input embeddings that represent atmospheric states, gradients, and external forcings, standardized for uniformity.</p>
+<p><strong>Encoder-Decoder</strong>: The encoder maps pressure-level data into the sigma-coordinate system, while the decoder converts forecasts back into standard pressure levels.</p>
+<p><strong>Enhancements:</strong></p>
+<ul class="simple">
+<li><p>Improving the neural network structure or numerical core could further enhance model precision and performance.</p></li>
+<li><p>Suggests leveraging real-world observational data to improve the relevance and accuracy of weather predictions.</p></li>
+<li><p>Suggests flexibility to adapt the model with richer physical modeling or enhanced ML techniques based on specific needs.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h4>Strengths<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>This hybrid design enables NeuralGCM to handle complex atmospheric phenomena, from large-scale dynamics to subgrid processes.</p></li>
+<li><p>The approach supports enhancements such as coupling with other Earth-system components or incorporating more observational data, making it highly adaptable to evolving research needs.</p></li>
+<li><p>NeuralGCM demonstrates exceptional stability in simulating multi-decade climate patterns, accurately reproducing phenomena such as monsoons, tropical cyclones, and seasonal cycles.</p></li>
+</ul>
+</section>
+<section id="id17">
+<h4>Limitations<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The model’s ability to generalize is limited when faced with climates that deviate substantially from the training data, posing challenges for extreme future scenarios.</p></li>
+<li><p>The model struggles with learning complex processes that have small but significant impacts on climate timescales, such as feedback mechanisms.</p></li>
+<li><p>NeuralGCM exhibits occasional drifts in its predictions during long-term simulations, emphasizing the importance of addressing stability and consistency.</p></li>
+<li><p>The model’s dependence on past data constrains its ability to predict emergent or unobserved climatic phenomena.</p></li>
+</ul>
+</section>
+<section id="id18">
+<h4>Relevance to my investigation<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>This paper highlights how hybrid models like NeuralGCM integrate physics-based methods and machine learning, setting a new benchmark for evaluating machine learning in weather prediction (MLWP).</p></li>
+<li><p>Metrics such as RMSE, RMSB, and CRPS allow for detailed evaluation of NeuralGCM’s performance in deterministic forecasts and its ability to quantify probabilistic uncertainties.</p></li>
+<li><p>Evaluation spans multiple use cases, including medium-range forecasts, ensemble scenarios, and emergent climatic phenomena like tropical cyclones.</p></li>
+</ul>
+</section>
+</section>
+<section id="paper-4-weatherbench-2-a-benchmark-for-the-next-generation-of-data-driven-global-weather-models">
+<h3>Paper 4: WeatherBench 2 A benchmark for the next generation of data-driven global weather models<a class="headerlink" href="#paper-4-weatherbench-2-a-benchmark-for-the-next-generation-of-data-driven-global-weather-models" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h4>Authors<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<p>Stephan Rasp et al. (Google, ECMWF)</p>
+</section>
+<section id="id20">
+<h4>Key highlights<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>WeatherBench 2 aims to set a new standard for evaluating AI-based weather forecasting systems. Includes tools and data for public use to assess weather forecasting models.</p></li>
+<li><p>Includes deterministic (RMSE, SEEPS) and probabilistic metrics (CRPS, spread-skill ratio).</p></li>
+<li><p>Ground truth is based on ERA5 reanalysis datasets.</p></li>
+<li><p>Incorporates the complexities of weather forecasting, such as chaotic error growth.</p></li>
+<li><p>Plans for improvements, such as incorporating direct observations and better evaluation methods for extreme events.</p></li>
+</ul>
+</section>
+<section id="id21">
+<h4>Data<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>ERA5 Dataset</strong>: High-resolution reanalysis dataset (0.25°) used as ground truth and training data, covering 1979 to the present.</p></li>
+<li><p><strong>IFS HRES</strong>: ECMWF’s operational deterministic high-resolution forecast model with 0.1° resolution.</p></li>
+<li><p><strong>IFS ENS</strong>: Ensemble forecast model with 50 members.</p></li>
+<li><p><strong>Climatology</strong>: Averages from 30 years of ERA5 data used to calculate baseline metrics like anomaly correlation coefficient (ACC).</p></li>
+<li><p>Graph Neural Network trained on ERA5 with autoregressive predictions at 1° resolution.</p></li>
+<li><p><strong>Pangu-Weather</strong>: Transformer-based AI model trained on ERA5 data with 0.25° resolution.</p></li>
+<li><p><strong>GraphCast</strong>: Multi-mesh Graph Neural Network trained with ERA5, using 0.25° resolution.</p></li>
+<li><p><strong>FuXi</strong>: Cascaded Transformer model trained on ERA5 for short, medium, and long-range forecasts at 0.25° resolution.</p></li>
+<li><p><strong>NeuralGCM</strong>: Hybrid AI-physics model combining machine learning with dynamical cores at 0.7° and 1.4° resolutions.</p></li>
+<li><p><strong>SphericalCNN</strong>: Convolutional model for spherical data trained on ERA5 at 1.4° x 0.7° resolution.</p></li>
+</ul>
+</section>
+<section id="id22">
+<h4>Methodology<a class="headerlink" href="#id22" title="Link to this heading">#</a></h4>
+<p>The benchmark uses an open-source framework to evaluate the performance of AI and traditional weather models on global, medium-range forecasts. Metrics are based on operational weather center standards to ensure robust comparisons. Used metrics are:</p>
+<ul class="simple">
+<li><p><strong>Root Mean Squared Error (RMSE)</strong>: Measures average forecast error for deterministic models.</p></li>
+<li><p><strong>Anomaly Correlation Coefficient (ACC)</strong>: Assesses how well forecasts capture variability from climatology.</p></li>
+<li><p><strong>Bias</strong>: Examines systematic over- or under-predictions.</p></li>
+<li><p><strong>Stable Equitable Error in Probability Space (SEEPS)</strong>: Evaluates categorical precipitation forecasts.</p></li>
+<li><p><strong>Continuous Ranked Probability Score (CRPS)</strong>: Quantifies the accuracy and reliability of probabilistic forecasts.</p></li>
+<li><p><strong>Spread-Skill Ratio</strong>: Analyzes the balance between forecast uncertainty and error in ensemble models.</p></li>
+<li><p><strong>Power Spectra</strong>: Compares the energy distribution across spatial scales, emphasizing high-frequency variability. Zonal spectral energy is calculated to assess the ability of models to preserve small- and large-scale weather patterns over time. High-frequency energy loss indicates model smoothing at longer lead times, which is critical for evaluating AI-generated forecasts.</p></li>
+</ul>
+</section>
+<section id="id23">
+<h4>Key Results<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>AI models such as GraphCast and Pangu-Weather show comparable performance to traditional high-resolution systems (e.g., IFS HRES) for deterministic metrics up to 3–6 days.</p></li>
+<li><p>AI models show excessive smoothing over time, leading to reduced small-scale variability, as revealed by spectral energy metrics.</p></li>
+<li><p>NeuralGCM ENS matches the accuracy of operational ensemble forecasts for some variables in probabilistic evaluations.</p></li>
+<li><p>AI models perform variably on extreme events, capturing cyclone tracks but often underestimating intensity.</p></li>
+</ul>
+</section>
+<section id="id24">
+<h4>Relevance to my investigation<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Introduces physical metrics (e.g., spectrum analysis) alongside traditional skill scores to evaluate model reliability in representing weather systems.</p></li>
+<li><p>Establishes standardized benchmarks (WeatherBench 2) for fair and reproducible comparisons of ML weather prediction models.</p></li>
+<li><p>Identifies issues like excessive smoothing and loss of small-scale energy in AI forecasts, stressing the need for better physical alignment.</p></li>
+</ul>
+</section>
+</section>
+<section id="paper-5-on-some-limitations-of-current-machine-learning-weather-prediction-models">
+<h3>Paper 5: On Some Limitations of Current Machine Learning Weather Prediction Models<a class="headerlink" href="#paper-5-on-some-limitations-of-current-machine-learning-weather-prediction-models" title="Link to this heading">#</a></h3>
+<section id="id25">
+<h4>Authors<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
+<p>Massimo Bonavita (ECMWF)</p>
+</section>
+<section id="id26">
+<h4>Key highlights<a class="headerlink" href="#id26" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>“Forecasts from Machine Learning (ML) models have energy spectra notably different from those of their training reanalysis fields and Numerical Weather Prediction models”</p></li>
+<li><p>“This results in overly smooth predictions and weather phenomena at spatial scales shorter than 300–400 km are not properly represented”</p></li>
+<li><p>“Fundamental physical balances and derived quantities are not realistically represented in the forecasts of the ML models”</p></li>
+<li><p>“The effective resolution of the ML models’ forecasts is closer to 500–700 km than to the nominal 0.25° and is gradually decreasing with forecast lead time”</p></li>
+</ul>
+</section>
+<section id="id27">
+<h4>Data<a class="headerlink" href="#id27" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>ERA5:</strong> ECMWF’s ERA5 reanalysis. Used as training data for ML models and as a benchmark for evaluating forecast accuracy and physical consistency.</p></li>
+<li><p><strong>ECMWF IFS Forecasts</strong>: Generated by the ECMWF’s. Served as a reference for comparing ML model forecasts in terms of spectral resolution and dynamic consistency.</p></li>
+<li><p><strong>Pangu-Weather Forecast Outputs</strong>: Produced by the Pangu-Weather ML model trained on ERA5 reanalysis data. Analyzed for spectral diagnostics, wind balance, and vertical motion to assess forecast fidelity and physical realism.</p></li>
+</ul>
+</section>
+<section id="id28">
+<h4>Methodology<a class="headerlink" href="#id28" title="Link to this heading">#</a></h4>
+<p>The authors analyzed ML weather models like Pangu-Weather by comparing their performance to ERA5 reanalysis data and ECMWF forecasts. They used tools such as spectral energy analysis, geostrophic balance checks, and vertical velocity diagnostics to identify gaps in physical consistency and forecast accuracy.</p>
+</section>
+<section id="id29">
+<h4>Key Results<a class="headerlink" href="#id29" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>ML models like Pangu-Weather show reduced spectral energy at higher spatial frequencies, resulting in overly smooth forecasts that fail to capture fine-scale weather phenomena effectively.</p></li>
+<li><p>The forecasts from ML models demonstrate inconsistencies in geostrophic balance, with weaker ageostrophic wind components, leading to less realistic interactions between wind and pressure systems.</p></li>
+<li><p>ML models underpredict vertical motions, producing weaker and more diffuse vertical velocity fields compared to traditional physics-based models, which impacts the accuracy of weather event predictions like storms and cyclones.</p></li>
+<li><p>While fast and efficient, these models are better suited for specific tasks than for replacing traditional systems.</p></li>
+</ul>
+</section>
+<section id="id30">
+<h4>Relevance to my investigation<a class="headerlink" href="#id30" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>RMSE and similar metrics miss important details about physical model consistency.</p></li>
+<li><p>The paper highlights the importance of using diagnostics like spectral energy and geostrophic balance to evaluate MLWP models.</p></li>
+<li><p>Studying physical realism reveals weaknesses in how MLWP models simulate weather dynamics.</p></li>
+</ul>
+</section>
+</section>
+<section id="paper-6-can-artificial-intelligence-based-weather-prediction-models-simulate-the-butterfly-effect">
+<h3>Paper 6: Can Artificial Intelligence-Based Weather Prediction Models Simulate the Butterfly Effect?<a class="headerlink" href="#paper-6-can-artificial-intelligence-based-weather-prediction-models-simulate-the-butterfly-effect" title="Link to this heading">#</a></h3>
+<section id="id31">
+<h4>Authors<a class="headerlink" href="#id31" title="Link to this heading">#</a></h4>
+<p>T. Selz and G. C. Craig</p>
+</section>
+<section id="id32">
+<h4>Key highlights<a class="headerlink" href="#id32" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>“Current artificial-intelligence-based models cannot simulate the butterfly effect and incorrectly suggest unlimited atmospheric predictability”</p></li>
+<li><p>“Their error growth rate and structure remain similar to synoptic-scale error growth regardless of the amplitude of the initial perturbation”</p></li>
+<li><p>Synoptic-scale error growth from current levels of initial condition uncertainty appears mostly realistic, except for a short initial decay”</p></li>
+</ul>
+</section>
+<section id="id33">
+<h4>Data<a class="headerlink" href="#id33" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Pangu Model Outputs</strong>: Generated forecasts with different perturbation levels.</p></li>
+<li><p><strong>ICON Model Data</strong>: High-resolution physical model outputs, including convection-permitting simulations.</p></li>
+</ul>
+</section>
+<section id="id34">
+<h4>Methodology<a class="headerlink" href="#id34" title="Link to this heading">#</a></h4>
+<p>The study evaluates the performance of the AI-based Pangu-Weather model and the physics-based ICON model. Researchers conducted experiments with varying levels of initial condition uncertainties (100% for realistic scenarios and 0.1% to simulate the butterfly effect). They analyzed error growth by introducing perturbations into the models, running simulations for 72 hours, and comparing outputs using metrics such as Difference Kinetic Energy (DKE) and spatial/spectral error growth diagnostics.</p>
+</section>
+<section id="id35">
+<h4>Key Results<a class="headerlink" href="#id35" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>AI-based models, like Pangu-Weather, cannot replicate the butterfly effect, suggesting an unrealistic unlimited atmospheric predictability.</p></li>
+<li><p>Pangu-Weather underestimates error growth at small scales, diverging significantly from the nonlinear dynamics seen in traditional models.</p></li>
+<li><p>When initial condition uncertainties are large (100%), Pangu-Weather closely mirrors the performance of physical models like ICON.</p></li>
+<li><p>Using large ensembles can lower sampling uncertainty and enhance the accuracy of extreme event predictions, but this is only effective if the model accurately reflects realistic error growth dynamics.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h4>Relevance to my investigation<a class="headerlink" href="#id36" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The paper highlights the need for machine learning weather prediction (MLWP) models to maintain physical consistency, especially in chaotic atmospheric features like the butterfly effect.</p></li>
+<li><p>The research reveals that MLWP models struggle with simulating the intrinsic chaos of atmospheric systems, impacting their physical reliability.</p></li>
+<li><p>It applies metrics like Difference Kinetic Energy (DKE) to measure error growth, emphasizing their value in testing the physical consistency of MLWP models.</p></li>
+<li><p>The study underscores the limitations of MLWP models in simulating key physical processes, urging the inclusion of evaluations based on physical principles.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Strengths</p></th>
+<th class="head"><p>Limitations</p></th>
+<th class="head"><p>Example Papers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>FourCastNet</strong><br>- Adaptive Fourier Neural Operator (AFNO)<br>- Combines Fourier Neural Operators with Vision Transformers<br>- Separate diagnostic model for precipitation</p></td>
+<td><p>- Generates forecasts in under 2 seconds<br>- High resolution (0.25°), captures fine details<br>- Accurate extreme event predictions<br>- Quickly generates large ensembles</p></td>
+<td><p>- Lacks explicit physics equations<br>- Fewer vertical levels (5)<br>- Underestimates extreme precipitation</p></td>
+<td><p>Pathak et al. (2022)<br>”FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators”</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>FuXi</strong><br>- Cascade architecture for different forecast windows<br>- U-Transformer with Swin Transformer V2<br>- Space-Time Cube Embedding</p></td>
+<td><p>- Reduces cumulative errors<br>- Computationally efficient<br>- High spatial (0.25°) and temporal (6h) resolution<br>- Incorporates ensemble forecasting</p></td>
+<td><p>- Accuracy drops beyond 9 days<br>- No self-sufficient data assimilation<br>- Higher computational needs for long-term forecasts</p></td>
+<td><p>Chen et al. (2023)<br>”FuXi: A cascade machine learning forecasting system for 15-day global weather forecast”</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NeuralGCM</strong><br>- Hybrid of physics-based GCMs and neural networks<br>- Fully connected networks with shared weights<br>- Encoder-decoder with sigma-coordinate system</p></td>
+<td><p>- Handles complex atmospheric phenomena<br>- Stable in multi-decade simulations<br>- Extremely computationally efficient</p></td>
+<td><p>- Limited generalization to extreme climates<br>- Occasional prediction drifts<br>- Struggles with emergent phenomena</p></td>
+<td><p>Kochkov et al. (2024)<br>”Neural general circulation models for weather and climate”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions:<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Improve Physical Realism</strong>: Enhance ML models to better represent small-scale processes and atmospheric chaos.</p></li>
+<li><p><strong>Preserve Fine Details</strong>: Develop methods to prevent overly smooth forecasts and maintain small-scale variability.</p></li>
+<li><p><strong>Simulate Atmospheric Chaos</strong>: Advance techniques to capture chaotic behaviors like the butterfly effect.</p></li>
+<li><p><strong>Generalize to Extremes</strong>: Enable models to predict unprecedented events beyond training data.</p></li>
+<li><p>**Increase Vertical Resolution: Add more vertical levels to better capture atmospheric dynamics.</p></li>
+<li><p><strong>Enhance Precipitation Forecasting</strong>: Improve models to handle sparse, skewed precipitation data and predict extremes.</p></li>
+<li><p><strong>Optimize Computational Efficiency</strong>: Design efficient architectures for scalable, long-term forecasting.</p></li>
+<li><p><strong>Improve Ensemble Methods</strong>: Develop better ensemble techniques to capture uncertainty and chaotic behaviors.</p></li>
+<li><p><strong>Use Physical Diagnostics</strong>: Incorporate physical metrics for comprehensive model evaluation.</p></li>
+<li><p><strong>Encourage Collaboration</strong>: Foster interdisciplinary work to integrate domain expertise with ML advancements.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>While machine learning models like FourCastNet, FuXi, and NeuralGCM have shown promise in weather prediction, traditional metrics like RMSE (Root Mean Squared Error) and ACC (Anomaly Correlation Coefficient) are not sufficient to fully evaluate their performance. These metrics measure statistical accuracy but do not assess whether the models accurately represent the physical realities of the atmosphere, such as chaotic behavior and small-scale weather phenomena.</p>
+<p>Studies have found that these models often produce overly smooth forecasts, losing important small-scale details and failing to capture the chaotic nature of weather systems—the so-called butterfly effect. Physical evaluations using tools like power spectra analysis and assessments of geostrophic balance have revealed that machine learning models may not preserve the energy distribution across different spatial scales or maintain essential physical balances, issues that traditional metrics fail to highlight.</p>
+<p>Therefore, it’s essential to go beyond standard statistical measures and incorporate physical diagnostics when evaluating machine learning weather models. By doing so, we can better identify their limitations and guide improvements, ensuring that these models are not only statistically accurate but also physically realistic and reliable for weather forecasting.</p>
+</section>
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>FourCastNet’s Architecture and Training:</strong></p>
+<ul class="simple">
+<li><p>How does FourCastNet utilize Adaptive Fourier Neural Operators (AFNO) in its model architecture, and what advantages does this offer for high-resolution weather forecasting?</p></li>
+<li><p>Why does FourCastNet use a separate diagnostic model for precipitation, and how does this approach address the challenges of predicting sparse and skewed precipitation data?</p></li>
+<li><p>What role do the cosine learning rate schedules and multi-GPU training play in optimizing FourCastNet’s performance?</p></li>
+</ul>
+</li>
+<li><p><strong>FuXi’s Cascade Model Approach:</strong></p>
+<ul class="simple">
+<li><p>How does FuXi incorporate ensemble forecasting, and what methods are used to introduce diversity in its prediction scenarios?</p></li>
+<li><p>In what ways does FuXi’s use of the U-Transformer and Swin Transformer V2 contribute to its handling of spatial-temporal weather data?</p></li>
+<li><p>What are the specific techniques FuXi uses in fine-tuning its models for different forecasting windows, and how do they impact model stability?</p></li>
+</ul>
+</li>
+<li><p><strong>NeuralGCM’s Hybrid Design:</strong></p>
+<ul class="simple">
+<li><p>What challenges does NeuralGCM face when extrapolating to extreme future climate scenarios, and how might its methodology be adapted to address these limitations?</p></li>
+<li><p>How does NeuralGCM’s use of fully connected networks and shared weights enhance its ability to capture localized atmospheric dynamics?</p></li>
+<li><p>How does NeuralGCM’s training process ensure stability and accuracy over multi-decade climate simulations?*</p></li>
+</ul>
+</li>
+<li><p><strong>WeatherBench 2’s Benchmarking Framework:</strong></p>
+<ul class="simple">
+<li><p>What are the key features of WeatherBench 2, and how does it aim to standardize the evaluation of AI-based weather forecasting systems?</p></li>
+<li><p>How does WeatherBench 2 facilitate fair and reproducible comparisons among different ML weather prediction models?</p></li>
+<li><p>In what ways can WeatherBench 2 be improved to better evaluate extreme weather events and their representation in ML models?</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations and Challenges of Current ML Approaches:</strong></p>
+<ul class="simple">
+<li><p>What are some limitations of ML weather models in representing small-scale atmospheric processes, and how do these limitations affect forecast accuracy?</p></li>
+<li><p>How does the inability of some ML models to simulate chaotic atmospheric behavior impact their reliability for long-term forecasting?</p></li>
+<li><p>What strategies can be employed to improve the physical realism of ML weather models and overcome the identified limitations?</p></li>
+<li><p>How does the over-smoothing observed in ML model forecasts impact the representation of fine-scale weather phenomena?</p></li>
+<li><p>How critical is it for ML models to accurately simulate the butterfly effect, and what approaches can help achieve this?</p></li>
+</ul>
+</li>
+<li><p><strong>Comparative Analysis of ML Models and Traditional NWP:</strong></p>
+<ul class="simple">
+<li><p>In what ways do ML models like FourCastNet and FuXi outperform traditional Numerical Weather Prediction (NWP) models, and where do they fall short?</p></li>
+<li><p>How do computational efficiency and scalability factor into the adoption of ML approaches in operational weather forecasting?</p></li>
+<li><p>What are the implications of ML models operating without explicit physics-based equations on their long-term forecast reliability?</p></li>
+</ul>
+</li>
+<li><p><strong>Ensemble Forecasting and Uncertainty Quantification:</strong></p>
+<ul class="simple">
+<li><p>What are the methods used by ML models to introduce perturbations for ensemble forecasting, and how effective are they in practice?</p></li>
+<li><p>How do probabilistic metrics like CRPS and spread-skill ratio contribute to the evaluation of ensemble forecasts in ML models?</p></li>
+<li><p>How do ML models handle initial condition uncertainties in ensemble forecasting compared to traditional models?</p></li>
+<li><p>What are the limitations of current ML ensemble methods in representing the full spectrum of possible weather outcomes?</p></li>
+<li><p>How can ensemble forecasting in ML models be improved to better capture chaotic atmospheric behaviors?</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="bibliografia">
+<h2>Bibliografia<a class="headerlink" href="#bibliografia" title="Link to this heading">#</a></h2>
+<p>Bonavita, M. (2024). On Some Limitations of Current Machine Learning Weather Prediction Models. <em>Geophysical Research Letters</em>, <em>51</em>(12), e2023GL107377. <a class="reference external" href="https://doi.org/10.1029/2023GL107377">https://doi.org/10.1029/2023GL107377</a></p>
+<p>Chen, L., Zhong, X., Zhang, F., Cheng, Y., Xu, Y., Qi, Y., &amp; Li, H. (2023). FuXi: A cascade machine learning forecasting system for 15-day global weather forecast. <em>Npj Climate and Atmospheric Science</em>, <em>6</em>(1), 1–11. <a class="reference external" href="https://doi.org/10.1038/s41612-023-00512-1">https://doi.org/10.1038/s41612-023-00512-1</a></p>
+<p>Kochkov, D., Yuval, J., Langmore, I., Norgaard, P., Smith, J., Mooers, G., Klöwer, M., Lottes, J., Rasp, S., Düben, P., Hatfield, S., Battaglia, P., Sanchez-Gonzalez, A., Willson, M., Brenner, M. P., &amp; Hoyer, S. (2024). Neural general circulation models for weather and climate. <em>Nature</em>, <em>632</em>(8027), 1060–1066. <a class="reference external" href="https://doi.org/10.1038/s41586-024-07744-y">https://doi.org/10.1038/s41586-024-07744-y</a></p>
+<p>Pathak, J., Subramanian, S., Harrington, P., Raja, S., Chattopadhyay, A., Kurth, T., Hall, D., Li, Z., Azizzadenesheli, K., Hassanzadeh, P., Kashinath, K., &amp; Anandkumar, A. (2022, February 22). <em>FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators</em>. <a class="reference external" href="http://arXiv.Org">arXiv.Org</a>. <a class="reference external" href="https://arxiv.org/abs/2202.11214v1">https://arxiv.org/abs/2202.11214v1</a></p>
+<p>Rasp, S., Hoyer, S., Merose, A., Langmore, I., Battaglia, P., Russel, T., Sanchez-Gonzalez, A., Yang, V., Carver, R., Agrawal, S., Chantry, M., Bouallegue, Z. B., Dueben, P., Bromberg, C., Sisk, J., Barrington, L., Bell, A., &amp; Sha, F. (2024). <em>WeatherBench 2: A benchmark for the next generation of data-driven global weather models</em> (arXiv:2308.15560). arXiv. <a class="reference external" href="https://doi.org/10.48550/arXiv.2308.15560">https://doi.org/10.48550/arXiv.2308.15560</a></p>
+<p>Selz, T., &amp; Craig, G. C. (2023). Can Artificial Intelligence-Based Weather Prediction Models Simulate the Butterfly Effect? <em>Geophysical Research Letters</em>, <em>50</em>(20), e2023GL105747. <a class="reference external" href="https://doi.org/10.1029/2023GL105747">https://doi.org/10.1029/2023GL105747</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Julian_Toro_Tarea2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Forecasting_Precipitation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Review de Técnicas de Forecasting de Precipitación</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-key-papers">Review of Key Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-fourcastnet-a-global-data-driven-high-resolution-weather-model-using-adaptive-fourier-neural-operators">Paper 1: FOURCASTNET A GLOBAL DATA-DRIVEN HIGH-RESOLUTION WEATHER MODEL USING ADAPTIVE FOURIER NEURAL OPERATORS</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#authors">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-highlights">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-results">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-tools">Machine Learning Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths">Strengths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relevance-to-my-investigation">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-fuxi-a-cascade-machine-learning-forecasting-system-for-15-day-global-weather-forecast">Paper 2: FuXi a cascade machine learning forecasting system for 15-day global weather forecast</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Machine Learning Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Strengths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Limitations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-neural-general-circulation-models-for-weather-and-climate">Paper 3: Neural general circulation models for weather and climate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Machine Learning Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Strengths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Limitations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-weatherbench-2-a-benchmark-for-the-next-generation-of-data-driven-global-weather-models">Paper 4: WeatherBench 2 A benchmark for the next generation of data-driven global weather models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-on-some-limitations-of-current-machine-learning-weather-prediction-models">Paper 5: On Some Limitations of Current Machine Learning Weather Prediction Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Relevance to my investigation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-can-artificial-intelligence-based-weather-prediction-models-simulate-the-butterfly-effect">Paper 6: Can Artificial Intelligence-Based Weather Prediction Models Simulate the Butterfly Effect?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Authors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Key highlights</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Methodology</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Key Results</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Relevance to my investigation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

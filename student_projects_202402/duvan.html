@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Machine Learning Applications in Tropical Cyclone Analysis Using Satellite Imagery: A Literature Review &#8212; Intro to AI/ML in Atmospheric Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'student_projects_202402/duvan';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Change climate forecasting: Lierature Review" href="ChangeClimateForecasting.html" />
+    <link rel="prev" title="Task 2: Review of Key Papers" href="task_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Intro to AI/ML in Atmospheric Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the AI and Machine Learning in Atmospheric Sciences Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Course Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai_in_atmospheric_sciences_intro.html">AI in Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../atmospheric_sciences_brief_review.html">Atmospheric Sciences: An introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../student_projects_202402.html">Student Projects 202402</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nowcasting_precipitation.html">Review of Nowcasting Precipitation Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JuianSepulveda_H2.html">Data-Driven of Clud Properties: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Task_JuanDavidZuluagaOrtiz.html">Extreme events detection: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dccruzs_2.html">Hybrid Dynamical-Statistical Downscaling with Machine Learning Approach: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Julian_Toro_Tarea2.html">Machine learning for intraseasonal variability detection or prediction (still to be define): A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2_alejandro_betancur.html">Beyond Metrics: Evaluating ML Weather Models Physically - A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Forecasting_Precipitation.html">Review de Técnicas de Forecasting de Precipitación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_2.html">Task 2: Review of Key Papers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Machine Learning Applications in Tropical Cyclone Analysis Using Satellite Imagery: A Literature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChangeClimateForecasting.html">Change climate forecasting: Lierature Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nowcasting_review.html">Precipitation Nowcasting: A Literature Review</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstudent_projects_202402/duvan.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/student_projects_202402/duvan.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine Learning Applications in Tropical Cyclone Analysis Using Satellite Imagery: A Literature Review</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-the-advanced-dvorak-technique-continued-development-of-an-objective-scheme-to-estimate-tropical-cyclone-intensity-using-geostationary-infrared-satellite-imagery">Paper 1: The Advanced Dvorak Technique: Continued Development of an Objective Scheme to Estimate Tropical Cyclone Intensity Using Geostationary Infrared Satellite Imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-tropical-cyclone-intensity-estimation-using-a-deep-convolutional-neural-network">Paper 2: Tropical cyclone intensity estimation using a deep convolutional neural network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-machine-learning-in-tropical-cyclone-forecast-modeling-a-review">Paper 3: Machine Learning in Tropical Cyclone Forecast Modeling: A Review</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-using-deep-learning-to-estimate-tropical-cyclone-intensity-from-satellite-passive-microwave-imagery">Paper 4: Using Deep Learning to Estimate Tropical Cyclone Intensity from Satellite Passive Microwave Imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-deep-learning-for-hurricane-track-forecasting-from-aligned-spatio-temporal-climate-datasets">Paper 5: Deep Learning for Hurricane Track Forecasting from Aligned Spatio-temporal Climate Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-tropical-cyclone-intensity-estimation-using-multi-dimensional-convolutional-neural-networks-from-geostationary-satellite-data">Paper 6: Tropical Cyclone Intensity Estimation Using Multi-Dimensional Convolutional Neural Networks from Geostationary Satellite Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-7-physics-augmented-deep-learning-to-improve-tropical-cyclone-intensity-and-size-estimation-from-satellite-imagery">Paper 7: Physics-Augmented Deep Learning to Improve Tropical Cyclone Intensity and Size Estimation from Satellite Imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-8-dmanet-kf-tropical-cyclone-intensity-estimation-based-on-deep-learning-and-kalman-filter-from-multispectral-infrared-images">Paper 8: DMANet_KF: Tropical Cyclone Intensity Estimation Based on Deep Learning and Kalman Filter From Multispectral Infrared Images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-related-challenges">Data-Related Challenges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-challenges">Technical Challenges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-research-directions">Future Research Directions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-quality">Data Preparation and Quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture">Model Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-process">Training Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics">Evaluation Metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-implementation">Practical Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">Reproducibility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-applications-in-tropical-cyclone-analysis-using-satellite-imagery-a-literature-review">
+<h1>Machine Learning Applications in Tropical Cyclone Analysis Using Satellite Imagery: A Literature Review<a class="headerlink" href="#machine-learning-applications-in-tropical-cyclone-analysis-using-satellite-imagery-a-literature-review" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The analysis and prediction of tropical cyclones (TCs) has experienced significant advancement through the integration of machine learning techniques with satellite imagery. This review examines ten seminal papers that represent the evolution and current state-of-the-art in this field, with particular focus on recent developments like TC-GEN and TC-PRIMED that demonstrate the potential of AI-driven approaches in tropical cyclone research.</p>
+</section>
+<section id="paper-reviews">
+<h2>Paper Reviews<a class="headerlink" href="#paper-reviews" title="Link to this heading">#</a></h2>
+<section id="paper-1-the-advanced-dvorak-technique-continued-development-of-an-objective-scheme-to-estimate-tropical-cyclone-intensity-using-geostationary-infrared-satellite-imagery">
+<h3>Paper 1: <a class="reference external" href="https://journals.ametsoc.org/view/journals/wefo/22/2/waf975_1.xml">The Advanced Dvorak Technique: Continued Development of an Objective Scheme to Estimate Tropical Cyclone Intensity Using Geostationary Infrared Satellite Imagery</a><a class="headerlink" href="#paper-1-the-advanced-dvorak-technique-continued-development-of-an-objective-scheme-to-estimate-tropical-cyclone-intensity-using-geostationary-infrared-satellite-imagery" title="Link to this heading">#</a></h3>
+<p><img alt="ADT algorithm satellite image analysis methodology for tropical cyclone intensity estimation" src="https://journals.ametsoc.org/view/journals/wefo/22/2/images/i1520-0434-22-2-287-f02.jpg" /></p>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Timothy L. Olander and Christopher S. Velden</p></li>
+<li><p><strong>Key Highlights:</strong></p></li>
+<li><p>Development and implementation of a fully automated tropical cyclone intensity estimation system</p></li>
+<li><p>Systematic evolution from manual to automated technique (ODT-&gt;AODT-&gt;ADT)</p></li>
+<li><p>World’s first operational automated system for TC intensity estimation</p></li>
+<li><p>Real-time implementation across multiple forecast centers</p></li>
+<li><p>Decade-long validation against aircraft reconnaissance</p></li>
+<li><p>Integration of objective methods with established meteorological principles</p></li>
+<li><p><strong>Data Used:</strong></p></li>
+<li><p>Geostationary satellite infrared imagery from GOES, GMS and Meteosat</p></li>
+<li><p>Aircraft reconnaissance database (1995-2005):</p></li>
+<li><p><strong>Methodology:</strong></p></li>
+<li><p>Automated pattern recognition algorithms:</p>
+<ul>
+<li><p>Spiral centering technique for center location</p></li>
+<li><p>Ring-fitting method for structure analysis</p></li>
+<li><p>Automatic scene type classification</p></li>
+</ul>
+</li>
+<li><p>Statistical regression for intensity estimation</p></li>
+<li><p>Latitude-based bias corrections</p></li>
+<li><p>Integration of original Dvorak technique rules</p></li>
+<li><p><strong>Key Results:</strong></p></li>
+<li><p>Elimination of systematic bias present in manual estimates</p></li>
+<li><p>RMSE of 12.53 hPa vs 9.86 hPa for operational estimates</p></li>
+<li><p>Optimal performance in mature storm stages</p></li>
+<li><p>50% accuracy improvement over original ODT algorithm</p></li>
+<li><p><strong>Strengths:</strong></p></li>
+<li><p>Complete automation of decades-proven manual technique</p></li>
+<li><p>Objective and consistent estimates without human intervention</p></li>
+<li><p>Global applicability across all cyclone basins</p></li>
+<li><p>24/7 real-time operational capability</p></li>
+<li><p>Extensive validation against aircraft reconnaissance data</p></li>
+<li><p>Flexible implementation across multiple computational platforms</p></li>
+<li><p><strong>Limitations:</strong></p></li>
+<li><p>Reduced accuracy during formation and dissipation stages</p></li>
+<li><p>Significant difficulties with weak tropical systems</p></li>
+<li><p>Limited to infrared imagery use only</p></li>
+<li><p>Resolution constraints for very small cyclone eyes</p></li>
+<li><p>Inability to fully replicate human expertise</p></li>
+<li><p>Dependence on established empirical relationships</p></li>
+<li><p>Lack of direct wind measurements</p></li>
+<li><p>Challenges in wind shear conditions</p></li>
+<li><p><strong>Relevance:</strong></p></li>
+<li><p>Demonstrates viability of automating complex satellite image analysis</p></li>
+<li><p>Provides methodological framework for future ML applications</p></li>
+<li><p>Identifies specific areas for improvement through ML techniques</p></li>
+<li><p>Demonstrates operational viability of automated systems</p></li>
+</ul>
+</section>
+<section id="paper-2-tropical-cyclone-intensity-estimation-using-a-deep-convolutional-neural-network">
+<h3>Paper 2: <a class="reference external" href="https://ieeexplore.ieee.org/document/8082557">Tropical cyclone intensity estimation using a deep convolutional neural network</a><a class="headerlink" href="#paper-2-tropical-cyclone-intensity-estimation-using-a-deep-convolutional-neural-network" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Pradhan, R., Aygun, R. S., Maskey, M., Ramachandran, R., &amp; Cecil, D. J.</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>First implementation of deep CNN for tropical cyclone intensity estimation</p></li>
+<li><p>Achieves better accuracy than traditional methods (Dvorak and DAVT)</p></li>
+<li><p>Eliminates need for extensive preprocessing and domain expertise</p></li>
+<li><p>Provides automated feature extraction from satellite imagery</p></li>
+<li><p>Generalizable across Atlantic and Pacific regions</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>98 tropical cyclones (68 Atlantic + 30 Pacific) from 1999-2014</p></li>
+<li><p>8,138 original IR satellite images</p></li>
+<li><p>Expanded to 48,828 images through transformations</p></li>
+<li><p>HURDAT2 data for labeling</p></li>
+<li><p>Separate recon-only test dataset of 2,646 images</p></li>
+<li><p>Images taken at 2-hour intervals</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p>Deep CNN architecture:</p>
+<ul>
+<li><p>5 convolutional layers</p></li>
+<li><p>3 fully connected layers</p></li>
+<li><p>ReLU activation functions</p></li>
+<li><p>Local response normalization</p></li>
+<li><p>Max pooling layers</p></li>
+<li><p>Dropout (p=0.5) for regularization</p></li>
+</ul>
+</li>
+<li><p>Training:</p>
+<ul>
+<li><p>GPU GRID K520 4GB</p></li>
+<li><p>65 epochs (~8 hours)</p></li>
+<li><p>Mini-batch system</p></li>
+<li><p>Learning rate: α=0.001 with γ=0.1 decay</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>Classification accuracy:</p>
+<ul>
+<li><p>Top-1: 80.66%</p></li>
+<li><p>Top-2: 95.47%</p></li>
+</ul>
+</li>
+<li><p>RMSE: 10.18kt (Atlantic/Pacific)</p></li>
+<li><p>Recon-only test results:</p>
+<ul>
+<li><p>Top-1: 76.91%</p></li>
+<li><p>Top-2: 92.55%</p></li>
+<li><p>RMSE: 11.36kt</p></li>
+</ul>
+</li>
+<li><p>Outperforms previous DAVT techniques (14.7kt RMSE)</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Automated feature extraction</p></li>
+<li><p>No requirement for domain expertise</p></li>
+<li><p>Minimal preprocessing needed</p></li>
+<li><p>Fast processing time (&lt;1 second per image)</p></li>
+<li><p>Generalizable across different regions</p></li>
+<li><p>Lower RMSE than traditional methods</p></li>
+<li><p>Robust visualization of learned features</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Dataset quality issues (grid lines in images)</p></li>
+<li><p>Limited dataset size</p></li>
+<li><p>Hardware resource constraints</p></li>
+<li><p>Hyperparameter optimization challenges</p></li>
+<li><p>Black patches in some images</p></li>
+<li><p>Imbalanced category distribution</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Demonstrates successful application of deep learning in tropical cyclone analysis</p></li>
+<li><p>Provides automated, accurate intensity estimation</p></li>
+<li><p>Reduces human dependency in analysis</p></li>
+<li><p>Establishes framework for future ML applications</p></li>
+<li><p>Validates CNN approach for feature extraction</p></li>
+<li><p>Shows potential for operational implementation</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-3-machine-learning-in-tropical-cyclone-forecast-modeling-a-review">
+<h3>Paper 3: <a class="reference external" href="https://www.mdpi.com/2073-4433/11/7/676">Machine Learning in Tropical Cyclone Forecast Modeling: A Review</a><a class="headerlink" href="#paper-3-machine-learning-in-tropical-cyclone-forecast-modeling-a-review" title="Link to this heading">#</a></h3>
+<p><img alt="An organization chart of cases involving machine learning in tropical cyclone forecasts. The abbreviations used in this figure are as follows: logistic regression (LR), decision tree (DT), random forest (RF), support vector machine (SVM), support vector regression (SVR), multi-layer perceptron (MLP), convolutional neural network (CNN), generative adversarial network (GAN), recurrent neural network (RNN), hybrid radial basis function network (HRBF), self-organizing map (SOM), principal component analysis (PCA), convolutional long short-term memory network (ConvLSTM)" src="https://www.mdpi.com/atmosphere/atmosphere-11-00676/article_deploy/html/images/atmosphere-11-00676-g002.png" /></p>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Chen, R., Zhang, W., &amp; Wang, X.</p></li>
+<li><p><strong>Key Highlights:</strong></p></li>
+<li><p>Comprehensive review of ML applications in TC forecasting</p></li>
+<li><p>Analysis of different ML approaches for genesis/track/intensity prediction</p></li>
+<li><p>Evaluation of ML integration with numerical weather prediction models</p></li>
+<li><p>Assessment of opportunities and challenges in TC forecasting using ML</p></li>
+<li><p>Framework for selecting appropriate ML methods for TC analysis</p></li>
+<li><p><strong>Data Used:</strong></p></li>
+<li><p>Satellite imagery (infrared, microwave, multispectral)</p></li>
+<li><p>Reanalysis datasets (NCEP/NCAR, GFS-FNL)</p></li>
+<li><p>Best track records from meteorological centers</p></li>
+<li><p>In-situ observations &amp; aircraft reconnaissance</p></li>
+<li><p>Numerical model outputs (ECMWF, GFS, UKMET)</p></li>
+<li><p>Multi-source environmental data (wind, temperature, pressure)</p></li>
+<li><p><strong>Methodology:</strong></p></li>
+<li><p>Genesis Forecasting: LR, DT, RF, AdaBoost, SVM, CNN (short-term); SVR, MLP, hybrid networks (seasonal)</p></li>
+<li><p>Track Prediction: RNN, MLP, GAN, ConvLSTM (neural networks); DT (feature mining); DBN, FMM (similarity)</p></li>
+<li><p>Intensity Estimation: CNN variants (image analysis); RNN, LSTM (time series); CNN-LSTM (hybrid)</p></li>
+<li><p>Impact Prediction: SVR/MLP/LSSVM (wind); SVM/hybrid networks (rainfall); MLP/SVR/BPN-ANFIS (surge)</p></li>
+<li><p><strong>Key Results:</strong></p></li>
+<li><p>Genesis Detection: &gt;90% accuracy in precursor identification</p></li>
+<li><p>Track Prediction: Average errors &lt;100km</p></li>
+<li><p>Intensity Estimation: RMSE ~8kt using CNN</p></li>
+<li><p>Impact Forecasting: Accurate predictions up to 6 hours</p></li>
+<li><p>Model Improvement: Enhanced parameterization schemes</p></li>
+<li><p><strong>Strengths:</strong></p></li>
+<li><p>Comprehensive coverage of ML applications</p></li>
+<li><p>Detailed analysis of multiple approaches</p></li>
+<li><p>Clear evaluation of methods’ effectiveness</p></li>
+<li><p>Strong focus on practical applications</p></li>
+<li><p>Successful integration of traditional and ML methods</p></li>
+<li><p><strong>Limitations:</strong></p></li>
+<li><p>Limited long-term prediction capability</p></li>
+<li><p>Model interpretability challenges</p></li>
+<li><p>Data scarcity for extreme events</p></li>
+<li><p>Lack of standardized evaluation metrics</p></li>
+<li><p>Implementation complexity in operational settings</p></li>
+<li><p><strong>Relevance:</strong></p></li>
+<li><p>Validates ML effectiveness in TC analysis using satellite imagery</p></li>
+<li><p>Provides comprehensive methodological frameworks</p></li>
+<li><p>Identifies promising research directions</p></li>
+<li><p>Shows practical implementation paths</p></li>
+<li><p>Establishes foundation for ML-enhanced TC analysis</p></li>
+<li><p>Demonstrates successful integration of ML with traditional methods</p></li>
+</ul>
+</section>
+<section id="paper-4-using-deep-learning-to-estimate-tropical-cyclone-intensity-from-satellite-passive-microwave-imagery">
+<h3>Paper 4: <a class="reference external" href="https://journals.ametsoc.org/view/journals/mwre/147/6/mwr-d-18-0391.1.xml">Using Deep Learning to Estimate Tropical Cyclone Intensity from Satellite Passive Microwave Imagery</a><a class="headerlink" href="#paper-4-using-deep-learning-to-estimate-tropical-cyclone-intensity-from-satellite-passive-microwave-imagery" title="Link to this heading">#</a></h3>
+<p><img alt="Simplified diagram of the standard convolutional neural network architecture" src="https://journals.ametsoc.org/view/journals/mwre/147/6/full-mwr-d-18-0391.1-f2.jpg" /></p>
+<ul>
+<li><p><strong>Authors:</strong> Wimmers, A., Velden, C., &amp; Cossuth, J. H.</p></li>
+<li><p><strong>Key Highlights:</strong></p></li>
+<li><p>Introduction of DeepMicroNet CNN model for TC analysis</p></li>
+<li><p>Novel probabilistic output approach for intensity estimation</p></li>
+<li><p>First successful deep learning implementation with microwave imagery</p></li>
+<li><p>Integration of 37 and 85-92 GHz bands</p></li>
+<li><p>Competitive performance with operational methods</p></li>
+<li><p><strong>Data Used:</strong></p></li>
+<li><p>MINT dataset (1987-2012)</p></li>
+<li><p>Multiple satellite sources (DMSP SSM/I, SSMIS, TRMM TMI, Aqua AMSR-E)</p></li>
+<li><p>400km x 400km images at 5km resolution</p></li>
+<li><p>Filtered TC data over water</p></li>
+<li><blockquote>
+<div><p>65% scan coverage requirement</p>
+</div></blockquote>
+</li>
+<li><p><strong>Methodology:</strong></p></li>
+<li><p>CNN architecture based on AlexNet design</p></li>
+<li><p>15 convolutional layers + 2 fully connected layers</p></li>
+<li><p>Cross-entropy loss function training</p></li>
+<li><p>Data augmentation techniques</p></li>
+<li><p>Three model versions (37 GHz, 89 GHz, combined)</p></li>
+<li><p><strong>Key Results:</strong></p></li>
+<li><p>RMSE of 14.3 kt vs global best track</p></li>
+<li><p>RMSE of 10.6 kt vs aircraft reconnaissance</p></li>
+<li><p>89 GHz band proved more influential</p></li>
+<li><p>6-hour forecasting capability</p></li>
+<li><p>RMSE of 9.6 kt with high-resolution data</p></li>
+<li><p><strong>Strengths:</strong></p></li>
+<li><p>Robust to partial scan coverage</p></li>
+<li><p>Resistant to center-fixing errors</p></li>
+<li><p>Provides uncertainty estimates</p></li>
+<li><p>No manual calibration required</p></li>
+<li><p>Global applicability</p></li>
+<li><p>Operational-level performance</p></li>
+<li><p><strong>Limitations:</strong></p></li>
+<li><p>Limited Category 5 hurricane performance</p></li>
+<li><p>Training data constraints</p></li>
+<li><p>Model interpretability challenges</p></li>
+<li><p>Limited temporal resolution</p></li>
+<li><p>Performance degradation beyond 6 hours</p></li>
+<li><p>Satellite coverage gaps</p></li>
+<li><p><strong>Relevance:</strong></p></li>
+<li><p>Demonstrates deep learning viability for TC analysis</p></li>
+<li><p>Provides operational system foundation</p></li>
+<li><p>Enables automated TC intensity estimation</p></li>
+<li><p>Shows potential for method integration</p></li>
+<li><p>Advances satellite-based TC analysis</p></li>
+</ul>
+</section>
+<section id="paper-5-deep-learning-for-hurricane-track-forecasting-from-aligned-spatio-temporal-climate-datasets">
+<h3>Paper 5: <a class="reference external" href="https://hal.science/hal-01905408/">Deep Learning for Hurricane Track Forecasting from Aligned Spatio-temporal Climate Datasets</a><a class="headerlink" href="#paper-5-deep-learning-for-hurricane-track-forecasting-from-aligned-spatio-temporal-climate-datasets" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Giffard-Roisin, S., Yang, M., Charpiat, G., Kégl, B., &amp; Monteleoni, C.</p></li>
+<li><p><strong>Key Highlights:</strong></p></li>
+<li><p>Implementation of a novel moving frame of reference CNN model</p></li>
+<li><p>Development of a fusion network architecture combining wind fields, pressure data, and trajectory information</p></li>
+<li><p>First deep learning approach for 24h hurricane track forecasting using multiple atmospheric levels</p></li>
+<li><p>Integration of data from both hemispheres in a single model</p></li>
+<li><p><strong>Data Used:</strong></p></li>
+<li><p>IBTrACS database: &gt;3000 storm tracks since 1979</p></li>
+<li><p>ERA-interim reanalysis data:</p>
+<ul>
+<li><p>Wind fields (u,v)</p></li>
+<li><p>Geopotential height</p></li>
+<li><p>3 pressure levels (700/500/225 hPa)</p></li>
+</ul>
+</li>
+<li><p>25x25 degree grid centered on storm locations</p></li>
+<li><p>6-hourly temporal resolution</p></li>
+<li><p><strong>Methodology:</strong></p></li>
+<li><p>Three-stream neural network architecture:</p>
+<ol class="arabic simple">
+<li><p>Wind CNN: Processing wind field data</p></li>
+<li><p>Pressure CNN: Processing pressure data</p></li>
+<li><p>Past tracks + meta NN: Processing trajectory and metadata</p></li>
+</ol>
+</li>
+<li><p>Fusion network combining all three streams</p></li>
+<li><p>Moving reference frame approach</p></li>
+<li><p>Training split: 60% train / 20% validation / 20% test</p></li>
+<li><p><strong>Key Results:</strong></p></li>
+<li><p>Mean 24h forecast errors:</p>
+<ul>
+<li><p>Fusion network: 128.9 km</p></li>
+<li><p>Wind CNN: 141.1 km</p></li>
+<li><p>Pressure CNN: 161.3 km</p></li>
+<li><p>Past tracks NN: 184.8 km</p></li>
+</ul>
+</li>
+<li><p>Outperformed statistical BCD5 model</p></li>
+<li><p>Competitive with OFCL until 2010</p></li>
+<li><p><strong>Strengths:</strong></p></li>
+<li><p>Effective data fusion approach</p></li>
+<li><p>Global applicability (both hemispheres)</p></li>
+<li><p>Moving reference frame innovation</p></li>
+<li><p>Complementary to existing forecasting methods</p></li>
+<li><p><strong>Limitations:</strong></p></li>
+<li><p>Performance not superior to post-2010 OFCL forecasts</p></li>
+<li><p>Limited to 24-hour forecasts</p></li>
+<li><p>Requires substantial computational resources</p></li>
+<li><p>Dependent on quality of reanalysis data</p></li>
+<li><p><strong>Relevance:</strong></p></li>
+<li><p>Demonstrates viability of deep learning for hurricane forecasting</p></li>
+<li><p>Establishes framework for multi-source data fusion</p></li>
+<li><p>Provides complementary approach to current forecasting methods</p></li>
+<li><p>Potential for integration with existing prediction systems</p></li>
+</ul>
+</section>
+<section id="paper-6-tropical-cyclone-intensity-estimation-using-multi-dimensional-convolutional-neural-networks-from-geostationary-satellite-data">
+<h3>Paper 6: <a class="reference external" href="https://www.mdpi.com/2072-4292/12/1/108">Tropical Cyclone Intensity Estimation Using Multi-Dimensional Convolutional Neural Networks from Geostationary Satellite Data</a><a class="headerlink" href="#paper-6-tropical-cyclone-intensity-estimation-using-multi-dimensional-convolutional-neural-networks-from-geostationary-satellite-data" title="Link to this heading">#</a></h3>
+<p><img alt="Graphical Abstract" src="https://pub.mdpi-res.com/remotesensing/remotesensing-12-00108/article_deploy/html/images/remotesensing-12-00108-ag.png?1579088259" /></p>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Lee, J., Im, J., Cha, D. H., Park, H., &amp; Sim, S.</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>First implementation of multi-spectral analysis for TC intensity estimation using CNNs</p></li>
+<li><p>Development of both 2D and 3D CNN architectures for TC analysis</p></li>
+<li><p>Introduction of heat maps for model interpretation</p></li>
+<li><p>Improvement of ~35% over existing single-channel methods</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>COMS MI satellite data (2011-2016)</p></li>
+<li><p>4 infrared channels: SWIR (3.7μm), WV (6.7μm), IR1 (10.8μm), IR2 (12.0μm)</p></li>
+<li><p>JTWC best track data for validation</p></li>
+<li><p>Additional validation data from 2017 TCs</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p>Image preprocessing: 301x301 pixel patches resized to 101x101</p></li>
+<li><p>Data balancing through subsampling and oversampling</p></li>
+<li><p>2D-CNN and 3D-CNN architectures implementation</p></li>
+<li><p>Multiple evaluation metrics (MAE, RMSE, rRMSE, ME, MPE, NSE)</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>2D-CNN model: RMSE = 8.32 kts</p></li>
+<li><p>3D-CNN model: RMSE = 11.34 kts</p></li>
+<li><p>35% improvement over previous single-channel models</p></li>
+<li><p>Successful validation on 2017 cases</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Multi-spectral analysis capability</p></li>
+<li><p>Automated and objective estimation</p></li>
+<li><p>Model interpretability through heat maps</p></li>
+<li><p>Consistent with Dvorak technique patterns</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>High computational demands for 3D-CNN</p></li>
+<li><p>Limited hyper-parameter optimization</p></li>
+<li><p>Difficulty in fully understanding model decisions</p></li>
+<li><p>Computational resource constraints</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Provides automated TC intensity estimation</p></li>
+<li><p>Improves accuracy over traditional methods</p></li>
+<li><p>Offers real-time analysis potential</p></li>
+<li><p>Contributes to operational meteorology</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-7-physics-augmented-deep-learning-to-improve-tropical-cyclone-intensity-and-size-estimation-from-satellite-imagery">
+<h3>Paper 7: <a class="reference external" href="https://journals.ametsoc.org/view/journals/mwre/149/7/MWR-D-20-0333.1.xml">Physics-Augmented Deep Learning to Improve Tropical Cyclone Intensity and Size Estimation from Satellite Imagery</a><a class="headerlink" href="#paper-7-physics-augmented-deep-learning-to-improve-tropical-cyclone-intensity-and-size-estimation-from-satellite-imagery" title="Link to this heading">#</a></h3>
+<p><img alt="The configuration of DeepTCNet in both single-task and multitask learning frameworks." src="https://journals.ametsoc.org/view/journals/mwre/149/7/full-MWR-D-20-0333.1-f1.jpg" /></p>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Zhuo, J. Y., &amp; Tan, Z. M.</p></li>
+<li><p><strong>Key Highlights:</strong></p>
+<ul>
+<li><p>Development of DeepTCNet: A physics-augmented deep learning framework for TC analysis</p></li>
+<li><p>Novel integration of physical knowledge into CNN architecture</p></li>
+<li><p>First comprehensive DL approach for simultaneous TC intensity and wind radii estimation</p></li>
+<li><p>Significant improvement over traditional methods (ADT and MTCSWA)</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used:</strong></p>
+<ul>
+<li><p>IBTrACS database (2005-2019) for intensity and wind radii</p></li>
+<li><p>HURSAT-B1 IR imagery (up to 2016)</p></li>
+<li><p>GridSat-B1 archive (post-2016)</p></li>
+<li><p>TC Vitals Database for auxiliary storm information</p></li>
+<li><p>Training: 2005-2015</p></li>
+<li><p>Validation: 2016, 2018</p></li>
+<li><p>Testing: 2017, 2019</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology:</strong></p>
+<ul>
+<li><p>Base Architecture: Modified VGGNet with 13 layers</p></li>
+<li><p>Single-Task Learning (STL) for intensity estimation</p></li>
+<li><p>Multi-Task Learning (MTL) for wind radii estimation</p></li>
+<li><p>Physics augmentation through:</p>
+<ul>
+<li><p>TC fullness integration</p></li>
+<li><p>Auxiliary physical information</p></li>
+<li><p>Sequential IR imagery analysis</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Key Results:</strong></p>
+<ul>
+<li><p>39% improvement over ADT in intensity estimation</p></li>
+<li><p>32% improvement over MTCSWA in wind radii estimation</p></li>
+<li><p>Comparable performance to SATCON</p></li>
+<li><p>Relative error ~8% for all TC categories</p></li>
+<li><p>Successful validation with aircraft reconnaissance data</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths:</strong></p>
+<ul>
+<li><p>Real-time operational capability</p></li>
+<li><p>Interpretable through saliency maps and LRP</p></li>
+<li><p>Effective physics integration</p></li>
+<li><p>Simultaneous multi-parameter estimation</p></li>
+<li><p>Basin-independent application potential</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>Underestimation of very intense TCs</p></li>
+<li><p>Limited training data for extreme events</p></li>
+<li><p>Dependent on IR imagery resolution</p></li>
+<li><p>Requires quality-controlled historical data</p></li>
+<li><p>Performance varies with TC structure complexity</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance:</strong></p>
+<ul>
+<li><p>Advances operational TC monitoring capabilities</p></li>
+<li><p>Improves satellite data utilization efficiency</p></li>
+<li><p>Demonstrates successful physics-ML integration</p></li>
+<li><p>Provides foundation for future TC analysis systems</p></li>
+<li><p>Supports real-time decision making</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="paper-8-dmanet-kf-tropical-cyclone-intensity-estimation-based-on-deep-learning-and-kalman-filter-from-multispectral-infrared-images">
+<h3>Paper 8: <a class="reference external" href="https://ieeexplore.ieee.org/document/10121612">DMANet_KF: Tropical Cyclone Intensity Estimation Based on Deep Learning and Kalman Filter From Multispectral Infrared Images</a><a class="headerlink" href="#paper-8-dmanet-kf-tropical-cyclone-intensity-estimation-based-on-deep-learning-and-kalman-filter-from-multispectral-infrared-images" title="Link to this heading">#</a></h3>
+<p><img alt="Flowchart of the proposed method" src="https://ieeexplore.ieee.org/mediastore/IEEE/content/media/4609443/9973430/10121612/jiang1-3273232-large.gif" /></p>
+<ul class="simple">
+<li><p><strong>Authors:</strong> Jiang, W., Hu, G., Wu, T., Liu, L., Kim, B., Xiao, Y., &amp; Duan, Z.</p></li>
+<li><p>Key Highlights:</p>
+<ul>
+<li><p>Introduction of DMANet (Deep Multisource Attention Network)</p></li>
+<li><p>Novel Message-Passing Enhancement Module (MPEM)</p></li>
+<li><p>Local Global Attention Module (LGAM)</p></li>
+<li><p>First-time application of Kalman Filter for TC intensity correction</p></li>
+</ul>
+</li>
+<li><p><strong>Data Used</strong>:</p>
+<ul>
+<li><p>Japanese Meteorological Satellites data (MTSAT-1R, MTSAT-2, HIMAWARI-8)</p></li>
+<li><p>Period: 2007-2021</p></li>
+<li><p>343 Tropical Cyclones</p></li>
+<li><p>Four infrared channels (IR1: 10.3-11.3 μm, IR2: 11.5-12.5 μm, IR3: 6.5-7.0 μm, IR4: 3.5-4.0 μm)</p></li>
+</ul>
+</li>
+<li><p><strong>Methodology</strong>:</p>
+<ul>
+<li><p>DMANet architecture with MPEM and LGAM modules</p></li>
+<li><p>MPEM based on conditional random fields (CRFs)</p></li>
+<li><p>LGAM with local and global attention mechanisms</p></li>
+<li><p>Kalman Filter for time series correction</p></li>
+<li><p>Data preprocessing including image transformation and resampling</p></li>
+</ul>
+</li>
+<li><p><strong>Key Results</strong>:</p>
+<ul>
+<li><p>RMSE reduction from 9.79 to 7.82 knots with Kalman Filter</p></li>
+<li><p>9.07% improvement over existing methods</p></li>
+<li><p>Best performance in violent category TCs</p></li>
+<li><p>Outperforms general models (AlexNet, VGG-16, ResNet-50)</p></li>
+</ul>
+</li>
+<li><p><strong>Strengths</strong>:</p>
+<ul>
+<li><p>Effective multispectral data integration</p></li>
+<li><p>Automatic feature extraction</p></li>
+<li><p>Real-time processing capability</p></li>
+<li><p>Robust performance across TC categories</p></li>
+<li><p>Innovative time series correction</p></li>
+</ul>
+</li>
+<li><p><strong>Limitations</strong>:</p>
+<ul>
+<li><p>Dataset imbalance issues</p></li>
+<li><p>Limited to Northwest Pacific Basin</p></li>
+<li><p>Dependent on clear satellite imagery</p></li>
+<li><p>Computational resource requirements</p></li>
+<li><p>Regional specificity</p></li>
+</ul>
+</li>
+<li><p><strong>Relevance</strong>:</p>
+<ul>
+<li><p>Advances in TC intensity estimation</p></li>
+<li><p>Improved disaster preparedness</p></li>
+<li><p>Automated analysis system</p></li>
+<li><p>Enhanced accuracy in violent TC category</p></li>
+<li><p>Integration of multiple data sources</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="comparison-of-approaches">
+<h2>Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methodology/Technique</p></th>
+<th class="head"><p>Key Strengths</p></th>
+<th class="head"><p>Key Limitations</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Traditional Automated Methods (ADT)</p></td>
+<td><p>- Complete automation of proven manual techniques<br>- Global applicability<br>- 24/7 operational capability<br>- Extensive validation</p></td>
+<td><p>- Reduced accuracy during formation/dissipation<br>- Limited to infrared imagery<br>- Resolution constraints<br>- Cannot fully replicate human expertise</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deep CNN</p></td>
+<td><p>- Automated feature extraction<br>- Minimal preprocessing needed<br>- Fast processing time<br>- Generalizable across regions<br>- Better accuracy than traditional methods</p></td>
+<td><p>- Dataset quality issues<br>- Limited dataset size<br>- Hardware resource constraints<br>- Hyperparameter optimization challenges</p></td>
+</tr>
+<tr class="row-even"><td><p>Multi-spectral CNN</p></td>
+<td><p>- Multi-channel analysis capability<br>- Improved accuracy over single-channel<br>- Model interpretability via heat maps<br>- Consistent with traditional patterns</p></td>
+<td><p>- High computational demands<br>- Limited hyperparameter optimization<br>- Model interpretability challenges<br>- Resource constraints</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physics-Augmented Deep Learning</p></td>
+<td><p>- Real-time operational capability<br>- Interpretable results<br>- Effective physics integration<br>- Simultaneous multi-parameter estimation</p></td>
+<td><p>- Underestimation of intense TCs<br>- Limited extreme event data<br>- IR imagery resolution dependency<br>- Variable performance with TC structure</p></td>
+</tr>
+<tr class="row-even"><td><p>Deep Multisource Attention Network</p></td>
+<td><p>- Effective multispectral integration<br>- Automatic feature extraction<br>- Real-time processing<br>- Robust cross-category performance</p></td>
+<td><p>- Dataset imbalance issues<br>- Regional specificity<br>- Clear imagery dependency<br>- High computational requirements</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="challenges-and-future-directions">
+<h2>Challenges and Future Directions<a class="headerlink" href="#challenges-and-future-directions" title="Link to this heading">#</a></h2>
+<section id="data-related-challenges">
+<h3>Data-Related Challenges<a class="headerlink" href="#data-related-challenges" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Limited availability of high-quality labeled data</p></li>
+<li><p>Imbalanced datasets across TC categories</p></li>
+<li><p>Inconsistent data quality across different satellite sources</p></li>
+<li><p>Gaps in temporal coverage</p></li>
+</ul>
+</section>
+<section id="technical-challenges">
+<h3>Technical Challenges<a class="headerlink" href="#technical-challenges" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>High computational resource requirements</p></li>
+<li><p>Model interpretability issues</p></li>
+<li><p>Integration of physical constraints with ML models</p></li>
+<li><p>Real-time processing limitations</p></li>
+</ul>
+</section>
+<section id="future-research-directions">
+<h3>Future Research Directions<a class="headerlink" href="#future-research-directions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Development of hybrid models combining physical and ML approaches</p></li>
+<li><p>Improved techniques for handling data imbalance</p></li>
+<li><p>Enhanced model interpretability methods</p></li>
+<li><p>Cross-basin generalization techniques</p></li>
+<li><p>Integration of multiple data sources</p></li>
+<li><p>Advanced time series analysis methods</p></li>
+<li><p>Real-time processing optimization</p></li>
+</ul>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>The review of these papers reveals significant progress in applying machine learning to tropical cyclone analysis, particularly in the areas of intensity estimation and track prediction. Key developments include:</p>
+<ul class="simple">
+<li><p>Evolution from traditional automated methods to sophisticated deep learning approaches</p></li>
+<li><p>Successful integration of physical understanding with ML techniques</p></li>
+<li><p>Improved accuracy through multi-spectral analysis</p></li>
+<li><p>Development of real-time operational capabilities</p></li>
+</ul>
+<p>The field is moving toward more sophisticated hybrid approaches that combine the strengths of traditional methods with modern ML techniques. The most promising directions appear to be in physics-augmented deep learning and multi-source data integration approaches.</p>
+</section>
+<section id="questions-about-methodologies-and-ml-approaches">
+<h2>Questions About Methodologies and ML Approaches<a class="headerlink" href="#questions-about-methodologies-and-ml-approaches" title="Link to this heading">#</a></h2>
+<section id="data-preparation-and-quality">
+<h3>Data Preparation and Quality<a class="headerlink" href="#data-preparation-and-quality" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How are satellite imagery inconsistencies handled across different sources?</p></li>
+<li><p>What preprocessing steps are critical for model performance?</p></li>
+<li><p>How is data augmentation implemented effectively?</p></li>
+</ul>
+</section>
+<section id="model-architecture">
+<h3>Model Architecture<a class="headerlink" href="#model-architecture" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>What factors determine the optimal network depth and complexity?</p></li>
+<li><p>How are physical constraints incorporated into neural network architectures?</p></li>
+<li><p>What attention mechanisms are most effective for TC analysis?</p></li>
+</ul>
+</section>
+<section id="training-process">
+<h3>Training Process<a class="headerlink" href="#training-process" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How are hyperparameters optimized across different approaches?</p></li>
+<li><p>What strategies address class imbalance issues?</p></li>
+<li><p>How is overfitting prevented with limited data?</p></li>
+</ul>
+</section>
+<section id="evaluation-metrics">
+<h3>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>What metrics best capture real-world operational requirements?</p></li>
+<li><p>How is model performance compared across different basins?</p></li>
+<li><p>What validation approaches ensure operational reliability?</p></li>
+</ul>
+</section>
+<section id="practical-implementation">
+<h3>Practical Implementation<a class="headerlink" href="#practical-implementation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How are models deployed in operational settings?</p></li>
+<li><p>What computational resources are required for real-time analysis?</p></li>
+<li><p>How is model maintenance and updating handled?</p></li>
+</ul>
+</section>
+<section id="reproducibility">
+<h3>Reproducibility<a class="headerlink" href="#reproducibility" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>What details are needed to reproduce results?</p></li>
+<li><p>How are model weights and architectures shared?</p></li>
+<li><p>What benchmarking procedures ensure consistent evaluation?</p></li>
+</ul>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Olander, T. L., &amp; Velden, C. S. (2007). The advanced Dvorak technique: Continued development of an objective scheme to estimate tropical cyclone intensity using satellite infrared imagery. <em>Weather and Forecasting</em>, 22(2), 287-298. <a class="reference external" href="https://doi.org/10.1175/WAF975.1">https://doi.org/10.1175/WAF975.1</a></p></li>
+<li><p>Pradhan, R., Aygun, R. S., Maskey, M., Ramachandran, R., &amp; Cecil, D. J. (2017). Tropical cyclone intensity estimation using a deep convolutional neural network. <em>IEEE Transactions on Image Processing</em>, 27(2), 692-702. <a class="reference external" href="https://doi.org/10.1109/TIP.2017.2766358">https://doi.org/10.1109/TIP.2017.2766358</a></p></li>
+<li><p>Chen, R., Zhang, W., &amp; Wang, X. (2020). Machine learning in tropical cyclone forecast modeling: A review. <em>Atmosphere</em>, 10(9), 496. <a class="reference external" href="https://doi.org/10.3390/atmos11070676">https://doi.org/10.3390/atmos11070676</a></p></li>
+<li><p>Wimmers, A., Velden, C., &amp; Cossuth, J. H. (2019). Using deep learning to estimate tropical cyclone intensity from satellite passive microwave imagery. <em>Monthly Weather Review</em>, 147(6), 2261-2282. <a class="reference external" href="https://doi.org/10.1175/MWR-D-18-0391.1">https://doi.org/10.1175/MWR-D-18-0391.1</a></p></li>
+<li><p>Giffard-Roisin, S., Yang, M., Charpiat, G., Kégl, B., &amp; Monteleoni, C. (2018, December). Deep learning for hurricane track forecasting from aligned spatio-temporal climate datasets. In Modeling and decision-making in the spatiotemporal domain NIPS workhop. <a class="reference external" href="https://hal.science/hal-01905408v1">https://hal.science/hal-01905408v1</a></p></li>
+<li><p>Lee, J., Im, J., Cha, D. H., Park, H., &amp; Sim, S. (2019). Tropical cyclone intensity estimation using multi-dimensional convolutional neural networks from geostationary satellite data. Remote Sensing, 12(1), 108. <a class="reference external" href="https://doi.org/10.3390/rs12010108">https://doi.org/10.3390/rs12010108</a></p></li>
+<li><p>Zhuo, J. Y., &amp; Tan, Z. M. (2021). Physics-augmented deep learning to improve tropical cyclone intensity and size estimation from satellite imagery. Monthly Weather Review, 149(7), 2097-2113. <a class="reference external" href="https://doi.org/10.1175/MWR-D-20-0333.1">https://doi.org/10.1175/MWR-D-20-0333.1</a></p></li>
+<li><p>Jiang, W., Hu, G., Wu, T., Liu, L., Kim, B., Xiao, Y., &amp; Duan, Z. (2023). DMANet_KF: Tropical cyclone intensity estimation based on deep learning and Kalman filter from multispectral infrared images. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 16, 4469-4483. <a class="reference external" href="https://doi.org/10.1109/JSTARS.2023.3273232">https://doi.org/10.1109/JSTARS.2023.3273232</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./student_projects_202402"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="task_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Task 2: Review of Key Papers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ChangeClimateForecasting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Change climate forecasting: Lierature Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-reviews">Paper Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-1-the-advanced-dvorak-technique-continued-development-of-an-objective-scheme-to-estimate-tropical-cyclone-intensity-using-geostationary-infrared-satellite-imagery">Paper 1: The Advanced Dvorak Technique: Continued Development of an Objective Scheme to Estimate Tropical Cyclone Intensity Using Geostationary Infrared Satellite Imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-2-tropical-cyclone-intensity-estimation-using-a-deep-convolutional-neural-network">Paper 2: Tropical cyclone intensity estimation using a deep convolutional neural network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-3-machine-learning-in-tropical-cyclone-forecast-modeling-a-review">Paper 3: Machine Learning in Tropical Cyclone Forecast Modeling: A Review</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-4-using-deep-learning-to-estimate-tropical-cyclone-intensity-from-satellite-passive-microwave-imagery">Paper 4: Using Deep Learning to Estimate Tropical Cyclone Intensity from Satellite Passive Microwave Imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-5-deep-learning-for-hurricane-track-forecasting-from-aligned-spatio-temporal-climate-datasets">Paper 5: Deep Learning for Hurricane Track Forecasting from Aligned Spatio-temporal Climate Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-6-tropical-cyclone-intensity-estimation-using-multi-dimensional-convolutional-neural-networks-from-geostationary-satellite-data">Paper 6: Tropical Cyclone Intensity Estimation Using Multi-Dimensional Convolutional Neural Networks from Geostationary Satellite Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-7-physics-augmented-deep-learning-to-improve-tropical-cyclone-intensity-and-size-estimation-from-satellite-imagery">Paper 7: Physics-Augmented Deep Learning to Improve Tropical Cyclone Intensity and Size Estimation from Satellite Imagery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-8-dmanet-kf-tropical-cyclone-intensity-estimation-based-on-deep-learning-and-kalman-filter-from-multispectral-infrared-images">Paper 8: DMANet_KF: Tropical Cyclone Intensity Estimation Based on Deep Learning and Kalman Filter From Multispectral Infrared Images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-approaches">Comparison of Approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-and-future-directions">Challenges and Future Directions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-related-challenges">Data-Related Challenges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-challenges">Technical Challenges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-research-directions">Future Research Directions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-about-methodologies-and-ml-approaches">Questions About Methodologies and ML Approaches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-quality">Data Preparation and Quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture">Model Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-process">Training Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics">Evaluation Metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-implementation">Practical Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">Reproducibility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Carlos D. Hoyos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
