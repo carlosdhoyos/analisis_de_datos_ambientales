@@ -29,8 +29,6 @@ Los datos ambientales suelen ser **multivariados, extensos y variables en el tie
 - **Comparar regiones, periodos o escenarios**.
 - Tomar decisiones informadas sobre, por ejemplo, el cambio climático, gestión ambiental, riesgos, etc.
 
-> *Pregunta ejemplo*: ¿Cuál ha sido la temperatura promedio en los últimos 30 años en Medellín? ¿Hay evidencia de un cambio significativo?
-
 ## Tipos de Datos Ambientales
 
 - **Escala temporal**: diaria, mensual, anual (ej. precipitación diaria).
