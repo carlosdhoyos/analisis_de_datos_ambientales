@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title> &#8212; Análisis de Datos Ambientales</title>
+    <title>Estadística Básica &#8212; Análisis de Datos Ambientales</title>
   
   
   
@@ -62,8 +62,8 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Assignments" href="assignments.html" />
-    <link rel="prev" title="Bienvenidos al Análisis de Datos Ambientales" href="intro.html" />
+    <link rel="next" title="Tareas" href="assignments.html" />
+    <link rel="prev" title="Syllabus: Análisis de Datos Ambientales" href="syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,9 +182,10 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments.html">Assignments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="student_projects_202501.html">Student Projects 202501</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus: Análisis de Datos Ambientales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Estadística Básica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments.html">Tareas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="student_projects_202501.html">Proyectos de Estudiantes 202501</a></li>
 </ul>
 
     </div>
@@ -357,9 +358,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -370,42 +369,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Estadística Básica</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observations">1. Observations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-model">2. Forecast Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-assimilation">3. Data Assimilation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">4. Post-Processing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocean-climate">5. Ocean &amp; Climate</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-meteorology">6. Operational Meteorology</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Applications:</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -415,176 +383,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>This document provides an overview of machine learning (ML) applications in weather, climate, and atmospheric sciences, focusing on observations, forecasting, data assimilation, post-processing, and operational meteorology.</p>
-<section id="observations">
-<h2>1. Observations<a class="headerlink" href="#observations" title="Link to this heading">#</a></h2>
-<p>Machine learning enhances observational datasets by improving data quality, fusing data sources, and extracting meaningful features.</p>
-<section id="applications">
-<h3>Applications:<a class="headerlink" href="#applications" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Quality Control</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Identifying anomalies in radar and satellite observations.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Data Fusion</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Merging data from multiple satellites and sensors for higher accuracy in storm monitoring. NVIDIA’s ML-based data fusion models have been instrumental in creating unified observational datasets.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Feature Extraction</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Extracting storm patterns from geostationary satellite imagery using DeepMind’s convolutional neural networks.</p></li>
-<li><p><strong>Reference</strong>: <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0924271619300565">Lee, C., et al. (2019). “Deep learning based cloud detection for medium and high resolution remote sensing images of different sensors” <em>Remote Sensing</em>.</a></p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="forecast-model">
-<h2>2. Forecast Model<a class="headerlink" href="#forecast-model" title="Link to this heading">#</a></h2>
-<p>ML enhances traditional physics-based forecast models by accelerating simulations and improving subgrid parameterizations.</p>
-<section id="id2">
-<h3>Applications:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Surrogate Modeling</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Pierre Gentine’s group used ML as surrogates for convection parameterization in atmospheric models.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Hybrid Models</strong>:</p>
-<ul>
-<li><p><em>Example</em>: NVIDIA’s hybrid models combine GPUs for physics simulations with ML-based turbulence models.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Ensemble Forecast Emulation</strong>:</p>
-<ul>
-<li><p><em>Example</em>: ECMWF developed ML techniques to emulate their ensemble systems, accelerating probabilistic forecasting.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="data-assimilation">
-<h2>3. Data Assimilation<a class="headerlink" href="#data-assimilation" title="Link to this heading">#</a></h2>
-<p>ML enhances the process of integrating observations into forecast models.</p>
-<section id="id3">
-<h3>Applications:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Enhanced Observation-Model Integration</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Microsoft Research applied deep learning to reduce biases in data assimilation systems.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Sparse Data Assimilation</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Huawei’s AI Lab leveraged autoencoders to handle sparse observational data for tropical cyclone analysis.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Hybrid Data Assimilation</strong>:</p>
-<ul>
-<li><p><em>Example</em>: DeepMind explored combining traditional 4D-Var with neural networks for long-range forecasts.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="post-processing">
-<h2>4. Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading">#</a></h2>
-<p>ML improves forecast outputs through bias correction, downscaling, and uncertainty calibration.</p>
-<section id="id4">
-<h3>Applications:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Bias Correction</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Random forests used to adjust biases in ECMWF’s rainfall forecasts.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Downscaling</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Huawei’s super-resolution ML models improve climate model resolutions from 50 km to 5 km.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Forecast Calibration</strong>:</p>
-<ul>
-<li><p><em>Example</em>: DeepMind’s probabilistic calibration of weather forecasts using Gaussian processes.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="ocean-climate">
-<h2>5. Ocean &amp; Climate<a class="headerlink" href="#ocean-climate" title="Link to this heading">#</a></h2>
-<p>ML enables detailed predictions of ocean dynamics and climate change impacts.</p>
-<section id="id5">
-<h3>Applications:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Ocean Current Prediction</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Predicting Gulf Stream dynamics using neural networks.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Climate Change Impact Assessment</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Evaluating fire risk due to climate change in Europe.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Climate Downscaling</strong>:</p>
-<ul>
-<li><p><em>Example</em>: High-resolution projections using LEAP’s ML-powered Earth system models.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="operational-meteorology">
-<h2>6. Operational Meteorology<a class="headerlink" href="#operational-meteorology" title="Link to this heading">#</a></h2>
-<p>ML supports real-time meteorological decision-making and early warnings.</p>
-<section id="id6">
-<h3>Applications:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Nowcasting</strong>:</p>
-<ul>
-<li><p><em>Example</em>: DeepMind’s precipitation nowcasting in London using deep generative models.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Extreme Event Detection</strong>:</p>
-<ul>
-<li><p><em>Example</em>: CNN-based detection of tropical cyclones from satellite imagery.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-<li><p><strong>Decision Support Systems</strong>:</p>
-<ul>
-<li><p><em>Example</em>: Microsoft’s AI-based systems integrating flood forecasts with evacuation planning.</p></li>
-<li><p><strong>Reference</strong>:</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="estadistica-basica">
+<h1>Estadística Básica<a class="headerlink" href="#estadistica-basica" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -618,12 +418,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="syllabus.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bienvenidos al Análisis de Datos Ambientales</p>
+        <p class="prev-next-title">Syllabus: Análisis de Datos Ambientales</p>
       </div>
     </a>
     <a class="right-next"
@@ -631,7 +431,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignments</p>
+        <p class="prev-next-title">Tareas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -641,44 +441,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observations">1. Observations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-model">2. Forecast Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-assimilation">3. Data Assimilation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">4. Post-Processing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocean-climate">5. Ocean &amp; Climate</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Applications:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-meteorology">6. Operational Meteorology</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Applications:</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
